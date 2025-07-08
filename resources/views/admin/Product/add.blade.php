@@ -24,9 +24,10 @@
                         <label for="prod_package" class="form-label">Kemasan</label>
                         <input type="text" class="form-control" id="prod_package" name="prod_package" required>
                     </div>
-                    <div class="mb-3">
+                    <div class="mb-3 form-check form-switch">
                         <label for="prod_is_active">Active</label>
-                        <input type="checkbox" name="prod_is_active" id="prod_is_active">
+                        <input class="form-check-input" type="checkbox" name="prod_is_active" id="prod_is_active"
+                            value="1" checked>
                     </div>
                     <button type="submit" class="btn btn-success">Tambah Produk</button>
                 </form>

@@ -74,7 +74,8 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'password', 'remember_token',
+        'password',
+        'remember_token',
     ];
 
     /**
@@ -107,4 +108,12 @@ class User extends Authenticatable
         'rejected' => 'boolean',
         'remembered' => 'boolean',
     ];
+
+    /**
+     * Get the permintaan associated with the user.
+     */
+    public function permintaans()
+    {
+        return $this->hasMany(Permintaan::class, 'username', 'username');
+    }
 }

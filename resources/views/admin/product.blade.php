@@ -4,7 +4,7 @@
         <h1 class="text-center mb-4">Daftar Produk</h1>
 
         <!-- Button trigger modal Add -->
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addProduct">
+        <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#addProduct">
             Tambah Produk
         </button>
         <!-- Modal Add-->

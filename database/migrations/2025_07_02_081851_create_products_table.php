@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->integer('prod_bets_size');
             $table->string('prod_exp_yr');
             $table->string('prod_package');
-            $table->string('prod_is_active')->default('0'); 
+            $table->string('prod_is_active')->default('1'); 
             $table->timestamps();
         });
     }
