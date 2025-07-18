@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/x-icon" href="/images/toman.png">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -111,19 +112,54 @@
             // mengambil elemen yang diperlukan dari DOM
             const reqNameSelect = document.getElementById('req_name');
             const dynamicContainer = document.getElementById('dynamic-form');
-            const specificField = document.querySelectorAll('.form-specific')
+            const specificField = document.querySelectorAll('.form-specific');
+            // Persyaratan khusus parental
+            const parentalSpecific = document.getElementById('parental-specific');
+            // Karakteristik kemasan primer
+            const primerTabKapSpecific = document.getElementById('primer-tablet-kapsul');
+            const primerLainSpecific = document.getElementById('primer-lainnya');
+            // Karakteristik Kemasan Sekunder
+            const sekunderParental = document.getElementById('skndr-parental');
+            const sekunderLain = document.getElementById('skndr-lainnya');
+            // Privacy Policy
+            const privacyPolicy = document.getElementById('privacy-policy');
+            const submit = document.getElementById('submit');
 
-            console.log(specificField);
+            submit.disabled = !privacyPolicy.checked;
+
+            privacyPolicy.addEventListener('change', function() {
+                submit.disabled = !this.checked;
+            });
+
+            function clearFormInputs() {
+                const input = dynamicContainer.querySelectorAll('input');
+                input.forEach(item => {
+                    if (item.type === 'checkbox' || item.type === 'radio') {
+                        item.checked = false;
+                    } else {
+                        item.value = '';
+                    }
+                });
+            }
+
+            // console.log(specificField);
             // Menambahkan 'event listener' yang akan berjalan setiap kali pilihan di dropdown berubah
             reqNameSelect.addEventListener('change', function() {
 
                 // Mengambil nilai (value) dari option yang dipilih
                 const selectedValue = this.value;
 
+                clearFormInputs();
+
                 // mereset tampilan jika pengguna mengganti pilihan
                 specificField.forEach(group => {
                     group.style.display = 'none';
                 });
+                parentalSpecific.style.display = 'none';
+                primerTabKapSpecific.style.display = 'none';
+                primerLainSpecific.style.display = 'none';
+                sekunderParental.style.display = 'none';
+                sekunderLain.style.display = 'none';
 
                 // Cek apakah pengguna sudah memilih jenis permintaan
                 if (selectedValue) {
@@ -138,6 +174,26 @@
                     if (targetGroup) {
                         targetGroup.style.display = 'block';
                     }
+
+                    // Jika pilihan Parental
+                    if (selectedValue === 'Parental') {
+                        parentalSpecific.style.display = 'block';
+                    }
+
+                    // Kemasaan Primer
+                    if (selectedValue === 'Tablet' || selectedValue === 'Kapsul') {
+                        primerTabKapSpecific.style.display = 'block';
+                    } else {
+                        primerLainSpecific.style.display = 'block';
+                    }
+
+                    // Kemasan Sekunder
+                    if (selectedValue === 'Parental') {
+                        sekunderParental.style.display = 'block';
+                    } else {
+                        sekunderLain.style.display = 'block';
+                    }
+
                 } else {
                     // Jika pengguna memilih "Pilih Jenis Permintaan" (value=""), sembunyikan kontainer
                     dynamicContainer.style.display = 'none';
