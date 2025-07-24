@@ -106,34 +106,36 @@
     </div>
 
     <script>
-        // Script untuk menangani perubahan pada option select pilihan Permintaan Toll
         document.addEventListener('DOMContentLoaded', function() {
-
-            // mengambil elemen yang diperlukan dari DOM
+            // Mengambil elemen yang diperlukan dari DOM
             const reqNameSelect = document.getElementById('req_name');
             const dynamicContainer = document.getElementById('dynamic-form');
-            const specificField = document.querySelectorAll('.form-specific');
-            // Persyaratan khusus parental
+            const specificForms = document.querySelectorAll(
+            '.form-specific'); // Gunakan nama yang lebih jelas: specificForms
             const parentalSpecific = document.getElementById('parental-specific');
-            // Karakteristik kemasan primer
             const primerTabKapSpecific = document.getElementById('primer-tablet-kapsul');
             const primerLainSpecific = document.getElementById('primer-lainnya');
-            // Karakteristik Kemasan Sekunder
             const sekunderParental = document.getElementById('skndr-parental');
             const sekunderLain = document.getElementById('skndr-lainnya');
-            // Privacy Policy
             const privacyPolicy = document.getElementById('privacy-policy');
-            const submit = document.getElementById('submit');
+            const submitButton = document.getElementById(
+            'submit'); // Mengganti 'submit' dengan 'submitButton' untuk menghindari konflik nama
 
-            submit.disabled = !privacyPolicy.checked;
+            // Atur status awal tombol submit
+            submitButton.disabled = !privacyPolicy.checked;
 
+            // Event listener untuk checkbox privacy policy
             privacyPolicy.addEventListener('change', function() {
-                submit.disabled = !this.checked;
+                submitButton.disabled = !this.checked;
             });
 
-            function clearFormInputs() {
-                const input = dynamicContainer.querySelectorAll('input');
-                input.forEach(item => {
+            // Fungsi untuk mengosongkan dan menonaktifkan input dalam elemen tertentu
+            function disableAndClearInputs(containerElement) {
+                const inputs = containerElement.querySelectorAll('input, select, textarea');
+                inputs.forEach(item => {
+                    // Nonaktifkan input
+                    item.setAttribute('disabled', 'disabled');
+                    // Kosongkan nilai input
                     if (item.type === 'checkbox' || item.type === 'radio') {
                         item.checked = false;
                     } else {
@@ -142,63 +144,81 @@
                 });
             }
 
-            // console.log(specificField);
-            // Menambahkan 'event listener' yang akan berjalan setiap kali pilihan di dropdown berubah
-            reqNameSelect.addEventListener('change', function() {
+            // Fungsi untuk mengaktifkan input dalam elemen tertentu
+            function enableInputs(containerElement) {
+                const inputs = containerElement.querySelectorAll('input, select, textarea');
+                inputs.forEach(item => {
+                    item.removeAttribute('disabled');
+                });
+            }
 
-                // Mengambil nilai (value) dari option yang dipilih
-                const selectedValue = this.value;
+            // Fungsi utama untuk mengatur tampilan dan status input form
+            function toggleFormsAndInputStates() {
+                const selectedValue = reqNameSelect.value;
 
-                clearFormInputs();
-
-                // mereset tampilan jika pengguna mengganti pilihan
-                specificField.forEach(group => {
+                // --- FASE 1: Sembunyikan dan Nonaktifkan SEMUA form spesifik dan terkait ---
+                specificForms.forEach(group => {
                     group.style.display = 'none';
+                    disableAndClearInputs(group); // Nonaktifkan dan kosongkan input
                 });
                 parentalSpecific.style.display = 'none';
+                disableAndClearInputs(parentalSpecific);
                 primerTabKapSpecific.style.display = 'none';
+                disableAndClearInputs(primerTabKapSpecific);
                 primerLainSpecific.style.display = 'none';
+                disableAndClearInputs(primerLainSpecific);
                 sekunderParental.style.display = 'none';
+                disableAndClearInputs(sekunderParental);
                 sekunderLain.style.display = 'none';
+                disableAndClearInputs(sekunderLain);
 
-                // Cek apakah pengguna sudah memilih jenis permintaan
-                if (selectedValue) {
-                    // Jika sudah, tampilkan kontainer utama untuk field umum dan spesifik
-                    dynamicContainer.style.display = 'block';
-
-                    // Buat ID target berdasarkan nilai yang dipilih
-                    const targetFieldId = 'form-' + selectedValue.toLowerCase();
-                    const targetGroup = document.getElementById(targetFieldId);
-
-                    // Jika elemen dengan ID tersebut ditemukan, tampilkan
-                    if (targetGroup) {
-                        targetGroup.style.display = 'block';
-                    }
-
-                    // Jika pilihan Parental
-                    if (selectedValue === 'Parental') {
-                        parentalSpecific.style.display = 'block';
-                    }
-
-                    // Kemasaan Primer
-                    if (selectedValue === 'Tablet' || selectedValue === 'Kapsul') {
-                        primerTabKapSpecific.style.display = 'block';
-                    } else {
-                        primerLainSpecific.style.display = 'block';
-                    }
-
-                    // Kemasan Sekunder
-                    if (selectedValue === 'Parental') {
-                        sekunderParental.style.display = 'block';
-                    } else {
-                        sekunderLain.style.display = 'block';
-                    }
-
-                } else {
-                    // Jika pengguna memilih "Pilih Jenis Permintaan" (value=""), sembunyikan kontainer
+                // Sembunyikan kontainer utama jika tidak ada pilihan yang valid
+                if (!selectedValue) {
                     dynamicContainer.style.display = 'none';
+                    return; // Berhenti di sini jika tidak ada pilihan
                 }
-            })
+
+                // --- FASE 2: Tampilkan dan Aktifkan form yang dipilih dan terkait ---
+                dynamicContainer.style.display = 'block';
+
+                // Tampilkan dan aktifkan form spesifik (misal: form-tablet)
+                const targetFieldId = 'form-' + selectedValue.toLowerCase();
+                const targetGroup = document.getElementById(targetFieldId);
+                if (targetGroup) {
+                    targetGroup.style.display = 'block';
+                    enableInputs(targetGroup); // Aktifkan input di form yang dipilih
+                }
+
+                // Atur tampilan dan status input untuk bagian 'Parental Specific'
+                if (selectedValue === 'Parental') {
+                    parentalSpecific.style.display = 'block';
+                    enableInputs(parentalSpecific);
+                }
+
+                // Atur tampilan dan status input untuk 'Kemasan Primer'
+                if (selectedValue === 'Tablet' || selectedValue === 'Kapsul') {
+                    primerTabKapSpecific.style.display = 'block';
+                    enableInputs(primerTabKapSpecific);
+                } else {
+                    primerLainSpecific.style.display = 'block';
+                    enableInputs(primerLainSpecific);
+                }
+
+                // Atur tampilan dan status input untuk 'Kemasan Sekunder'
+                if (selectedValue === 'Parental') {
+                    sekunderParental.style.display = 'block';
+                    enableInputs(sekunderParental);
+                } else {
+                    sekunderLain.style.display = 'block';
+                    enableInputs(sekunderLain);
+                }
+            }
+
+            // Panggil fungsi saat halaman pertama kali dimuat
+            toggleFormsAndInputStates();
+
+            // Tambahkan event listener untuk perubahan pada selectbox req_name
+            reqNameSelect.addEventListener('change', toggleFormsAndInputStates);
         });
     </script>
 </body>
