@@ -35,5 +35,6 @@ Route::post('/product/add', [ProductController::class, 'storeProduct'])->name('p
 Route::put('/product/update/{id}', [ProductController::class, 'updateProduct'])->name('product.update');
 Route::delete('/product/{id}', [ProductController::class, 'deleteProduct'])->name('product.destroy');
 
-Route::get('/permintaan', [PermintaanController::class, 'showReq'])->name('permintaan.show');
-Route::post('/permintaan/add', [PermintaanController::class, 'storeReq'])->name('permintaan.add');
+// Route::get('/permintaan', [PermintaanController::class, 'showReq'])->name('permintaan.show');
+// Route::post('/permintaan/add', [PermintaanController::class, 'storeReq'])->name('permintaan.add');
+Route::resource('permintaan', PermintaanController::class)->name('permintaan', 'permintaan');

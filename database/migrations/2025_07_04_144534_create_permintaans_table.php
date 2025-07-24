@@ -16,7 +16,7 @@ class CreatePermintaansTable extends Migration
         Schema::create('permintaan', function (Blueprint $table) {
             $table->id();
             $table->enum('req_name', ['Tablet', 'Kapsul', 'Parental', 'Cairan', 'Powder', 'Semisolid']);
-            $table->dateTime('req_date');
+            $table->date('req_date');
             // $table->string('company_name', 100);
             // $table->string('company_address');
             // $table->string('pic_name', 100);
@@ -63,7 +63,7 @@ class CreatePermintaansTable extends Migration
             $table->string('trsr_box_mstr', 50)->nullable();
             $table->string('trsr_etiket', 50)->nullable();
             $table->string('penyedia_rm_pm', 20)->nullable();
-            $table->string('flowchart_process', 20)->default('terlampir');
+            $table->string('flowchart_process', 20)->nullable()->default('terlampir');
             $table->boolean('is_formulation')->default(0);
             $table->boolean('is_weighing')->default(0);
             $table->boolean('is_procces')->default(0);
