@@ -114,6 +114,6 @@ class User extends Authenticatable
      */
     public function permintaans()
     {
-        return $this->hasMany(Permintaan::class, 'username', 'username');
+        return $this->hasMany(Permintaan::class, 'user_id', 'id');
     }
 }

@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Mpdf\HTMLParserMode;
+use Mpdf\Mpdf;
 
 class PermintaanController extends Controller
 {
@@ -19,15 +21,14 @@ class PermintaanController extends Controller
         }
 
         $user = Auth::user();
-        $loggedInUsername = $user->username;
+        $loggedInUser = $user->id;
         $userCompanyName = $user->entity_name;
 
-        $permintaan = Permintaan::where('username', $loggedInUsername)
+        $permintaan = Permintaan::where('user_id', $loggedInUser)
             ->whereHas('user', function ($query) use ($userCompanyName) {
                 $query->where('entity_name', $userCompanyName);
             })
-            ->latest()
-            ->paginate(10);
+            ->get();
         return view('user.permintaan.index', compact('permintaan'));
     }
     public function create()
@@ -262,10 +263,4 @@ class PermintaanController extends Controller
             return redirect()->back()->with('error', 'Gagal menambahkan Permintaan Toll. Silakan coba lagi. Pesan Error: ' . $e->getMessage())->withInput();
         }
     }
-
-    // public function deleteReq($id)
-    // {
-    //     $tollRequest->delete();
-    //     return redirect()->route('toll_requests.index')->with('success', 'Permintaan Toll berhasil dihapus!');
-    // }
 }

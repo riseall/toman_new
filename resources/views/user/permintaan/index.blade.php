@@ -26,13 +26,13 @@
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $item->user->entity_name }}</td>
                         <td>{{ $item->req_date }}</td>
-                        <td>{{ $item->user->username }}</td>
+                        <td>{{ $item->user->first_name }} {{ $item->user->last_name }}</td>
                         <td>{{ $item->user->email }}</td>
                         <td>{{ $item->user->phone }}</td>
                         <td>{{ $item->req_name }}</td>
                         <td>
-                            <a href="{{ route('permintaan.show', $item->id) }}" class="btn btn-warning"><img
-                                    src="{{ asset('icon/cetak.svg') }}" alt="Cetak"></a>
+                            <a href="{{ route('permintaan.export_pdf', $item->id) }}" target="_blank"
+                                class="btn btn-warning"><img src="{{ asset('icon/cetak.svg') }}" alt="Cetak"></a>
                         </td>
                     </tr>
                 @endforeach

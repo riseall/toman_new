@@ -22,7 +22,7 @@ class CreatePermintaansTable extends Migration
             // $table->string('pic_name', 100);
             // $table->string('pic_email', 100);
             // $table->string('pic_phone', 20);
-            $table->string('username', 100); // Foreign key to users table
+            $table->unsignedBigInteger('user_id')->unique();
             $table->string('prod_name', 100);
             $table->string('act_ingredient', 100);
             $table->string('act_ingredient_group', 50)->nullable();
@@ -98,7 +98,7 @@ class CreatePermintaansTable extends Migration
             $table->string('any_doc')->nullable();
             $table->timestamps();
 
-            $table->foreign('username')->references('username')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
@@ -110,5 +110,8 @@ class CreatePermintaansTable extends Migration
     public function down()
     {
         Schema::dropIfExists('permintaan');
+        Schema::table('permintaan', function (Blueprint $table) {
+            $table->dropForeign('permintaan_user_id_foreign');
+        });
     }
 }

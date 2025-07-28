@@ -28,7 +28,8 @@
                             <div class="mb-3">
                                 <label for="pic_name" class="form-label req-label">Nama Anda</label>
                                 <input type="text" class="form-control" id="pic_name" name="pic_name"
-                                    value="{{ Auth::user()->username ?? '' }}" disabled required>
+                                    value="{{ Auth::user()->first_name ?? '' }} {{ Auth::user()->last_name ?? '' }}"
+                                    disabled required>
                             </div>
                             <div class="mb-3">
                                 <label for="pic_email" class="form-label req-label">E-mail Anda</label>
