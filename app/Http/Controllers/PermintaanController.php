@@ -9,8 +9,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
-use Mpdf\HTMLParserMode;
-use Mpdf\Mpdf;
 
 class PermintaanController extends Controller
 {
@@ -223,9 +221,8 @@ class PermintaanController extends Controller
             }
         }
 
-        // Add the authenticated user's username
         if (Auth::check()) {
-            $validatedData['username'] = Auth::user()->username;
+            $validatedData['user_id'] = Auth::user()->id;
         } else {
             return redirect()->route('login')->with('error', 'Anda harus masuk untuk mengajukan permintaan.');
         }

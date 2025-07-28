@@ -14,7 +14,7 @@ class Permintaan extends Model
     protected $fillable = [
         'req_name',
         'req_date',
-        'username',
+        'user_id',
         'prod_name',
         'act_ingredient',
         'act_ingredient_group',

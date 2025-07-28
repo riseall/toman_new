@@ -63,7 +63,7 @@ class CreatePermintaansTable extends Migration
             $table->string('trsr_box_mstr', 50)->nullable();
             $table->string('trsr_etiket', 50)->nullable();
             $table->string('penyedia_rm_pm', 20)->nullable();
-            $table->string('flowchart_process', 20)->nullable()->default('terlampir');
+            $table->string('flowchart_process', 100)->nullable()->default('terlampir');
             $table->boolean('is_formulation')->default(0);
             $table->boolean('is_weighing')->default(0);
             $table->boolean('is_procces')->default(0);
