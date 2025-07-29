@@ -1,0 +1,91 @@
+/* public/css/print_request.css */
+
+body {
+    font-family: "times", serif;
+    font-size: 11pt;
+    padding: 2px;
+}
+
+.header-baris {
+    width: 98%;
+    margin: 0 auto;
+    border: 0px solid #fff;
+    font-family: "helvetica";
+}
+
+.header-kolom1 {
+    width: 70%;
+    border: 0px solid #fff;
+}
+
+.header-kolom2 {
+    width: 30%;
+    border: 0px solid #fff;
+}
+
+h1 {
+    font-size: 18pt;
+    margin-bottom: 5px;
+}
+
+h2 {
+    font-size: 16pt;
+    margin-top: 0;
+}
+
+hr {
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    font-weight: bold;
+    text-decoration: underline 1px solid #000000;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 11pt;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 5px;
+}
+
+table td {
+    padding: 1px 0 1px 2px;
+    vertical-align: top;
+    /*border: 1px solid #000000; /* Uncomment for debugging table borders */
+}
+
+table td:first-child {
+    width: 35%; /* Lebar kolom label */
+    padding-left: 10px; /* Indentasi untuk label */
+}
+
+table td:nth-child(2) {
+    width: 65%; /* Lebar kolom nilai */
+}
+
+.table-with-page-break-after {
+    page-break-after: always; /* Memastikan elemen berikutnya dimulai di halaman baru */
+}
+
+/* Signature Table Styles */
+.signature-table {
+    margin-top: 30px;
+    width: 100%;
+    page-break-inside: avoid;
+    font-size: 12pt;
+}
+
+.signature-table td {
+    width: 50%;
+    text-align: center;
+    padding-top: 15px; /* Spasi di atas teks tanda tangan */
+}
+
+.signature-table p {
+    margin: 5px 0;
+}

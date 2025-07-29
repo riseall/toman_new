@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -38,3 +39,5 @@ Route::delete('/product/{id}', [ProductController::class, 'deleteProduct'])->nam
 // Route::get('/permintaan', [PermintaanController::class, 'showReq'])->name('permintaan.show');
 // Route::post('/permintaan/add', [PermintaanController::class, 'storeReq'])->name('permintaan.add');
 Route::resource('permintaan', PermintaanController::class)->name('permintaan', 'permintaan');
+// Route untuk export PDF
+Route::get('/permintaan/{id}/pdf', [PdfController::class, 'exportPdf'])->name('permintaan.export_pdf');

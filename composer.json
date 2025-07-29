@@ -15,6 +15,7 @@
         "laravel/framework": "^8.0",
         "laravel/tinker": "^2.10",
         "laravel/ui": "^3.4",
+        "mpdf/mpdf": "v8.0.4",
         "spatie/laravel-permission": "^5.11"
     },
     "require-dev": {

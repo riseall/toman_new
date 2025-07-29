@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Models\Permintaan;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Mpdf\HTMLParserMode;
 use Mpdf\Mpdf;
 
@@ -12,8 +11,7 @@ class PdfController extends Controller
 {
     public function exportPdf($id)
     {
-        $permintaan = Permintaan::findOrFail($id);
-
+        $permintaan = Permintaan::with('user')->find($id);
 
         $headerHtml = view('user.partial.pdf_header', compact('permintaan'))->render();
         $footerHtml = view('user.partial.pdf_footer')->render();
@@ -25,10 +23,10 @@ class PdfController extends Controller
         $mpdf = new Mpdf([
             'mode' => 'utf-8',
             'format' => 'A4',
-            'margin_left' => 15,
-            'margin_right' => 15,
+            'margin_left' => 16,
+            'margin_right' => 16,
             'margin_top' => 40,
-            'margin_bottom' => 15,
+            'margin_bottom' => 25,
         ]);
 
         $mpdf->SetHTMLHeader($headerHtml);
