@@ -10,7 +10,7 @@ class ProductController extends Controller
     public function showProduct()
     {
         $data = Product::all();
-        return view('admin.product', compact('data'));
+        return view('admin.product.index', compact('data'));
     }
 
     public function storeProduct(Request $request)
@@ -23,14 +23,14 @@ class ProductController extends Controller
         ]);
 
         try {
-        Product::create([
-            'prod_name' => $request->prod_name,
-            'prod_bets_size' => $request->prod_bets_size,
-            'prod_exp_yr' => $request->prod_exp_yr,
-            'prod_package' => $request->prod_package,
-            'prod_is_active' => $request->has('prod_is_active') ? '1' : '0',
-        ]);
-        return redirect()->back()->with('success', 'Produk berhasil dibuat!');
+            Product::create([
+                'prod_name' => $request->prod_name,
+                'prod_bets_size' => $request->prod_bets_size,
+                'prod_exp_yr' => $request->prod_exp_yr,
+                'prod_package' => $request->prod_package,
+                'prod_is_active' => $request->has('prod_is_active') ? '1' : '0',
+            ]);
+            return redirect()->back()->with('success', 'Produk berhasil dibuat!');
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Failed to create product: ' . $e->getMessage());
         }
