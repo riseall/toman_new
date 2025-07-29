@@ -18,15 +18,20 @@ class PermintaanController extends Controller
             return redirect()->route('login')->with('error', 'Anda harus login untuk melihat data ini.');
         }
 
+        /** @var \App\Models\User */
         $user = Auth::user();
         $loggedInUser = $user->id;
         $userCompanyName = $user->entity_name;
-
-        $permintaan = Permintaan::where('user_id', $loggedInUser)
-            ->whereHas('user', function ($query) use ($userCompanyName) {
-                $query->where('entity_name', $userCompanyName);
-            })
-            ->get();
+        $role = $user->role;
+        if ($user->hasRole([1, 2])) {
+            $permintaan = Permintaan::with('user')->get();
+        } else {
+            $permintaan = Permintaan::where('user_id', $loggedInUser)
+                ->whereHas('user', function ($query) use ($userCompanyName) {
+                    $query->where('entity_name', $userCompanyName);
+                })
+                ->get();
+        }
         return view('user.permintaan.index', compact('permintaan'));
     }
     public function create()
