@@ -3,9 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class LoginController extends Controller
 {
@@ -59,6 +61,30 @@ class LoginController extends Controller
             $field => $login,
             'password' => $request->input('password'),
         ];
+    }
+
+    protected function attemptLogin(Request $request)
+    {
+        // Dapatkan kredensial tanpa password terlebih dahulu untuk memeriksa keberadaan user dan statusnya
+        $credentials = $this->credentials($request);
+        $loginField = array_keys($credentials)[0]; // Ambil nama field login (email atau username)
+        $loginValue = $credentials[$loginField];
+
+        // Cari user berdasarkan email atau username
+        $user = User::where($loginField, $loginValue)->first();
+
+        // Jika user ditemukan dan statusnya tidak aktif, lempar exception
+        if ($user && !$user->is_active) {
+            throw ValidationException::withMessages([
+                $this->username() => ['Akun Anda tidak aktif. Silakan hubungi administrator.'],
+            ]);
+        }
+
+        // Jika user aktif atau tidak ditemukan, lanjutkan dengan percobaan otentikasi default
+        return $this->guard()->attempt(
+            $this->credentials($request),
+            $request->filled('remember')
+        );
     }
 
     protected function authenticated(Request $request, $user)

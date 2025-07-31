@@ -31,6 +31,10 @@ Route::group(['middleware' => ['role:super_admin']], function () {
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 
+// Route Untuk Admin (User)
+Route::resource('user', 'App\Http\Controllers\UserController');
+
+// Route untuk Admin (Product)
 Route::get('/product', [ProductController::class, 'showProduct'])->name('product.show');
 Route::post('/product/add', [ProductController::class, 'storeProduct'])->name('product.add');
 Route::put('/product/update/{id}', [ProductController::class, 'updateProduct'])->name('product.update');
