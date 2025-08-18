@@ -1,6 +1,13 @@
-@extends('layouts.app')
-@section('content')
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="h4 font-weight-bold">
+            {{ __('Dashboard') }}
+        </h2>
+    </x-slot>
 
-<h1>Halo ini Dashboard Super Admin</h1>
-    <a href="{{ route('product.show') }}" class="btn btn-success">Product</a>
-@endsection
+    <div class="card my-4">
+        <div class="card-body">
+            You're logged in!
+        </div>
+    </div>
+</x-app-layout>
