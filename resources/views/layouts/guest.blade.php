@@ -1,22 +1,36 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<!doctype html>
+<html lang="en" dir="ltr">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+<head>
+    <meta charset="utf-8">
+    <title>Toman - {{ $title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Toll Manufakturing Pt. Phapros.tbk">
+    <meta name="keywords" content="Jasa toll manufacturing [obat, tablet, kapsul], Manufaktur toll, Phapros, Pabrik toll">
 
-        <!-- Fonts -->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ asset('images/toman.png') }}">
 
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Css -->
+    <!-- Bootstrap Css -->
+    <link href="{{ asset('css/login-2.css') }}" id="bootstrap-style" class="theme-opt" rel="stylesheet" type="text/css">
+    <!-- Style Css-->
+    <link href="{{ asset('css/style.bundle.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
 
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    </head>
-    <body class="font-sans antialiased bg-light">
-        {{ $slot }}
-    </body>
+</head>
+
+<!--begin::Body-->
+
+<body id="kt_body"
+    class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading">
+    <!--begin::Main-->
+    <div class="d-flex flex-column flex-root">
+        {{-- begin::content --}}
+        @yield('content')
+        {{-- end::content --}}
+    </div>
+    <!--end::Main-->
+</body>
+<!--end::Body-->
+
 </html>
