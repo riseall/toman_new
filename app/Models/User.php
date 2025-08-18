@@ -42,5 +42,11 @@ class User extends Authenticatable
     public function company()
     {
         return $this->belongsTo(Company::class);
+    /**
+     * Get the permintaan associated with the user.
+     */
+    public function permintaans()
+    {
+        return $this->hasMany(Permintaan::class, 'user_id', 'id');
     }
 }

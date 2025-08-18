@@ -1,13 +1,7 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="h4 font-weight-bold">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
-
-    <div class="card my-4">
-        <div class="card-body">
-            You're logged in!
-        </div>
-    </div>
-</x-app-layout>
+@extends('layouts.app')
+@section('content')
+    <h1>Halo ini Dashboard Super Admin</h1>
+    <a href="{{ route('user.index') }}" class="btn btn-success">User</a>
+    <a href="{{ route('product.show') }}" class="btn btn-success">Product</a>
+    <a href="{{ route('permintaan.index') }}" class="btn btn-success">Permintaan</a>
+@endsection
