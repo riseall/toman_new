@@ -8,7 +8,7 @@
             <div class="d-flex flex-column-fluid flex-column justify-content-between py-9 px-7 py-lg-13 px-lg-35">
                 <!--begin::Logo-->
                 <a href="{{ route('login') }}" class="text-center pt-2">
-                    <img src="{{ asset('images/logoPH.png') }}" class="max-h-75px" alt="" />
+                    <img src="{{ asset('images/logo/logoPH.png') }}" class="max-h-75px" alt="" />
                 </a>
                 <!--end::Logo-->
                 <!--begin::Aside body-->
@@ -110,7 +110,7 @@
         <!--begin::Aside-->
         <!--begin::Content-->
         <div class="content order-1 order-lg-2 d-flex flex-column w-100 pb-0"
-            style="background-image: url(images/phapros.jpg); background-size: cover; filter: brightness(0.5);">
+            style="background-image: url(images/bg/phapros.jpg); background-size: cover; filter: brightness(0.5);">
             <!--begin::Title-->
             {{-- <div class="d-flex flex-column justify-content-center text-center pt-lg-40 pt-md-5 pt-sm-5 px-lg-0 pt-5 px-7">
                 <h3 class="display4 font-weight-bolder my-7 text-dark" style="color: #986923;">Amazing Wireframes</h3>
