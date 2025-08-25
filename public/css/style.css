@@ -11,7 +11,7 @@ body {
     overflow-x: hidden !important;
     font-size: 1rem;
     color: #212529;
-    background-color: #ffffff;
+    background-color: #e1e1e147;
 }
 
 h1,
@@ -6499,6 +6499,10 @@ html[dir="rtl"] .tns-visually-hidden {
 
 .para-desc {
     max-width: 600px;
+}
+
+.para-800 {
+    max-width: 800px;
 }
 
 .mt-100 {
