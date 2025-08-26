@@ -6505,6 +6505,10 @@ html[dir="rtl"] .tns-visually-hidden {
     max-width: 800px;
 }
 
+.mt-50 {
+    margin-top: 50px;
+}
+
 .mt-100 {
     margin-top: 100px;
 }
@@ -7334,4 +7338,58 @@ body[data-layout-mode="dark"] .mode-light {
     width: 15%;
     aspect-ratio: 3/2;
     object-fit: contain;
+}
+
+/* Container luar untuk menyembunyikan overflow */
+.scrolling-wrapper {
+    overflow: hidden;
+    display: flex;
+    width: 100%;
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 10%,
+        black 90%,
+        transparent
+    );
+}
+
+/* Container yang akan bergerak */
+.scrolling-content {
+    display: flex;
+    flex-shrink: 0;
+    gap: 2rem;
+    padding: 1rem;
+    white-space: nowrap;
+    animation: scroll 25s linear infinite;
+}
+
+/* Pause animasi saat kursor mouse di atasnya */
+.scrolling-wrapper:hover .scrolling-content {
+    animation-play-state: paused;
+}
+
+/* Definisikan animasi 'scroll' */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+/* Styling untuk gambar sertifikat Anda (sesuaikan dengan desain Anda) */
+.client-logo {
+    height: 6rem;
+    aspect-ratio: 3/2;
+    object-fit: contain;
+    background-blend-mode: color-burn;
 }

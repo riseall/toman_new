@@ -14,6 +14,8 @@
     <!-- Css -->
     <link href="{{ asset('libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('libs/tobii/css/tobii.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('libs/animate.css/animate.css') }}" rel="stylesheet">
+
     <!-- Bootstrap Css -->
     <link href="{{ asset('css/bootstrap.css') }}" id="bootstrap-style" class="theme-opt" rel="stylesheet"
         type="text/css">
@@ -37,7 +39,7 @@
     </div>
     <!-- Loader -->
 
-    <span class="modern-app-round top-50 start-50 translate-middle"></span>
+    {{-- <span class="modern-app-round top-50 start-50 translate-middle"></span> --}}
 
     <!-- Navbar Start -->
     @include('layouts.partials.navbar')
@@ -64,7 +66,7 @@
     <!-- JAVASCRIPT -->
     <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- SLIDER -->
-    <script src="{{ asset('libs/tiny-slider/min/tiny-slider.js') }}"></script>
+    <script src="{{ asset('libs/tiny-slider/tiny-slider.js') }}"></script>
     <!-- Lightbox -->
     <script src="{{ asset('libs/shufflejs/shuffle.min.js') }}"></script>
     <script src="{{ asset('libs/tobii/js/tobii.min.js') }}"></script>

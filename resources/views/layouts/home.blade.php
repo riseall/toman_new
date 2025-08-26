@@ -36,7 +36,7 @@
     </div>
     <!-- Loader -->
 
-    <span class="modern-app-round top-50 start-50 translate-middle"></span>
+    {{-- <span class="modern-app-round top-50 start-50 translate-middle"></span> --}}
 
     <!-- Navbar Start -->
     @include('layouts.partials.navbar')
