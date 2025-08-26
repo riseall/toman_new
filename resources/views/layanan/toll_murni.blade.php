@@ -1,0 +1,68 @@
+@extends('layouts.app', [
+    'title' => 'Toll Murni',
+    'desc' => 'Kami menawarkan Jasa Toll Manufacturing dengan sistem Toll Murni, yaitu jasa pembuatan obat yang mencakup proses produksi mulai dari pengembangan formula sampai dengan pengemasan produk serta quality control. Pelanggan dapat memilih cakupan apa saja yang dibutuhkan, baik sebagian maupun seluruhnya.',
+])
+@section('content')
+    <!--Fasilitas Produksi start-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <div class="section-title pb-2">
+                    <h3 class="title mt-3 mb-3">Fasilitas Produksi</h3>
+                    <p class="text-muted para-desc mb-0 mx-auto">Kami menyediakan berbagai layanan untuk mendukung
+                        kebutuhan Anda dengan kualitas terbaik.</p>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+
+        <div class="row justify-content-center">
+            <div class="mt-4 d-flex flex-wrap gap-3 justify-content-center">
+                @foreach ($tollMurni as $item)
+                    <div class="col-lg-4 col-md-3 col-8">
+                        <div class="job-box job-primary candidate-list card rounded border-0 shadow h-100">
+                            <div class="card-body d-flex align-items-center">
+                                <div class="content w-100">
+                                    <div class="row align-items-center">
+                                        @php
+                                            $icons = [
+                                                'Tablet' => 'tablet.png',
+                                                'Capsule' => 'capsule.png',
+                                                'Bottle' => 'bottle.png',
+                                                'Ampoule' => 'ampoule.png',
+                                                'Vial' => 'vial.png',
+                                                'Tube' => 'tube.png',
+                                            ];
+                                        @endphp
+                                        <div class="col-lg-3 text-center">
+                                            <img src="{{ asset('images/unit/' . ($icons[$item->unit] ?? 'toman2.png')) }}"
+                                                class="avatar avatar-small client-image rounded shadow"
+                                                alt="{{ $item->unit }}">
+                                        </div>
+                                        <div class="col-lg-9 p-0">
+                                            <span class="text-dark h6 d-block m-0">{{ $item->dosage_form }}</span>
+                                            <p class="text-muted mb-0">{{ $item->unit }}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div><!--end col-->
+                @endforeach
+            </div>
+        </div><!--end row-->
+    </div>
+
+    <!-- CTA Start -->
+    @include('layanan.partials.cta')
+    <!-- CTA End -->
+
+    <!-- Testimonial Start -->
+    @include('layanan.partials.client')
+    <!-- Testimonial End -->
+
+    <!-- Sertifikat Start -->
+    @include('layanan.partials.sertifikat')
+    <!-- Sertifikat End -->
+
+    <script src="{{ asset('js/image.js') }}"></script>
+@endsection
