@@ -37,7 +37,7 @@
                             <i class="uil uil-search text-dark btn-icon-dark fs-5 align-middle"></i>
                             {{-- <i class="uil uil-search text-dark fs-5 align-middle"></i> --}}
                         </a>
-                        <div class="dropdown-menu dd-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 p-0 show"
+                        <div class="dropdown-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 p-0"
                             style="width: 300px; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);"
                             data-popper-placement="bottom-end">
                             <div class="search-bar">
@@ -52,14 +52,46 @@
                         </div>
                     </div>
                 </li>
-                <li class="list-inline-item mb-0 ps-1">
-                    <a onclick="window.location.href='{{ route('login') }}'" data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                        <div class="login-btn-primary"><span class="btn btn-pills btn-soft-primary">Masuk</span></div>
-                        <div class="login-btn-light"><span class="btn btn-pills btn-outline btn-light">Masuk</span>
+                @guest
+                    <li class="list-inline-item mb-0 ps-1">
+                        <a onclick="window.location.href='{{ route('login') }}'" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <div class="login-btn-primary"><span class="btn btn-pills btn-outline-primary">Masuk</span>
+                            </div>
+                            <div class="login-btn-light"><span class="btn btn-pills btn-outline btn-light">Masuk</span>
+                            </div>
+                        </a>
+                    </li>
+                @endguest
+                @auth
+                    <li class="list-inline-item mb-0 ps-1">
+                        <div class="dropdown">
+                            <a href="#" class="dropdown-toggle p-sm-1 show text-uppercase fs-7 fw-bold"
+                                data-bs-toggle="dropdown" aria-expanded="false">
+                                <span class="text-white title-dark btn-icon-light cursor-pointer">
+                                    {{ Auth::user()->first_name }} {{-- Auth::user()->last_name --}}
+                                    <i class="uil uil-angle-down ms-1 fs-5 dropdown-arrow"></i>
+                                </span>
+                                <span class="text-dark btn-icon-dark cursor-pointer">
+                                    {{ Auth::user()->first_name }} {{-- Auth::user()->last_name --}}
+                                    <i class="uil uil-angle-down ms-1 fs-5 dropdown-arrow"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end bg-white shadow rounded border-0 mt-4 fs-7">
+                                <li>
+                                    <a href="#" class="dropdown-item">Profil</a>
+                                </li>
+                                <li>
+                                    <form action="{{ route('logout') }}" method="POST" class="d-inline">
+                                        @csrf
+                                        <button type="submit" class="dropdown-item">Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
                         </div>
-                    </a>
-                </li>
+                    </li>
+                @endauth
+
             </ul>
             <!--Login button End-->
 
@@ -80,12 +112,24 @@
 
                     <li><a href="#" class="sub-menu-item">Portofolio</a></li>
 
-                    <li><a href="#" class="sub-menu-item">Permintaan</a></li>
-
-                    <li><a href="#" class="sub-menu-item">Monitoring</a></li>
+                    @hasanyrole(['super_admin', 'admin_toti'])
+                        <li><a href="#" class="sub-menu-item">Permintaan</a></li>
+                        <li><a href="#" class="sub-menu-item">Monitoring</a></li>
+                    @endrole
 
                     <li><a href="#" class="sub-menu-item">Kontak</a></li>
                 </ul><!--end navigation menu-->
             </div><!--end navigation-->
         </div><!--end container-->
     </header><!--end header-->
+
+    <script>
+        document.querySelectorAll('.dropdown').forEach(drop => {
+            drop.addEventListener('show.bs.dropdown', function() {
+                this.querySelector('.dropdown-arrow').classList.add('rotate-180');
+            });
+            drop.addEventListener('hide.bs.dropdown', function() {
+                this.querySelector('.dropdown-arrow').classList.remove('rotate-180');
+            });
+        });
+    </script>

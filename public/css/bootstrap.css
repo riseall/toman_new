@@ -4227,8 +4227,8 @@ fieldset:disabled .btn {
 }
 .dropdown-item:hover,
 .dropdown-item:focus {
-    color: var(--bs-dropdown-link-hover-color);
-    background-color: var(--bs-dropdown-link-hover-bg);
+    color: var(--bs-blue);
+    /* background-color: var(--bs-dropdown-link-hover-bg); */
 }
 .dropdown-item.active,
 .dropdown-item:active {
@@ -10064,6 +10064,10 @@ fieldset:disabled .btn {
 
 .fs-6 {
     font-size: 1rem !important;
+}
+
+.fs-7 {
+    font-size: 0.9rem !important;
 }
 
 .fst-italic {
