@@ -186,7 +186,10 @@ class PermintaanController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
         }
 
         // Get validated data
@@ -254,15 +257,19 @@ class PermintaanController extends Controller
 
         try {
             Permintaan::create($validatedData);
-
             DB::commit();
 
-            return redirect()->route('permintaan.index')->with('success', 'Permintaan Toll berhasil ditambahkan!');
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Permintaan Toll berhasil ditambahkan!'
+            ]);
         } catch (\Exception $e) {
             DB::rollBack();
 
-            Log::error('Error creating Permintaan: ' . $e->getMessage(), ['exception' => $e, 'validated_data' => $validatedData]);
-            return redirect()->back()->with('error', 'Gagal menambahkan Permintaan Toll. Silakan coba lagi. Pesan Error: ' . $e->getMessage())->withInput();
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
         }
     }
 }

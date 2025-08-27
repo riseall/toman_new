@@ -23,24 +23,4 @@
     </div>
 </div>
 
-
-<!-- Modal Content Start -->
-<div class="modal fade" id="permintaanForm" tabindex="-1" aria-labelledby="permintaanFormTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
-        <div class="modal-content rounded shadow border-0">
-            <div class="modal-header border-bottom">
-                <h5 class="modal-title" id="permintaanFormTitle">Form Permohonan Toll-Manufacturing</h5>
-                <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" id="close-modal"><i
-                        class="uil uil-times fs-4 text-dark"></i></button>
-            </div>
-            <div class="modal-body">
-                @include('user.permintaan.create')
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="close-modal">Close</button>
-                <button type="button" class="btn btn-success">Kirim</button>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Modal Content End -->
+@include('user.permintaan.create')

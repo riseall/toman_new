@@ -22,7 +22,7 @@ class CreatePermintaansTable extends Migration
             // $table->string('pic_name', 100);
             // $table->string('pic_email', 100);
             // $table->string('pic_phone', 20);
-            $table->unsignedBigInteger('user_id')->unique();
+            $table->unsignedBigInteger('user_id');
             $table->string('prod_name', 100);
             $table->string('act_ingredient', 100);
             $table->string('act_ingredient_group', 50)->nullable();
