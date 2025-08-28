@@ -9,30 +9,55 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Yajra\DataTables\Facades\DataTables;
 
 class PermintaanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (!Auth::check()) {
             return redirect()->route('login')->with('error', 'Anda harus login untuk melihat data ini.');
         }
 
+        return view('user.permintaan.index');
+    }
+
+    public function getData()
+    {
         /** @var \App\Models\User */
         $user = Auth::user();
         $loggedInUser = $user->id;
         $userCompanyName = $user->entity_name;
-        $role = $user->role;
+
         if ($user->hasRole([1, 2])) {
             $permintaan = Permintaan::with('user')->get();
         } else {
-            $permintaan = Permintaan::where('user_id', $loggedInUser)
+            $permintaan = Permintaan::with('user')
+                ->where('user_id', $loggedInUser)
                 ->whereHas('user', function ($query) use ($userCompanyName) {
                     $query->where('entity_name', $userCompanyName);
                 })
                 ->get();
         }
-        return view('user.permintaan.index', compact('permintaan'));
+
+        // hanya ambil field yang dibutuhkan
+        $data = $permintaan->map(function ($item, $index) {
+            return [
+                'id'          => $item->id,
+                'no'          => $index + 1,
+                'entity_name' => $item->user->entity_name ?? '-',
+                'req_date'    => $item->req_date ?? '-',
+                'user_name'   => ($item->user->first_name ?? '') . ' ' . ($item->user->last_name ?? ''),
+                'email'       => $item->user->email ?? '-',
+                'phone'       => $item->user->phone ?? '-',
+                'req_name'    => $item->req_name ?? '-',
+                'action'      => route('permintaan.export_pdf', $item->id),
+            ];
+        });
+
+        return response()->json([
+            'data' => $data
+        ]);
     }
     public function create()
     {

@@ -112,10 +112,10 @@
 
                     <li><a href="#" class="sub-menu-item">Portofolio</a></li>
 
-                    @hasanyrole(['super_admin', 'admin_toti'])
-                        <li><a href="#" class="sub-menu-item">Permintaan</a></li>
+                    @auth
+                        <li><a href="{{ route('permintaan.index') }}" class="sub-menu-item">Permintaan</a></li>
                         <li><a href="#" class="sub-menu-item">Monitoring</a></li>
-                    @endrole
+                    @endauth
 
                     <li><a href="#" class="sub-menu-item">Kontak</a></li>
                 </ul><!--end navigation menu-->

@@ -80,6 +80,9 @@
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/sweetalert.js') }}"></script>
     <!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
+    <link rel="stylesheet" href="{{ asset('plugin/dataTables/css/dataTables.bootstrap5.min.css') }}">
+    <script src="{{ asset('plugin/dataTables/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('plugin/dataTables/js/dataTables.bootstrap5.min.js') }}"></script>
     @stack('scripts')
 </body>
 

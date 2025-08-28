@@ -36,11 +36,11 @@ Route::group(['middleware' => ['role:super_admin']], function () {
 Route::get('/layanan/toll_murni', [FasilitasProduksiController::class, 'index'])->name('toll_murni');
 
 Route::get('/layanan/toll_beli', function () {
-    return view('layanan.toll_beli');
+    return view('user.layanan.toll_beli');
 })->name('toll_beli');
 
 Route::get('/layanan/kalibrasi', function () {
-    return view('layanan.kalibrasi');
+    return view('user.layanan.kalibrasi');
 })->name('kalibrasi');
 
 
@@ -53,9 +53,9 @@ Route::post('/product/add', [ProductController::class, 'storeProduct'])->name('p
 Route::put('/product/update/{id}', [ProductController::class, 'updateProduct'])->name('product.update');
 Route::delete('/product/{id}', [ProductController::class, 'deleteProduct'])->name('product.destroy');
 
-// Route::get('/permintaan', [PermintaanController::class, 'showReq'])->name('permintaan.show');
-// Route::post('/permintaan/add', [PermintaanController::class, 'storeReq'])->name('permintaan.add');
-Route::resource('permintaan', PermintaanController::class)->name('permintaan', 'permintaan');
+// Route untuk Permintaan
+Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
+Route::get('/permintaan/data', [PermintaanController::class, 'getData'])->name('permintaan.data');
 
 // Route untuk export PDF
 Route::get('/permintaan/{id}/pdf', [PdfController::class, 'exportPdf'])->name('permintaan.export_pdf');

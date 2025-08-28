@@ -13,10 +13,10 @@ class Permintaan extends Model
 
     protected $guarded = ['id'];
 
-    protected $dates = ['req_date'];
+    // protected $dates = ['req_date'];
 
     protected $casts = [
-        'req_date' => 'date',
+        // 'req_date' => 'date',
         'is_formulation' => 'boolean',
         'is_weighing' => 'boolean',
         'is_procces' => 'boolean',
