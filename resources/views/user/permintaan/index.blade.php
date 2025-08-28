@@ -4,9 +4,16 @@
 ])
 @section('content')
     <div class="container">
-        <h1>Riwayat Permintaan</h1>
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <div class="section-title pb-2">
+                    <h3 class="title mt-3 mb-3">Riwayat Permintaan</h3>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+    </div>
 
-        @include('user.partial.alert')
+    <div class="container mt-50">
 
         <a href="{{ route('permintaan.create') }}" class="btn btn-primary">Tambah Permintaan</a>
 

@@ -8,7 +8,7 @@
             <p>tanggal permohonan : {{ \Carbon\Carbon::parse($permintaan->req_date)->format('d-m-Y') }}
         </td>
         <td class="header-kolom2" align="right">
-            <img src="images\logoPH.png" width="200" />
+            <img src="images\logo\logoPH.png" width="200" />
         </td>
     </tr>
 </table>

@@ -432,9 +432,8 @@
                 <div class="accordion-item rounded shadow-sm border mt-3 wow animate__animated animate__fadeInUp"
                     data-wow-delay=".7s">
                     <h2 class="accordion-header" id="headingFive">
-                        <button class="accordion-button border-0 bg-light collapsed" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
-                            aria-controls="collapseFive">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                             6. Volume
                         </button>
                     </h2>
@@ -484,9 +483,8 @@
                 <div class="accordion-item rounded shadow-sm border mt-3 wow animate__animated animate__fadeInUp"
                     data-wow-delay=".9s">
                     <h2 class="accordion-header" id="headingSix">
-                        <button class="accordion-button border-0 bg-light collapsed" type="button"
-                            data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
-                            aria-controls="collapseSix">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                             7. Instrumen Analitik
                         </button>
                     </h2>
@@ -797,14 +795,14 @@
 
 
     <!-- CTA Start -->
-    @include('layanan.partials.cta')
+    @include('user.layanan.partials.cta')
     <!-- CTA End -->
 
     <!-- Testimonial Start -->
-    @include('layanan.partials.client')
+    @include('user.layanan.partials.client')
     <!-- Testimonial End -->
 
     <!-- Sertifikat Start -->
-    @include('layanan.partials.sertifikat')
+    @include('user.layanan.partials.sertifikat')
     <!-- Sertifikat End -->
 @endsection

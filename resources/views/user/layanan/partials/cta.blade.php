@@ -10,9 +10,16 @@
                         profesional.
                     </p>
                     <div class="mt-4">
-                        <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#permintaanForm"
-                            class="btn btn-success mt-2 me-2"><i class="uil uil-file-plus-alt"></i>
-                            Ajukan Permintaan</a>
+                        @auth
+                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#permintaanForm"
+                                class="btn btn-success mt-2 me-2"><i class="uil uil-file-plus-alt"></i>
+                                Ajukan Permintaan</a>
+                        @endauth
+                        @guest
+                            <a href="{{ route('login') }}" class="btn btn-success mt-2 me-2"><i
+                                    class="uil uil-file-plus-alt"></i>
+                                Ajukan Permintaan</a>
+                        @endguest
                         <a href="javascript:void(0)" class="btn btn-outline-info mt-2 me-2"><i
                                 class="uil uil-phone"></i>
                             Hubungi Kami</a>

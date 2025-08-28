@@ -74,15 +74,15 @@
 
                                     {{-- Golongan Bahan Aktif --}}
                                     <label for="act_ingredient_group" class="form-label">Golongan Bahan Aktif</label>
-                                    @include('user.partial.actgroup')
+                                    @include('user.permintaan.partial.actgroup')
 
                                     {{-- Kategori Produk --}}
                                     <label for="prod_category" class="form-label">Kategori Produk</label>
-                                    @include('user.partial.category')
+                                    @include('user.permintaan.partial.category')
 
                                     {{-- Lingkup Pekerjaan --}}
                                     <label for="work_scope" class="form-label">Lingkup Pekerjaan</label>
-                                    @include('user.partial.workscope')
+                                    @include('user.permintaan.partial.workscope')
 
                                     <hr>
 
@@ -116,33 +116,33 @@
                                         <h5 class="mb-3 fw-bold">Karakteristik Produk</h5>
 
                                         {{-- Form Tablet --}}
-                                        @include('user.partial.tablet')
+                                        @include('user.permintaan.partial.tablet')
 
                                         {{-- Form Kapsul --}}
-                                        @include('user.partial.kapsul')
+                                        @include('user.permintaan.partial.kapsul')
 
                                         {{-- Form Parental --}}
-                                        @include('user.partial.parental')
+                                        @include('user.permintaan.partial.parental')
 
                                         {{-- Form Cairan --}}
-                                        @include('user.partial.cairan')
+                                        @include('user.permintaan.partial.cairan')
 
                                         {{-- Form Powder --}}
-                                        @include('user.partial.powder')
+                                        @include('user.permintaan.partial.powder')
 
                                         {{-- Form Semisolid --}}
-                                        @include('user.partial.semisolid')
+                                        @include('user.permintaan.partial.semisolid')
 
                                         <hr>
 
                                         <h5 class="mb-3 fw-bold">Persyaratan Khusus</h5>
                                         {{-- Persyaratan Khusus --}}
-                                        @include('user.partial.spec')
+                                        @include('user.permintaan.partial.spec')
 
                                         <hr>
 
                                         <h5 class="mb-3 fw-bold">Karakteristik Kemasan</h5>
-                                        @include('user.partial.package')
+                                        @include('user.permintaan.partial.package')
 
                                         <hr>
 
@@ -174,12 +174,12 @@
                                         <hr>
 
                                         <h5 class="mb-3 fw-bold">Cakupan Pekerjaan</h5>
-                                        @include('user.partial.coverage')
+                                        @include('user.permintaan.partial.coverage')
 
                                         <hr>
 
                                         <h5 class="mb-3 fw-bold">Informasi Harga & Forecast</h5>
-                                        @include('user.partial.price')
+                                        @include('user.permintaan.partial.price')
 
                                         <hr>
 
@@ -193,7 +193,7 @@
                                         <hr>
 
                                         <h5 class="mb-3 fw-bold">Lampiran Dokumen (Opsional, Max 1mb/file)</h5>
-                                        @include('user.partial.doc')
+                                        @include('user.permintaan.partial.doc')
 
                                         <div class="mb-3">
                                             <input type="checkbox" name="" id="privacy-policy">

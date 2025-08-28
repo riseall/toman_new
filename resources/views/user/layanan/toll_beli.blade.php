@@ -253,15 +253,15 @@
 
 
     <!-- CTA Start -->
-    @include('layanan.partials.cta')
+    @include('user.layanan.partials.cta')
     <!-- CTA End -->
 
     <!-- Testimonial Start -->
-    @include('layanan.partials.client')
+    @include('user.layanan.partials.client')
     <!-- Testimonial End -->
 
     <!-- Sertifikat Start -->
-    @include('layanan.partials.sertifikat')
+    @include('user.layanan.partials.sertifikat')
     <!-- Sertifikat End -->
 
     <script src="{{ asset('js/product.js') }}"></script>
