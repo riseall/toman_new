@@ -27,6 +27,7 @@
         "webpack-cli": "^6.0.1"
     },
     "dependencies": {
+        "datatables.net-dt": "^2.3.3",
         "jquery": "^3.7.1",
         "sweetalert2": "^11.22.5"
     }
