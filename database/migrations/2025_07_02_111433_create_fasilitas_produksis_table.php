@@ -15,6 +15,9 @@ class CreateFasilitasProduksisTable extends Migration
     {
         Schema::create('fasilitas_produksi', function (Blueprint $table) {
             $table->id();
+            $table->string('dosage_form', 100);
+            $table->enum('unit', ['Tablet', 'Capsule', 'Bottle', 'Ampoule', 'Vial', 'Tube']);
+            $table->boolean('is_active')->default(1);
             $table->timestamps();
         });
     }
