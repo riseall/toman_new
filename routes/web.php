@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FasilitasProduksiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PdfController;
@@ -59,5 +60,10 @@ Route::get('/permintaan/data', [PermintaanController::class, 'getData'])->name('
 
 // Route untuk export PDF
 Route::get('/permintaan/{id}/pdf', [PdfController::class, 'exportPdf'])->name('permintaan.export_pdf');
+
+
+// Route Untuk Kontak
+Route::get('/kontak', [ContactController::class, 'index'])->name('kontak.index');
+Route::post('/kontak', [ContactController::class, 'store'])->name('kontak.store');
 
 require __DIR__ . '/auth.php';

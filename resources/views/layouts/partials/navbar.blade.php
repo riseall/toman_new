@@ -38,7 +38,7 @@
                             {{-- <i class="uil uil-search text-dark fs-5 align-middle"></i> --}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 p-0"
-                            style="width: 300px; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 34px);"
+                            style="width: 300px; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 40px);"
                             data-popper-placement="bottom-end">
                             <div class="search-bar">
                                 <div id="itemSearch" class="menu-search mb-0">
@@ -117,7 +117,7 @@
                         <li><a href="#" class="sub-menu-item">Monitoring</a></li>
                     @endauth
 
-                    <li><a href="#" class="sub-menu-item">Kontak</a></li>
+                    <li><a href="{{ route('kontak.index') }}" class="sub-menu-item">Kontak</a></li>
                 </ul><!--end navigation menu-->
             </div><!--end navigation-->
         </div><!--end container-->
