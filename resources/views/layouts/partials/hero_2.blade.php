@@ -1,5 +1,6 @@
 <!-- Hero Start -->
-<section class="bg-half-170 d-table w-100" style="background: url({{ asset('images/bg/807A0631.jpg') }}) center center;">
+<section class="bg-half-170 d-table w-100"
+    style="background: url({{ asset('images/bg/' . (View::getSection('bg') ?? '807A0631.JPG')) }}) center center;">
     <div class="bg-overlay"></div>
     <div class="container">
         <div class="row mt-5 justify-content-center">

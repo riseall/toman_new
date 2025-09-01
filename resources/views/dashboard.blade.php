@@ -1,4 +1,3 @@
-@extends('layouts.app')
 @section('content')
     <h1>Halo ini Dashboard Super Admin</h1>
     <a href="{{ route('user.index') }}" class="btn btn-success">User</a>

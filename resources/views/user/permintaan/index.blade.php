@@ -2,6 +2,7 @@
     'title' => 'Permintaan',
     'desc' => '',
 ])
+@section('bg', '807A0494.jpg')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">

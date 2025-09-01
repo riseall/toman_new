@@ -114,7 +114,7 @@
 
                     @auth
                         <li><a href="{{ route('permintaan.index') }}" class="sub-menu-item">Permintaan</a></li>
-                        <li><a href="#" class="sub-menu-item">Monitoring</a></li>
+                        <li><a href="{{ route('monitoring.index') }}" class="sub-menu-item">Monitoring</a></li>
                     @endauth
 
                     <li><a href="{{ route('kontak.index') }}" class="sub-menu-item">Kontak</a></li>

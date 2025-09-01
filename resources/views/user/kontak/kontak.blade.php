@@ -3,6 +3,7 @@
     'desc' => '',
 ])
 
+@section('bg', '807A0366.jpg')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
