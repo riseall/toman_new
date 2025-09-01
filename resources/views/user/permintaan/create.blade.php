@@ -61,15 +61,19 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="prod_name" class="form-label req-label">Nama Produk</label>
+                                        <label for="prod_name" class="form-label req-label">Nama
+                                            Produk</label>
                                         <input type="text" class="form-control" id="prod_name" name="prod_name"
                                             required>
+
+                                        <div class="invalid-feedback"></div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="act_ingredient" class="form-label req-label">Kandungan Bahan
                                             Aktif</label>
                                         <input type="text" class="form-control" id="act_ingredient"
                                             name="act_ingredient" required>
+                                        <div class="invalid-feedback"></div>
                                     </div>
 
                                     {{-- Golongan Bahan Aktif --}}
@@ -98,6 +102,7 @@
                                                 <option value="Powder">Powder</option>
                                                 <option value="Semisolid">Semisolid</option>
                                             </select>
+                                            <div class="invalid-feedback"></div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -106,6 +111,7 @@
                                                 Permintaan</label>
                                             <input type="date" class="form-control" id="req_date"
                                                 name="req_date" required>
+                                            <div class="invalid-feedback"></div>
                                         </div>
                                     </div>
 
@@ -228,13 +234,13 @@
             const permintaanModal = $('#permintaanForm');
             const permintaanForm = $('#createPermintaan');
 
-            const inertTargets = $('#topnav, #main-content, #footer');
-
             // Event Listener saat close modal
             permintaanModal.on('hidden.bs.modal', function() {
                 permintaanForm[0].reset();
                 permintaanForm.find('.is-invalid').removeClass('is-invalid');
                 permintaanForm.find('.invalid-feedback').html('');
+                permintaanForm.find('#dynamic-form').prop('style', 'display:none');
+                permintaanModal.find('#submit').prop('disabled', true);
             });
 
             // Create Permintaan
