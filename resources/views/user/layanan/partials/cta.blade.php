@@ -20,7 +20,7 @@
                                     class="uil uil-file-plus-alt"></i>
                                 Ajukan Permintaan</a>
                         @endguest
-                        <a href="javascript:void(0)" class="btn btn-outline-info mt-2 me-2"><i
+                        <a href="{{ route('kontak.index') }}" class="btn btn-outline-info mt-2 me-2"><i
                                 class="uil uil-phone"></i>
                             Hubungi Kami</a>
                     </div>

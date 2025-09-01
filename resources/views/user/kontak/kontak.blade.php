@@ -16,7 +16,7 @@
             </div>
         </div><!--end row-->
 
-        <div class="row">
+        <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
                 <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated"
                     data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">

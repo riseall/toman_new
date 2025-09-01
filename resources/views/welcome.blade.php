@@ -177,7 +177,7 @@
                                 kami. Dengan sertifikasi BPOM, Halal, dan ISO, kami memastikan setiap produk yang kami
                                 hasilkan memenuhi standar tertinggi dan siap bersaing di pasar. Kami mengelola seluruh
                                 proses dengan presisi, dari bahan baku hingga produk akhir.</p>
-                            <a href="#!" class="btn btn-pills btn-info">
+                            <a href="{{ route('kontak.index') }}" class="btn btn-pills btn-info">
                                 <i class="uil uil-phone"></i> Hubungi Kami
                             </a>
                         </div>
