@@ -61,9 +61,13 @@ Route::get('/permintaan/data', [PermintaanController::class, 'getData'])->name('
 // Route untuk export PDF
 Route::get('/permintaan/{id}/pdf', [PdfController::class, 'exportPdf'])->name('permintaan.export_pdf');
 
-
 // Route Untuk Kontak
 Route::get('/kontak', [ContactController::class, 'index'])->name('kontak.index');
 Route::post('/kontak', [ContactController::class, 'store'])->name('kontak.store');
+
+// Route Untuk Portofolio
+Route::get('/porto', function () {
+    return view('user.portofolio.porto');
+})->name('portofolio.index');
 
 require __DIR__ . '/auth.php';

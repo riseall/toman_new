@@ -110,7 +110,7 @@
                         </ul>
                     </li>
 
-                    <li><a href="#" class="sub-menu-item">Portofolio</a></li>
+                    <li><a href="{{ route('portofolio.index') }}" class="sub-menu-item">Portofolio</a></li>
 
                     @auth
                         <li><a href="{{ route('permintaan.index') }}" class="sub-menu-item">Permintaan</a></li>
