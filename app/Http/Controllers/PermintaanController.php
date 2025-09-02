@@ -27,15 +27,15 @@ class PermintaanController extends Controller
         /** @var \App\Models\User */
         $user = Auth::user();
         $loggedInUser = $user->id;
-        $userCompanyName = $user->entity_name;
+        $userCompany = $user->entity_code;
 
         if ($user->hasRole([1, 2])) {
-            $permintaan = Permintaan::with('user')->get();
+            $permintaan = Permintaan::with('user.entity')->get();
         } else {
-            $permintaan = Permintaan::with('user')
+            $permintaan = Permintaan::with('user.entity')
                 ->where('user_id', $loggedInUser)
-                ->whereHas('user', function ($query) use ($userCompanyName) {
-                    $query->where('entity_name', $userCompanyName);
+                ->whereHas('user', function ($query) use ($userCompany) {
+                    $query->where('entity_code', $userCompany);
                 })
                 ->get();
         }
@@ -45,7 +45,7 @@ class PermintaanController extends Controller
             return [
                 'id'          => $item->id,
                 'no'          => $index + 1,
-                'entity_name' => $item->user->entity_name ?? '-',
+                'entity_name' => $item->user->entity->entity_name ?? '-',
                 'req_date'    => $item->req_date ?? '-',
                 'user_name'   => ($item->user->first_name ?? '') . ' ' . ($item->user->last_name ?? ''),
                 'email'       => $item->user->email ?? '-',

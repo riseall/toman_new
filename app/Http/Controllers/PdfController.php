@@ -11,7 +11,7 @@ class PdfController extends Controller
 {
     public function exportPdf($id)
     {
-        $permintaan = Permintaan::with('user')->find($id);
+        $permintaan = Permintaan::with('user.entity')->find($id);
 
         $headerHtml = view('user.permintaan.partial.pdf_header', compact('permintaan'))->render();
         $footerHtml = view('user.permintaan.partial.pdf_footer')->render();

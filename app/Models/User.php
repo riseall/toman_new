@@ -50,4 +50,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Permintaan::class, 'user_id', 'id');
     }
+
+    public function entity()
+    {
+        return $this->belongsTo(Company::class, 'entity_code', 'entity_code');
+    }
 }

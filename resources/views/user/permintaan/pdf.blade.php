@@ -3,11 +3,12 @@
     <tbody>
         <tr>
             <td>Nama Perusahaan</td>
-            <td>: {{ $permintaan->user->entity_name ?? '-' }}</td>
+            <td>: {{ $permintaan->user->entity->entity_name ?? '-' }}</td>
         </tr>
         <tr>
             <td>Alamat Perusahaan</td>
-            <td>: {{ $permintaan->user->company_address ?? '-' }}</td>
+            <td>: {{ $permintaan->user->entity->entity_address_line_1 ?? '-' }}
+                {{ $permintaan->user->entity->entity_address_line_2 }}</td>
         </tr>
         <tr>
             <td>Nama PIC</td>

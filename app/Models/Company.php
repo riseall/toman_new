@@ -9,10 +9,11 @@ class Company extends Model
 {
     use HasFactory;
 
+    protected $table = 'entities';
     protected $guarded = ['id'];
 
     public function users()
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(User::class, 'entity_code', 'entity_code');
     }
 }
