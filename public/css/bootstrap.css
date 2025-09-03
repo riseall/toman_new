@@ -5832,12 +5832,12 @@ fieldset:disabled .btn {
     -webkit-animation: 1s linear infinite progress-bar-stripes;
     animation: 1s linear infinite progress-bar-stripes;
 }
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
     .progress-bar-animated {
         -webkit-animation: none;
         animation: none;
     }
-}
+} */
 
 .list-group {
     --bs-list-group-color: #212529;
