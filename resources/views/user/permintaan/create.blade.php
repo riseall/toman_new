@@ -24,8 +24,8 @@
                                             <label for="company_name" class="form-label req-label">Nama
                                                 Perusahaan</label>
                                             <input type="text" class="form-control" id="company_name"
-                                                name="company_name" value="{{ Auth::user()->entity_name ?? '' }}"
-                                                disabled required>
+                                                name="company_name"
+                                                value="{{ Auth::user()->entity->entity_name ?? '' }}" disabled required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -33,7 +33,8 @@
                                             <label for="company_address" class="form-label req-label">Alamat
                                                 Perusahaan</label>
                                             <input type="text" class="form-control" id="company_address"
-                                                name="company_address" value="{{ Auth::user()->address_line_1 ?? '' }}"
+                                                name="company_address"
+                                                value="{{ Auth::user()->entity->entity_address_line_1 ?? '' }} {{ Auth::user()->entity->entity_address_line_2 ?? '' }}"
                                                 disabled required>
                                         </div>
                                     </div>

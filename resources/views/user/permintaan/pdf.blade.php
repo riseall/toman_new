@@ -7,8 +7,8 @@
         </tr>
         <tr>
             <td>Alamat Perusahaan</td>
-            <td>: {{ $permintaan->user->entity->entity_address_line_1 ?? '-' }}
-                {{ $permintaan->user->entity->entity_address_line_2 }}</td>
+            <td>: {{ $permintaan->user->entity->entity_address_line_1 }}
+                {{ $permintaan->user->entity->entity_address_line_2 ?? '' }}</td>
         </tr>
         <tr>
             <td>Nama PIC</td>

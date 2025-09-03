@@ -26,14 +26,15 @@ class PermintaanController extends Controller
     {
         /** @var \App\Models\User */
         $user = Auth::user();
-        $loggedInUser = $user->id;
+        // $loggedInUser = $user->id;
         $userCompany = $user->entity_code;
 
         if ($user->hasRole([1, 2])) {
             $permintaan = Permintaan::with('user.entity')->get();
         } else {
+            // filter berdasarkan perusahaan
             $permintaan = Permintaan::with('user.entity')
-                ->where('user_id', $loggedInUser)
+                // ->where('user_id', $loggedInUser)
                 ->whereHas('user', function ($query) use ($userCompany) {
                     $query->where('entity_code', $userCompany);
                 })
