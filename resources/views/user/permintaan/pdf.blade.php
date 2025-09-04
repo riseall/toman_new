@@ -130,11 +130,11 @@
             </tr>
         </tbody>
     </table>
-@elseif ($permintaan->req_name === 'Parental')
+@elseif ($permintaan->req_name === 'Parenteral')
     <table>
         <tbody>
             <tr>
-                <td colspan="2"><b>Parental</b></td>
+                <td colspan="2"><b>Parenteral</b></td>
             </tr>
             <tr>
                 <td>Jenis</td>
@@ -297,7 +297,7 @@
             <td>- Sensitif Cahaya</td>
             <td>: {{ $permintaan->light_sensitivity ?? '-' }}</td>
         </tr>
-        @if ($permintaan->req_name === 'Parental')
+        @if ($permintaan->req_name === 'Parenteral')
             <tr>
                 <td>- Sensitivitas Oksidasi</td>
                 <td>: {{ $permintaan->oxidation_sensitivity ?? '-' }}</td>
@@ -323,7 +323,7 @@
                 <td>: {{ $permintaan->pmry_pkg_width ?? '-' }}</td>
             </tr>
         @elseif (
-            $permintaan->req_name === 'Parental' ||
+            $permintaan->req_name === 'Parenteral' ||
                 $permintaan->req_name === 'Cairan' ||
                 $permintaan->req_name === 'Powder' ||
                 $permintaan->req_name === 'Semisolid')

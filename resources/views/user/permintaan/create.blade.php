@@ -98,7 +98,7 @@
                                                 <option value="">Pilih Jenis Permintaan</option>
                                                 <option value="Tablet">Tablet</option>
                                                 <option value="Kapsul">Kapsul</option>
-                                                <option value="Parental">Parental</option>
+                                                <option value="Parenteral">Parenteral</option>
                                                 <option value="Cairan">Cairan</option>
                                                 <option value="Powder">Powder</option>
                                                 <option value="Semisolid">Semisolid</option>
@@ -128,8 +128,8 @@
                                         {{-- Form Kapsul --}}
                                         @include('user.permintaan.partial.kapsul')
 
-                                        {{-- Form Parental --}}
-                                        @include('user.permintaan.partial.parental')
+                                        {{-- Form Parenteral --}}
+                                        @include('user.permintaan.partial.parenteral')
 
                                         {{-- Form Cairan --}}
                                         @include('user.permintaan.partial.cairan')

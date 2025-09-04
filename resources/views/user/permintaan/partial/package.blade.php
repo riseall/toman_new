@@ -68,8 +68,8 @@
         </div>
     </div>
 </div>
-{{-- etiker parental --}}
-<div id="skndr-parental" style="display: none">
+{{-- etiker parenteral --}}
+<div id="skndr-parenteral" style="display: none">
     <label for="scnd_etiket" class="form-label">Etiket</label>
     <div class="mb-3">
         <div class="form-check form-check-inline">

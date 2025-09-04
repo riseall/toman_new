@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const reqNameSelect = document.getElementById("req_name");
     const dynamicContainer = document.getElementById("dynamic-form");
     const specificForms = document.querySelectorAll(".form-specific"); // Gunakan nama yang lebih jelas: specificForms
-    const parentalSpecific = document.getElementById("parental-specific");
+    const parenteralSpecific = document.getElementById("parenteral-specific");
     const primerTabKapSpecific = document.getElementById(
         "primer-tablet-kapsul"
     );
     const primerLainSpecific = document.getElementById("primer-lainnya");
-    const sekunderParental = document.getElementById("skndr-parental");
+    const sekunderParenteral = document.getElementById("skndr-parenteral");
     const sekunderLain = document.getElementById("skndr-lainnya");
     const privacyPolicy = document.getElementById("privacy-policy");
     const submitButton = document.getElementById("submit"); // Mengganti 'submit' dengan 'submitButton' untuk menghindari konflik nama
@@ -57,14 +57,14 @@ document.addEventListener("DOMContentLoaded", function () {
             group.style.display = "none";
             disableAndClearInputs(group); // Nonaktifkan dan kosongkan input
         });
-        parentalSpecific.style.display = "none";
-        disableAndClearInputs(parentalSpecific);
+        parenteralSpecific.style.display = "none";
+        disableAndClearInputs(parenteralSpecific);
         primerTabKapSpecific.style.display = "none";
         disableAndClearInputs(primerTabKapSpecific);
         primerLainSpecific.style.display = "none";
         disableAndClearInputs(primerLainSpecific);
-        sekunderParental.style.display = "none";
-        disableAndClearInputs(sekunderParental);
+        sekunderParenteral.style.display = "none";
+        disableAndClearInputs(sekunderParenteral);
         sekunderLain.style.display = "none";
         disableAndClearInputs(sekunderLain);
 
@@ -85,10 +85,10 @@ document.addEventListener("DOMContentLoaded", function () {
             enableInputs(targetGroup); // Aktifkan input di form yang dipilih
         }
 
-        // Atur tampilan dan status input untuk bagian 'Parental Specific'
-        if (selectedValue === "Parental") {
-            parentalSpecific.style.display = "block";
-            enableInputs(parentalSpecific);
+        // Atur tampilan dan status input untuk bagian 'Parenteral Specific'
+        if (selectedValue === "Parenteral") {
+            parenteralSpecific.style.display = "block";
+            enableInputs(parenteralSpecific);
         }
 
         // Atur tampilan dan status input untuk 'Kemasan Primer'
@@ -101,9 +101,9 @@ document.addEventListener("DOMContentLoaded", function () {
         }
 
         // Atur tampilan dan status input untuk 'Kemasan Sekunder'
-        if (selectedValue === "Parental") {
-            sekunderParental.style.display = "block";
-            enableInputs(sekunderParental);
+        if (selectedValue === "Parenteral") {
+            sekunderParenteral.style.display = "block";
+            enableInputs(sekunderParenteral);
         } else {
             sekunderLain.style.display = "block";
             enableInputs(sekunderLain);

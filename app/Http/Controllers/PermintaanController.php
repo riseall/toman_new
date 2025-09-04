@@ -71,7 +71,7 @@ class PermintaanController extends Controller
         //    Semua kolom yang mungkin ada di tabel Permintaan harus ada di sini,
         //    dengan status 'nullable' jika tidak selalu required.
         $rules = [
-            'req_name' => 'required|in:Tablet,Kapsul,Parental,Cairan,Powder,Semisolid',
+            'req_name' => 'required|in:Tablet,Kapsul,Parenteral,Cairan,Powder,Semisolid',
             'req_date' => 'required|date',
             'prod_name' => 'required|string|max:100',
             'act_ingredient' => 'required|string|max:100',
@@ -161,7 +161,7 @@ class PermintaanController extends Controller
                     'dissolusi' => 'nullable|string|max:50',
                 ]);
                 break;
-            case 'Parental':
+            case 'Parenteral':
                 $rules = array_merge($rules, [
                     'type' => 'nullable|string|max:50',
                     'package' => 'nullable|string|max:50',

@@ -15,7 +15,7 @@ class CreatePermintaansTable extends Migration
     {
         Schema::create('permintaan', function (Blueprint $table) {
             $table->id();
-            $table->enum('req_name', ['Tablet', 'Kapsul', 'Parental', 'Cairan', 'Powder', 'Semisolid']);
+            $table->enum('req_name', ['Tablet', 'Kapsul', 'Parenteral', 'Cairan', 'Powder', 'Semisolid']);
             $table->date('req_date');
             // $table->string('company_name', 100);
             // $table->string('company_address');

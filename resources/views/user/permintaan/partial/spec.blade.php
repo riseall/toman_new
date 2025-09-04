@@ -10,7 +10,7 @@
     <label for="light_sensitivity" class="form-label">Sensitif Cahaya</label>
     <input type="text" class="form-control" id="light_sensitivity" name="light_sensitivity">
 </div>
-<div id="parental-specific" style="display: none">
+<div id="parenteral-specific" style="display: none">
     <div class="mb-3">
         <label for="oxidation_sensitivity" class="form-label">Sensitif Oksidasi</label>
         <input type="text" class="form-control" id="oxidation_sensitivity" name="oxidation_sensitivity">
