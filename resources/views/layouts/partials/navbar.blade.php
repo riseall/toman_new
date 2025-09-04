@@ -78,9 +78,11 @@
                                 </span>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end bg-white shadow rounded border-0 mt-4 fs-7">
-                                <li>
-                                    <a href="#" class="dropdown-item">Profil</a>
-                                </li>
+                                @hasrole(['super_admin', 'admin_toti'])
+                                    <li>
+                                        <a href="{{ route('admin.dashboard') }}" class="dropdown-item">Dashboard</a>
+                                    </li>
+                                @endhasrole
                                 <li>
                                     <form action="{{ route('logout') }}" method="POST" class="d-inline">
                                         @csrf

@@ -14,44 +14,50 @@
 
         <div class="row">
             <div class="col-md-4 col-12 mt-5 pt-4">
-                <div class="features feature-primary text-center">
-                    <div class="image position-relative d-inline-block">
-                        <img src="{{ asset('images/logo/TMurni.png') }}" alt="Toll Murni" width="75">
-                    </div>
+                <a href="{{ route('toll_murni') }}" class="text-dark">
+                    <div class="features feature-primary text-center">
+                        <div class="image position-relative d-inline-block">
+                            <img src="{{ asset('images/logo/TMurni.png') }}" alt="Toll Murni" width="75">
+                        </div>
 
-                    <div class="content mt-4">
-                        <h5>Toll Murni</h5>
-                        <p class="text-muted mb-0">Menawarkan Jasa Toll Manufacturing dengan sistem Toll Murni.</p>
+                        <div class="content mt-4">
+                            <h5>Toll Murni</h5>
+                            <p class="text-muted mb-0">Menawarkan Jasa Toll Manufacturing dengan sistem Toll Murni.</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div><!--end col-->
 
             <div class="col-md-4 col-12 mt-5 pt-4">
-                <div class="features feature-primary text-center">
-                    <div class="image position-relative d-inline-block">
-                        <img src="{{ asset('images/logo/TBeli.png') }}" alt="Toll Beli" width="75">
-                    </div>
+                <a href="{{ route('toll_beli') }}" class="text-dark">
+                    <div class="features feature-primary text-center">
+                        <div class="image position-relative d-inline-block">
+                            <img src="{{ asset('images/logo/TBeli.png') }}" alt="Toll Beli" width="75">
+                        </div>
 
-                    <div class="content mt-4">
-                        <h5>Toll Beli</h5>
-                        <p class="text-muted mb-0">Menyediakan jasa Toll Manufacturing dengan sistem beli produk.
-                        </p>
+                        <div class="content mt-4">
+                            <h5>Toll Beli</h5>
+                            <p class="text-muted mb-0">Menyediakan jasa Toll Manufacturing dengan sistem beli produk.
+                            </p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div><!--end col-->
 
             <div class="col-md-4 col-12 mt-5 pt-4">
-                <div class="features feature-primary text-center">
-                    <div class="image position-relative d-inline-block">
-                        <img src="{{ asset('images/logo/Kalibrasi.png') }}" alt="Kalibrasi" width="75">
-                    </div>
+                <a href="{{ route('kalibrasi') }}" class="text-dark">
+                    <div class="features feature-primary text-center">
+                        <div class="image position-relative d-inline-block">
+                            <img src="{{ asset('images/logo/Kalibrasi.png') }}" alt="Kalibrasi" width="75">
+                        </div>
 
-                    <div class="content mt-4">
-                        <h5>Kalibrasi dan lain-lain</h5>
-                        <p class="text-muted mb-0">Menawarkan Jasa Kalibrasi untuk alat-alat pengukuran di
-                            perusahaan Anda.</p>
+                        <div class="content mt-4">
+                            <h5>Kalibrasi dan lain-lain</h5>
+                            <p class="text-muted mb-0">Menawarkan Jasa Kalibrasi untuk alat-alat pengukuran di
+                                perusahaan Anda.</p>
+                        </div>
                     </div>
-                </div>
+                </a>
             </div><!--end col-->
         </div><!--end row-->
     </div><!--end container-->

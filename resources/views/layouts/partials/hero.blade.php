@@ -13,15 +13,16 @@
                     <div class="bg-home zoom-image d-flex align-items-center">
                         <div class="bg-overlay image-wrap"
                             style="background-image:url('images/bg/phapros.jpg'); background-size: cover;"></div>
-                        <div class="bg-overlay opacity-5"></div>
+                        <div class="bg-overlay opacity-9"></div>
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
-                                    <div class="title-heading position-relative mt-5" style="z-index: 1;">
+                                    <div class="title-heading position-relative mt-5"
+                                        style="z-index: 1; text-shadow: -2px -1px black;">
                                         <h1 class="fw-bold display-4 mb-3 text-white title-dark">Toll Manufacturing
                                             <br>PT Phapros Tbk.
                                         </h1>
-                                        <p class="para-desc text-white-50">PT Phapros Tbk menawarkan peluang kerja sama
+                                        <p class="para-desc text-white-90">PT Phapros Tbk menawarkan peluang kerja sama
                                             dalam pembuatan produk Anda dengan memanfaatkan fasilitas produksi kami.</p>
                                         <div class="mt-4 pt-2">
                                             {{-- <a href="#!" class="btn btn-primary">Shop Now</a> --}}
