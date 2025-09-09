@@ -23,6 +23,25 @@ class UserController extends Controller
         return view('admin.user.index', compact('data', 'roles'));
     }
 
+    public function getUser()
+    {
+        $user = User::all();
+
+        $data = $user->map(function ($item, $index) {
+            return [
+                'id'          => $item->id,
+                'no'          => $index + 1,
+                'username' => $item->user->username ?? '-',
+                'name'   => ($item->user->first_name ?? '') . ' ' . ($item->user->last_name ?? ''),
+                'email'       => $item->user->email ?? '-',
+                'phone'       => $item->user->phone ?? '-',
+                'is_active'    => $item->user->is_active ?? '-',
+                'action'      => route('', $item->id),
+            ];
+        });
+        return response()->json(['data' => $data]);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
