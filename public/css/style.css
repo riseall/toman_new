@@ -7374,7 +7374,7 @@ body[data-layout-mode="dark"] .mode-light {
     gap: 2rem;
     padding: 1rem;
     white-space: nowrap;
-    animation: scroll 25s linear infinite;
+    animation: scroll 40s linear infinite;
 }
 
 /* Pause animasi saat kursor mouse di atasnya */
@@ -7395,7 +7395,7 @@ body[data-layout-mode="dark"] .mode-light {
 /* Styling untuk gambar sertifikat Anda (sesuaikan dengan desain Anda) */
 .client-logo {
     height: 6rem;
-    aspect-ratio: 3/2;
+    aspect-ratio: 4/2;
     object-fit: contain;
     background-blend-mode: color-burn;
 }
