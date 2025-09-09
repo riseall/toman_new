@@ -10,71 +10,23 @@
      <div class="row justify-content-center">
          <div class="col-lg-12 mt-4">
              <div class="tiny-four-item">
-                 <div class="tiny-slide">
-                     <div class="d-flex client-testi m-2">
-                         <div class="text-center border-0">
-                             <div class="card-body">
-                                 <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal">
-                                     <img src="{{ asset('images/bg/sertifikat_cpob.jpg') }}"
-                                         class="img-fluid rounded mb-4"
-                                         alt="Sertifikat CPOB Serbuk steril injeksi antibiotik penisillin &
-                                        turunannya">
-                                 </a>
-                                 <h6 class="title">Sertifikat CPOB Serbuk steril injeksi antibiotik penisillin &
-                                     turunannya</h6>
+                 @foreach ($certif as $cert)
+                     <div class="tiny-slide">
+                         <div class="d-flex client-testi m-2">
+                             <div class="text-center border-0">
+                                 <div class="card-body">
+                                     <a href="#" data-bs-toggle="modal" data-bs-target="#imageModal"
+                                         data-title="{{ $cert->name }}"
+                                         data-image="{{ asset('images/cert/' . $cert->image) }}">
+                                         <img src="{{ asset('images/cert/' . $cert->image) }}"
+                                             class="img-fluid rounded mb-4" alt="{{ $cert->name }}">
+                                     </a>
+                                     <h6 class="title">{{ $cert->name }}</h6>
+                                 </div>
                              </div>
                          </div>
                      </div>
-                 </div>
-                 <div class="tiny-slide">
-                     <div class="d-flex client-testi m-2">
-                         <div class="text-center border-0">
-                             <div class="card-body">
-                                 <img src="{{ asset('images/bg/sertifikat_cpob.jpg') }}" class="img-fluid rounded mb-4"
-                                     alt="Sertifikat CPOB Serbuk steril injeksi antibiotik penisillin &
-                                        turunannya">
-                                 <h6 class="title">Sertifikat CPOB Serbuk steril injeksi antibiotik penisillin &
-                                     turunannya</h6>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="tiny-slide">
-                     <div class="d-flex client-testi m-2">
-                         <div class="text-center border-0">
-                             <div class="card-body">
-                                 <img src="{{ asset('images/bg/sertifikat_cpob.jpg') }}" class="img-fluid rounded mb-4"
-                                     alt="">
-                                 <h6 class="title">Sertifikat CPOB Serbuk steril injeksi antibiotik penisillin &
-                                     turunannya</h6>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="tiny-slide">
-                     <div class="d-flex client-testi m-2">
-                         <div class="text-center border-0">
-                             <div class="card-body">
-                                 <img src="{{ asset('images/bg/sertifikat_cpob.jpg') }}" class="img-fluid rounded mb-4"
-                                     alt="">
-                                 <h6 class="title">Sertifikat CPOB Serbuk steril injeksi antibiotik penisillin &
-                                     turunannya</h6>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="tiny-slide">
-                     <div class="d-flex client-testi m-2">
-                         <div class="text-center border-0">
-                             <div class="card-body">
-                                 <img src="{{ asset('images/bg/sertifikat_cpob.jpg') }}" class="img-fluid rounded mb-4"
-                                     alt="">
-                                 <h6 class="title">Sertifikat CPOB Serbuk steril injeksi antibiotik penisillin &
-                                     turunannya</h6>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
+                 @endforeach
              </div>
          </div><!--end col-->
      </div><!--end row-->
@@ -94,3 +46,21 @@
          </div>
      </div>
  </div>
+
+ @push('scripts')
+     <script>
+         document.addEventListener('DOMContentLoaded', function() {
+             let imageModal = document.getElementById('imageModal');
+             imageModal.addEventListener('show.bs.modal', function(event) {
+                 let link = event.relatedTarget;
+                 let title = link.getAttribute('data-title');
+                 let image = link.getAttribute('data-image');
+                 let modalTitle = imageModal.querySelector('.modal-title');
+                 let modalImage = imageModal.querySelector('#modalImage');
+                 modalTitle.textContent = title;
+                 modalImage.src = image;
+                 modalImage.alt = title;
+             });
+         })
+     </script>
+ @endpush

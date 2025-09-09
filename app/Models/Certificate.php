@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kalibrasi extends Model
+class Certificate extends Model
 {
     use HasFactory;
 
-    protected $table = 'kalibrasi';
+    protected $table = 'certificates';
 
     protected $guarded = ['id'];
 }

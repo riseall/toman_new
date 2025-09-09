@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FasilitasProduksi;
 use App\Models\Permintaan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -19,7 +20,9 @@ class PermintaanController extends Controller
             return redirect()->route('login')->with('error', 'Anda harus login untuk melihat data ini.');
         }
 
-        return view('user.permintaan.index');
+        $fasilitas = FasilitasProduksi::all();
+
+        return view('user.permintaan.index', compact('fasilitas'));
     }
 
     public function getData()
@@ -71,6 +74,7 @@ class PermintaanController extends Controller
         //    Semua kolom yang mungkin ada di tabel Permintaan harus ada di sini,
         //    dengan status 'nullable' jika tidak selalu required.
         $rules = [
+            // 'dossage_id' => 'required|exists:fasilitas_produksi,id',
             'req_name' => 'required|in:Tablet,Kapsul,Parenteral,Cairan,Powder,Semisolid',
             'req_date' => 'required|date',
             'prod_name' => 'required|string|max:100',
@@ -254,6 +258,7 @@ class PermintaanController extends Controller
                 $validatedData[$field] = null;
             }
         }
+
 
         if (Auth::check()) {
             $validatedData['user_id'] = Auth::user()->id;

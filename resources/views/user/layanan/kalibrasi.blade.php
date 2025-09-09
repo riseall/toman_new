@@ -38,7 +38,7 @@
                     <div id="collapseOne" class="accordion-collapse border-0 collapse show" aria-labelledby="headingOne"
                         data-bs-parent="#accordionKAN">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -108,7 +108,7 @@
                     <div id="collapseOne1" class="accordion-collapse border-0 collapse" aria-labelledby="headingOne1"
                         data-bs-parent="#accordionKAN">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive" style="max-height: 400px; overflow-y: scroll;">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -252,7 +252,7 @@
                     <div id="collapseTwo" class="accordion-collapse border-0 collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionKAN">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -301,7 +301,7 @@
                     <div id="collapseThree" class="accordion-collapse border-0 collapse" aria-labelledby="headingThree"
                         data-bs-parent="#accordionKAN">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -356,7 +356,7 @@
                     <div id="collapseFour" class="accordion-collapse border-0 collapse" aria-labelledby="headingFour"
                         data-bs-parent="#accordionKAN">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -440,7 +440,7 @@
                     <div id="collapseFive" class="accordion-collapse border-0 collapse" aria-labelledby="headingFive"
                         data-bs-parent="#accordionKAN">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -491,7 +491,7 @@
                     <div id="collapseSix" class="accordion-collapse border-0 collapse" aria-labelledby="headingSix"
                         data-bs-parent="#accordionKAN">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -550,15 +550,15 @@
                 <div class="accordion-item rounded shadow-sm border wow animate__animated animate__fadeInUp"
                     data-wow-delay=".3s">
                     <h2 class="accordion-header" id="headingSatu">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
                             data-bs-target="#collapseSatu" aria-expanded="true" aria-controls="collapseSatu">
                             1. Suhu dan Kelembaban
                         </button>
                     </h2>
-                    <div id="collapseSatu" class="accordion-collapse border-0 collapse" aria-labelledby="headingSatu"
-                        data-bs-parent="#accordionNonKan">
+                    <div id="collapseSatu" class="accordion-collapse border-0 collapse show"
+                        aria-labelledby="headingSatu" data-bs-parent="#accordionNonKan">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -592,10 +592,11 @@
                                             <td>-30 °C ~ 400 °C</td>
                                         </tr>
                                         <tr>
-                                            <td rowspan="2">Climatic chamber</td>
+                                            <td>Climatic chamber</td>
                                             <td>10 °C ~ 50 °C</td>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td>10 %rH ~ 90 %rH</td>
                                         </tr>
                                     </tbody>
@@ -617,7 +618,7 @@
                     <div id="collapseDua" class="accordion-collapse border-0 collapse" aria-labelledby="headingDua"
                         data-bs-parent="#accordionNonKan">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -678,7 +679,7 @@
                     <div id="collapseTiga" class="accordion-collapse border-0 collapse" aria-labelledby="headingTiga"
                         data-bs-parent="#accordionNonKan">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive" style="max-height: 400px; overflow-y: scroll;">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -693,34 +694,39 @@
 
                                     <tbody>
                                         <tr>
-                                            <td rowspan="5">pH meter</td>
+                                            <td>pH meter</td>
                                             <td>2 pH</td>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td>4 pH</td>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td>7 pH</td>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td>9 pH</td>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td>12 pH</td>
                                         </tr>
                                         <tr>
                                             <td>HPLC</td>
-                                            <td>-</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
                                             <td>Disolusi tester</td>
-                                            <td>-</td>
+                                            <td></td>
                                         </tr>
                                         <tr>
-                                            <td rowspan="2">Conductivity meter</td>
+                                            <td>Conductivity meter</td>
                                             <td>5 µs/cm</td>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td>100 µs/cm</td>
                                         </tr>
                                         <tr>
@@ -736,10 +742,11 @@
                                             <td>1 g/cm³</td>
                                         </tr>
                                         <tr>
-                                            <td rowspan="2">Friability tester</td>
+                                            <td>Friability tester</td>
                                             <td>20 rpm ~ 40 rpm</td>
                                         </tr>
                                         <tr>
+                                            <td></td>
                                             <td>1 menit ~ 5 menit</td>
                                         </tr>
                                     </tbody>
@@ -761,7 +768,7 @@
                     <div id="collapseEmpat" class="accordion-collapse border-0 collapse" aria-labelledby="headingEmpat"
                         data-bs-parent="#accordionNonKan">
                         <div class="accordion-body text-muted">
-                            <div class="table-responsive shadow rounded-md">
+                            <div class="table-responsive">
                                 <table class="table mb-0 table-striped">
                                     <thead>
                                         <tr>
@@ -795,7 +802,7 @@
 
 
     <!-- CTA Start -->
-    @include('user.layanan.partials.cta')
+    @include('user.layanan.partials.cta_kalibrasi')
     <!-- CTA End -->
 
     <!-- Testimonial Start -->

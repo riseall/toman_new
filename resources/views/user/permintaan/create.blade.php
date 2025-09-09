@@ -93,25 +93,33 @@
 
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="req_name" class="form-label req-label">Jenis Permintaan</label>
-                                            <select class="form-select" id="req_name" name="req_name" required>
-                                                <option value="">Pilih Jenis Permintaan</option>
-                                                <option value="Tablet">Tablet</option>
-                                                <option value="Kapsul">Kapsul</option>
-                                                <option value="Parenteral">Parenteral</option>
-                                                <option value="Cairan">Cairan</option>
-                                                <option value="Powder">Powder</option>
-                                                <option value="Semisolid">Semisolid</option>
-                                            </select>
+                                            <label for="req_date" class="form-label req-label">Tanggal
+                                                Permintaan</label>
+                                            <input type="date" class="form-control" id="req_date" name="req_date"
+                                                required>
                                             <div class="invalid-feedback"></div>
                                         </div>
                                     </div>
+
                                     <div class="col-md-6">
                                         <div class="mb-3">
-                                            <label for="req_date" class="form-label req-label">Tanggal
+                                            <label for="req_name" class="form-label req-label">Jenis
                                                 Permintaan</label>
-                                            <input type="date" class="form-control" id="req_date"
-                                                name="req_date" required>
+                                            <select class="form-select fs-6" id="req_name" name="req_name" required>
+                                                <option value="">Pilih Jenis Permintaan</option>
+                                                @foreach ($fasilitas as $item)
+                                                    <option value="{{ $item->type }}">{{ $item->dosage_form }}
+                                                    </option>
+                                                    {{-- <option value="Tablet">Tablet</option>
+                                                    <option value="Kapsul">Kapsul</option>
+                                                    <option value="Parenteral">Parenteral</option>
+                                                    <option value="Cairan">Cairan</option>
+                                                    <option value="Powder">Powder</option>
+                                                    <option value="Semisolid">Semisolid</option> --}}
+                                                @endforeach
+                                                {{-- <input type="hidden" name="dossage_id" value="{{ $item->id }}"> --}}
+                                            </select>
+
                                             <div class="invalid-feedback"></div>
                                         </div>
                                     </div>
@@ -258,7 +266,8 @@
                 });
 
                 // ambil data dari form
-                let formData = $('#createPermintaan').serialize();
+                let formElement = document.getElementById("createPermintaan");
+                let formData = new FormData(formElement);
                 let url = "{{ route('permintaan.store') }}";
 
                 // kirim data ke server
@@ -266,7 +275,8 @@
                     url: url,
                     type: "POST",
                     data: formData,
-                    dataType: "json",
+                    processData: false,
+                    contentType: false,
                     success: function(response) {
                         Swal.fire({
                             icon: 'success',
@@ -296,7 +306,7 @@
                             // Tambahkan pesan error umum di atas
                             Swal.fire({
                                 icon: 'error',
-                                title: 'Validasi Gagal',
+                                title: 'Terjadi Kesalahan',
                                 text: 'Silakan periksa kembali data yang Anda masukkan.',
                             });
                         } else {
@@ -309,6 +319,11 @@
                     }
                 })
             })
+
+            $('#createPermintaan').on('input change', 'input, textarea, select', function() {
+                $(this).removeClass('is-invalid');
+                $(this).next('.invalid-feedback').html('');
+            });
         });
     </script>
 @endpush

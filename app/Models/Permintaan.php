@@ -33,4 +33,9 @@ class Permintaan extends Model
     {
         return $this->belongsTo(User::class, 'user_id', 'id');
     }
+
+    public function fasilitasProduksi()
+    {
+        return $this->belongsTo(FasilitasProduksi::class, 'dossage_id', 'id');
+    }
 }

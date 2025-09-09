@@ -4,9 +4,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FasilitasProduksiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,28 +28,18 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
-Route::group(['middleware' => ['role:super_admin']], function () {
+Route::group(['middleware' => ['role:super_admin|admin_toti']], function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
 // Route Layanan
-Route::get('/layanan/toll_murni', [FasilitasProduksiController::class, 'index'])->name('toll_murni');
-
-Route::get('/layanan/toll_beli', function () {
-    return view('user.layanan.toll_beli');
-})->name('toll_beli');
-
-Route::get('/layanan/kalibrasi', function () {
-    return view('user.layanan.kalibrasi');
-})->name('kalibrasi');
-
+Route::get('/layanan/toll_murni', [LayananController::class, 'getTollMurni'])->name('toll_murni');
+Route::get('/layanan/toll_beli', [LayananController::class, 'getTollBeli'])->name('toll_beli');
+Route::get('/layanan/kalibrasi', [LayananController::class, 'getKalibrasi'])->name('kalibrasi');
+Route::post('/layanan/kalibrasi/add', [LayananController::class, 'storeKalibrasi'])->name('kalibrasi.store');
 
 // Route Untuk Admin (User)
-Route::resource('user', 'App\Http\Controllers\UserController');
+Route::resource('user', UserController::class)->except('show', 'edit', 'destroy');
 
 // Route untuk Admin (Product)
 Route::get('/product', [ProductController::class, 'showProduct'])->name('product.show');
@@ -66,8 +59,13 @@ Route::get('/kontak', [ContactController::class, 'index'])->name('kontak.index')
 Route::post('/kontak', [ContactController::class, 'store'])->name('kontak.store');
 
 // Route Untuk Portofolio
-Route::get('/porto', function () {
+Route::get('/portofolio', function () {
     return view('user.portofolio.porto');
 })->name('portofolio.index');
+
+// Route untuk Monitoring
+Route::get('/monitoring', function () {
+    return view('user.monitoring.pantau');
+})->name('monitoring.index');
 
 require __DIR__ . '/auth.php';

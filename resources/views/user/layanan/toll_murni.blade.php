@@ -17,7 +17,7 @@
 
         <div class="row justify-content-center">
             <div class="mt-4 d-flex flex-wrap gap-3 justify-content-center">
-                @foreach ($tollMurni as $item)
+                @foreach ($fasilitas as $item)
                     <div class="col-lg-4 col-md-3 col-8">
                         <div class="job-box job-primary candidate-list card rounded border-0 shadow h-100">
                             <div class="card-body d-flex align-items-center">
@@ -35,8 +35,7 @@
                                         @endphp
                                         <div class="col-lg-3 text-center">
                                             <img src="{{ asset('images/unit/' . ($icons[$item->unit] ?? 'toman2.png')) }}"
-                                                class="avatar avatar-small client-image rounded shadow"
-                                                alt="{{ $item->unit }}">
+                                                class="avatar avatar-small client-image rounded" alt="{{ $item->unit }}">
                                         </div>
                                         <div class="col-lg-9 p-0">
                                             <span class="text-dark h6 d-block m-0">{{ $item->dosage_form }}</span>
