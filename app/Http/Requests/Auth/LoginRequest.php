@@ -63,7 +63,7 @@ class LoginRequest extends FormRequest
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'username' => trans('auth.inactive'),
+                'username' => trans('Akun anda tidak aktif, silahkan hubungi admin'),
             ]);
         }
 
