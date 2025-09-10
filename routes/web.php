@@ -5,6 +5,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FasilitasProduksiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
@@ -64,8 +65,6 @@ Route::get('/portofolio', function () {
 })->name('portofolio.index');
 
 // Route untuk Monitoring
-Route::get('/monitoring', function () {
-    return view('user.monitoring.pantau');
-})->name('monitoring.index');
+Route::get('/monitoring', [MonitoringController::class, 'pantau'])->name('monitoring.index');
 
 require __DIR__ . '/auth.php';

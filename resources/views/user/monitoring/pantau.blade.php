@@ -108,56 +108,56 @@
 
     <div class="container mt-3">
         <div class="row justify-content-center">
-            <div class="accordion" id="accordionKAN">
-                <!-- Massa -->
-                <div class="accordion-item rounded shadow-sm border wow animate__animated animate__fadeInUp"
-                    data-wow-delay=".3s">
-                    <h2 class="accordion-header" id="headingOne">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            TI25-13 — Cefoperazone Sulbactam
-                        </button>
-                    </h2>
-                    <div id="collapseOne" class="accordion-collapse border-0 collapse show" aria-labelledby="headingOne"
-                        data-bs-parent="#accordionKAN">
-                        <div class="accordion-body text-muted">
-                            <!-- Timeline Dokumen -->
-                            <h6 class="fw-bold">Progress Dokumen</h6>
-                            <div class="stepper-wrapper" id="timeline-dokumen-1">
-                                <div class="stepper-item" data-step="1">
-                                    <div class="step-counter"><i class="uil uil-file-edit-alt fs-3"></i></div>
-                                    <div class="step-name">Form</div>
+            <div class="accordion" id="accordionMon">
+                @foreach ($dataTransaksi as $idx => $transaksi)
+                    @php
+                        $stepStatus = $transaksi->stepStatus ?? [];
+                        $totalProgress = $transaksi->totalProgress ?? 0;
+                        $stepper = [
+                            1 => ['icon' => 'mdi-file-document-edit-outline', 'name' => 'Administrasi'],
+                            2 => ['icon' => 'mdi-text-box-check-outline', 'name' => 'Audit'],
+                            3 => ['icon' => 'mdi-flask-round-bottom', 'name' => 'RnD'],
+                            4 => ['icon' => 'mdi-factory', 'name' => 'Produksi'],
+                            5 => ['icon' => 'mdi-rocket-launch-outline', 'name' => 'Invoice'],
+                        ];
+                    @endphp
+                    <div class="accordion-item rounded shadow-sm border wow animate__animated animate__fadeInUp mt-3"
+                        data-wow-delay=".3s">
+                        <h2 class="accordion-header" id="heading{{ $idx }}">
+                            <button class="accordion-button {{ $idx == 0 ? '' : 'collapsed' }}" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#collapse{{ $idx }}"
+                                aria-expanded="{{ $idx == 0 ? 'true' : 'false' }}"
+                                aria-controls="collapse{{ $idx }}">
+                                {{ $transaksi->pp_form_nbr }} — {{ $transaksi->pp_pt_desc }}
+                            </button>
+                        </h2>
+                        <div id="collapse{{ $idx }}"
+                            class="accordion-collapse border-0 collapse {{ $idx == 0 ? 'show' : '' }}"
+                            aria-labelledby="heading{{ $idx }}" data-bs-parent="#accordionMon">
+                            <div class="accordion-body text-muted">
+                                <!-- Timeline Dokumen -->
+                                <h6 class="fw-bold">Progress Dokumen</h6>
+                                <div class="stepper-wrapper" id="timeline-dokumen-{{ $idx }}">
+                                    @foreach ([1, 2, 3, 4, 5] as $i)
+                                        @php
+                                            $class = $stepStatus[$i] ?? '';
+                                        @endphp
+                                        <div class="stepper-item {{ $class }}" data-step="{{ $i }}">
+                                            <div class="step-counter"><i class="mdi {{ $stepper[$i]['icon'] }} fs-3"></i>
+                                            </div>
+                                            <div class="step-name">{{ $stepper[$i]['name'] }}</div>
+                                        </div>
+                                    @endforeach
                                 </div>
-                                <div class="stepper-item" data-step="2">
-                                    <div class="step-counter"><i class="uil uil-suitcase fs-3"></i></div>
-                                    <div class="step-name">Nego</div>
+                                <div class="progress mb-4" style="height: 20px;">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                                        id="progress-dokumen-{{ $idx }}" style="width: {{ $totalProgress }}%;">
+                                        {{ $totalProgress }}%
+                                    </div>
                                 </div>
-                                <div class="stepper-item" data-step="3">
-                                    <div class="step-counter"><i class="uil uil-file-copy-alt fs-3"></i></div>
-                                    <div class="step-name">Agreement</div>
-                                </div>
-                                {{-- <div class="stepper-item" data-step="4">
-                                    <div class="step-counter"><i class="mdi mdi-transfer fs-3"></i></div>
-                                    <div class="step-name">Trans - Tech</div>
-                                </div> --}}
-                                <div class="stepper-item" data-step="4">
-                                    <div class="step-counter"><i class="uil uil-clipboard-notes fs-3"></i></div>
-                                    <div class="step-name">Registrasi</div>
-                                </div>
-                                <div class="stepper-item" data-step="5">
-                                    <div class="step-counter"><i class="mdi mdi-rocket-launch-outline fs-3"></i></div>
-                                    <div class="step-name">Komersial</div>
-                                </div>
-                            </div>
-                            <div class="progress mb-4" style="height: 20px;">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                                    id="progress-dokumen-1" style="width: 0%;">
-                                    0%
-                                </div>
-                            </div>
 
-                            <!-- Timeline Produk (hidden dulu) -->
-                            <div id="produk-section-1" class="hidden-section">
+                                <!-- Timeline Produk (hidden dulu) -->
+                                {{-- <div id="produk-section-1" class="hidden-section">
                                 <h6 class="fw-bold">Progress Produk</h6>
                                 <div class="stepper-wrapper" id="timeline-produk-1">
                                     <div class="stepper-item" data-step="1">
@@ -191,151 +191,22 @@
                                         0%
                                     </div>
                                 </div>
+                            </div> --}}
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="accordion mt-4" id="accordion2">
-                <!-- Massa -->
-                <div class="accordion-item rounded shadow-sm border wow animate__animated animate__fadeInUp"
-                    data-wow-delay=".3s">
-                    <h2 class="accordion-header" id="heading2">
-                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
-                            data-bs-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
-                            TI25-13 — Cefoperazone Sulbactam
-                        </button>
-                    </h2>
-                    <div id="collapse2" class="accordion-collapse border-0 collapse show" aria-labelledby="heading2"
-                        data-bs-parent="#accordion2">
-                        <div class="accordion-body text-muted">
-                            <!-- Timeline Dokumen -->
-                            <h6 class="fw-bold">Progress Dokumen</h6>
-                            <div class="stepper-wrapper" id="timeline-dokumen-1">
-                                <div class="stepper-item" data-step="1">
-                                    <div class="step-counter"><i class="uil uil-file-edit-alt fs-3"></i></div>
-                                    <div class="step-name">Form</div>
-                                </div>
-                                <div class="stepper-item" data-step="2">
-                                    <div class="step-counter"><i class="uil uil-suitcase fs-3"></i></div>
-                                    <div class="step-name">Nego</div>
-                                </div>
-                                <div class="stepper-item" data-step="3">
-                                    <div class="step-counter"><i class="uil uil-file-copy-alt fs-3"></i></div>
-                                    <div class="step-name">Agreement</div>
-                                </div>
-                                {{-- <div class="stepper-item" data-step="4">
-                                    <div class="step-counter"><i class="mdi mdi-transfer fs-3"></i></div>
-                                    <div class="step-name">Trans - Tech</div>
-                                </div> --}}
-                                <div class="stepper-item" data-step="4">
-                                    <div class="step-counter"><i class="uil uil-clipboard-notes fs-3"></i></div>
-                                    <div class="step-name">Registrasi</div>
-                                </div>
-                                <div class="stepper-item" data-step="5">
-                                    <div class="step-counter"><i class="mdi mdi-rocket-launch-outline fs-3"></i></div>
-                                    <div class="step-name">Komersial</div>
-                                </div>
-                            </div>
-                            <div class="progress mb-4" style="height: 20px;">
-                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                                    id="progress-dokumen-1" style="width: 0%;">
-                                    0%
-                                </div>
-                            </div>
-
-                            <!-- Timeline Produk (hidden dulu) -->
-                            <div id="produk-section-1" class="hidden-section">
-                                <h6 class="fw-bold">Progress Produk</h6>
-                                <div class="stepper-wrapper" id="timeline-produk-1">
-                                    <div class="stepper-item" data-step="1">
-                                        <div class="step-counter"><span class="mdi mdi-scale fs-3"></span></div>
-                                        <div class="step-name">Timbang <br>(WOR)</div>
-                                    </div>
-                                    <div class="stepper-item" data-step="2">
-                                        <div class="step-counter"><span class="mdi mdi-cog-outline fs-3"></span></div>
-                                        <div class="step-name">Olah <br> (GPA)</div>
-                                    </div>
-                                    <div class="stepper-item" data-step="3">
-                                        <div class="step-counter">
-                                            <span class="mdi mdi-package-variant fs-3"></span>
-                                        </div>
-                                        <div class="step-name">Kemas <br> (GPM)</div>
-                                    </div>
-                                    <div class="stepper-item" data-step="4">
-                                        <div class="step-counter"><span
-                                                class="mdi mdi-checkbox-multiple-marked-outline fs-3"></span></div>
-                                        <div class="step-name">Quality Check <br> (GRR)</div>
-                                    </div>
-                                    <div class="stepper-item" data-step="5">
-                                        <div class="step-counter"><span class="mdi mdi-flask-plus-outline fs-3"></span>
-                                        </div>
-                                        <div class="step-name">Rilis <br> (GJT)</div>
-                                    </div>
-                                </div>
-                                <div class="progress" style="height: 20px;">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-info"
-                                        id="progress-produk-1" style="width: 0%;">
-                                        0%
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
+
+        <!-- PAGINATION START -->
+        <div class="row">
+            <div class="col-12 mt-4 pt-2">
+                <div class="pagination justify-content-center mb-0">
+                    {{ $dataTransaksi->links('pagination::bootstrap-4') }}
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
+        <!-- PAGINATION END -->
     </div>
-
-    <script>
-        function initTimeline(timelineId, progressId, produkSectionId, produkTimelineId, produkProgressId) {
-            const timeline = document.getElementById(timelineId);
-            const progress = document.getElementById(progressId);
-            const produkSection = document.getElementById(produkSectionId);
-            const steps = timeline.querySelectorAll(".stepper-item");
-
-            steps.forEach(step => {
-                step.addEventListener("click", () => {
-                    const stepNumber = parseInt(step.dataset.step);
-
-                    // Update status
-                    steps.forEach((s, idx) => {
-                        s.classList.remove("completed", "active");
-                        if (idx < stepNumber - 1) s.classList.add("completed");
-                        if (idx === stepNumber - 1) s.classList.add("active");
-                    });
-
-                    // Animasi progress bar
-                    const targetPercent = (stepNumber / steps.length) * 100;
-                    let current = parseInt(progress.style.width) || 0;
-                    clearInterval(progress.interval);
-
-                    progress.interval = setInterval(() => {
-                        if (current < targetPercent) {
-                            current++;
-                        } else if (current > targetPercent) {
-                            current--;
-                        } else {
-                            clearInterval(progress.interval);
-
-                            // Kalau dokumen sudah selesai (100%), tampilkan produk section
-                            if (targetPercent === 100 && produkSection) {
-                                produkSection.style.display = "block";
-                                if (!produkSection.dataset.init) {
-                                    initTimeline(produkTimelineId, produkProgressId);
-                                    produkSection.dataset.init = "true";
-                                }
-                            }
-                        }
-                        progress.style.width = current + "%";
-                        progress.innerText = current + "%";
-                    }, 15);
-                });
-            });
-        }
-
-        // Inisialisasi Permintaan 1
-        initTimeline("timeline-dokumen-1", "progress-dokumen-1", "produk-section-1", "timeline-produk-1",
-            "progress-produk-1");
-    </script>
 @endsection
