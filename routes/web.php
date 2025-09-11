@@ -40,7 +40,8 @@ Route::get('/layanan/kalibrasi', [LayananController::class, 'getKalibrasi'])->na
 Route::post('/layanan/kalibrasi/add', [LayananController::class, 'storeKalibrasi'])->name('kalibrasi.store');
 
 // Route Untuk Admin (User)
-Route::resource('user', UserController::class)->except('show', 'edit', 'destroy');
+Route::resource('user', UserController::class)->except('show', 'destroy');
+Route::get('/user/data', [UserController::class, 'getUser'])->name('user.data');
 
 // Route untuk Admin (Product)
 Route::get('/product', [ProductController::class, 'showProduct'])->name('product.show');

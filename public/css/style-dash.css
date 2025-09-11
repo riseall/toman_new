@@ -905,7 +905,7 @@ footer .footer-list li:last-child {
 }
 
 .form-control {
-    border: 1px solid #e9ecef;
+    border: 1px solid #c9c9c9;
     font-size: 14px;
     line-height: 26px;
     border-radius: 6px;
@@ -924,19 +924,19 @@ footer .footer-list li:last-child {
     background-color: #dee2e6;
 }
 .form-control::-webkit-input-placeholder {
-    color: #3c4858;
+    color: #adb5bd;
 }
 .form-control::-moz-placeholder {
-    color: #3c4858;
+    color: #adb5bd;
 }
 .form-control:-ms-input-placeholder {
-    color: #3c4858;
+    color: #adb5bd;
 }
 .form-control::-ms-input-placeholder {
-    color: #3c4858;
+    color: #adb5bd;
 }
 .form-control::placeholder {
-    color: #3c4858;
+    color: #adb5bd;
 }
 
 .form-check-input {

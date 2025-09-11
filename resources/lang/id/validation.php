@@ -199,6 +199,10 @@ return [
         'certif_name' => 'Nama Pemilik Alat pada Sertifikat',
         'certif_no' => 'No. Akreditasi KAN',
         'certif_address' => 'Alamat Pemilik Alat pada Sertifikat',
+        'first_name' => 'Nama Depan',
+        'last_name' => 'Nama Belakang',
+        'phone' => 'Telepon',
+        'entity_code' => 'Perusahaan',
     ],
 
 ];

@@ -3,119 +3,122 @@
 ])
 @section('content')
     <div class="row justify-content-center">
-        <div class="card p-4  shadow-lg rounded-md">
-            <h4 class="mb-3">Data Permintaan</h4>
+        <div class="col-xl-12">
+            <div class="card p-4 shadow-lg rounded-md">
+                <div class="row">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6 class="mb-0 fw-bold">Data User</h6>
 
-            <div class="col-12">
-                <!-- Button trigger modal Add -->
-                <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#addUser">
-                    Tambah User
-                </button>
-                <!-- Modal Add-->
-                <div class="modal fade" id="addUser" tabindex="-1" aria-labelledby="addUserLabel" aria-hidden="true">
-                    @include('admin.user.create')
+                        <div class="mb-0 position-relative">
+                            <button type="button" class="btn btn-primary fs-7" data-bs-toggle="modal"
+                                data-bs-target="#addUserModal"> Tambah User
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="table table-nowrap table-striped table-hover w-100" id="userTable">
+                            <thead>
+                                <th>No</th>
+                                <th>Username</th>
+                                <th>Nama</th>
+                                <th>Email</th>
+                                <th>Telp / HP / WA</th>
+                                <th>Role</th>
+                                <th>Perusahaan</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </thead>
+                        </table>
+                    </div>
                 </div>
             </div>
+            <!-- Modal Add-->
+            <div class="modal fade" id="addUserModal" data-backdrop="static" tabindex="-1" aria-labelledby="addUserLabel"
+                aria-hidden="true">
+                @include('admin.user.create')
+            </div>
+            <!-- Modal Update -->
+            <div class="modal fade" id="updateUserModal" tabindex="-1" aria-labelledby="updateUserModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                    <div class="modal-content" id="updateUserContent">
 
-            <div class="table-responsive">
-                <table class="table table-nowrap table-striped table-hover" id="userTable">
-                    <thead class="table-primary">
-                        <th>No</th>
-                        <th>Username</th>
-                        <th>Nama</th>
-                        <th>Email</th>
-                        <th>Telp / HP / WA</th>
-                        <th>Status</th>
-                        <th>Aksi</th>
-                    </thead>
-                    <tbody>
-                        @foreach ($data as $dt)
-                            <tr>
-                                <td>{{ $loop->iteration }}.</td>
-                                <td>{{ $dt->username }}</td>
-                                <td>{{ $dt->first_name }} {{ $dt->last_name }}</td>
-                                <td>{{ $dt->email }}</td>
-                                <td>{{ $dt->phone }}</td>
-                                <td class="text-center">
-                                    @if ($dt->is_active)
-                                        <span class="badge bg-success">Aktif</span>
-                                    @else
-                                        <span class="badge bg-danger">Tidak Aktif</span>
-                                    @endif
-                                </td>
-                                <td class="text-center">
-                                    <!-- Tombol Edit-->
-                                    <button class="btn btn-warning" data-bs-toggle="modal"
-                                        data-bs-target="#updateUser{{ $dt->id }}">Edit</button>
-                                </td>
-                            </tr>
-
-                            <!-- Modal Update -->
-                            <div class="modal fade" id="updateUser{{ $dt->id }}" tabindex="-1"
-                                aria-labelledby="updateUserLabel{{ $dt->id }}" aria-hidden="true">
-                                @include('admin.user.update', [
-                                    'user' => $dt,
-                                    'roles' => $roles,
-                                    'userRole' => $dt->roles->first() ? $dt->roles->first()->name : null,
-                                ])
-                            </div>
-                        @endforeach
-                    </tbody>
-                </table>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 @endsection
 
-{{-- @push('scripts')
+@push('scripts')
     <script>
         $(function() {
             $('#userTable').DataTable({
                 processing: true,
+                serverSide: false,
                 ajax: "{{ route('user.data') }}",
                 columns: [{
-                        data: null,
-                        render: function(data, type, row, meta) {
-                            return meta.row + 1; // auto numbering
-                        },
+                        data: 'no',
                         className: 'text-center'
                     },
                     {
-                        data: 'entity_name',
-                        defaultContent: '-'
+                        data: 'username',
                     },
                     {
-                        data: 'req_date',
-                        defaultContent: '-'
-                    },
-                    {
-                        data: 'user_name',
-                        defaultContent: '-'
+                        data: 'name',
                     },
                     {
                         data: 'email',
-                        defaultContent: '-'
                     },
                     {
                         data: 'phone',
-                        defaultContent: '-'
                     },
                     {
-                        data: 'req_name',
-                        defaultContent: '-',
-                        className: 'text-center'
+                        data: 'role',
                     },
                     {
-                        data: null,
+                        data: 'company',
+                    },
+                    {
+                        data: 'is_active',
                         className: 'text-center',
                         render: function(data) {
-                            return `<a href="/permintaan/${data.id}/pdf" target="_blank" class="btn btn-icon btn-info bg-gradient">
-                                <i class="uil uil-print"></i>
-                            </a>`;
+                            return data == 1 ?
+                                '<span class="badge rounded-pill bg-soft-success">Aktif</span>' :
+                                '<span class="badge rounded-pill bg-soft-danger">Tidak Aktif</span>';
                         }
                     },
+                    {
+                        data: 'id',
+                        className: 'text-center',
+                        render: function(id) {
+                            return `<button class="btn btn-icon btn-info btn-edit-user" data-id="${id}"><span class="mdi mdi-lead-pencil fs-4"></span></button>`;
+                        }
+                    }
                 ]
             });
         });
+
+        $(document).on('click', '.btn-edit-user', function() {
+            let userId = $(this).data('id');
+            let url = '/user/' + userId + '/edit';
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    $('#updateUserContent').html(response);
+                    $('#updateUserModal').modal('show');
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Gagal mengambil data user.',
+                    });
+                    console.error(xhr.responseText);
+                }
+            });
+        });
     </script>
-@endpush --}}
+@endpush

@@ -2,10 +2,9 @@
     <div class="header-bar d-flex justify-content-between">
         <div class="d-flex align-items-center">
             <a href="#" class="logo-icon me-3">
-                <img src="assets/images/logo-icon.png" height="30" class="small" alt="">
+                {{-- <img src="assets/images/logo-icon.png" height="30" class="small" alt=""> --}}
                 <span class="big">
-                    <img src="{{ asset('images/logo/logoPH.png') }}" height="40" class="logo-light-mode"
-                        alt="">
+                    <img src="{{ asset('images/logo/logoPH.png') }}" height="40" class="logo-light-mode" alt="">
                     <img src="{{ asset('images/logo/logoPHwht.png') }}" height="40" class="logo-dark-mode"
                         alt="">
                 </span>
