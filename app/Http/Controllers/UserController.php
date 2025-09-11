@@ -134,8 +134,8 @@ class UserController extends Controller
     public function edit(User $user)
     {
         /** @var \App\Models\User */
-        $user = Auth::user();
-        if ($user->hasRole('admin_toti')) {
+        $currentUser = Auth::user();
+        if ($currentUser->hasRole('admin_toti')) {
             $roles = Role::whereNotIn('name', ['super_admin', 'viewer'])->get();
         } else {
             $roles = Role::all();
