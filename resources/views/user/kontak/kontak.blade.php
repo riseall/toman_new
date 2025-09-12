@@ -19,7 +19,7 @@
 
         <div class="row justify-content-center">
             <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated"
+                <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated h-100"
                     data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
                     <div class="card-body">
                         <img src="{{ asset('/images/illustrator/factory.png') }}" class="avatar avatar-small mb-3"
@@ -37,7 +37,7 @@
 
 
             <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated"
+                <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated h-100"
                     data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
                     <div class="card-body">
                         <img src="{{ asset('/images/illustrator/office-building.png') }}" class="avatar avatar-small mb-3"
@@ -54,7 +54,7 @@
             </div><!--end col-->
 
             <div class="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-                <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated"
+                <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated h-100"
                     data-wow-delay=".7s" style="visibility: visible; animation-delay: 0.7s; animation-name: fadeInUp;">
                     <div class="card-body">
                         <img src="{{ asset('/images/illustrator/customer-service.png') }}" class="avatar avatar-small mb-3"
@@ -64,8 +64,9 @@
                             <span>Email :</span> <br>
                             <span>sales.toti@phapros.co.id</span> <br>
                             <span>salestoti.ph@gmail.com</span><br>
+                            <span>municka@phapros.co.id</span><br>
                             <span>Phone :</span>
-                            <span>(024) 76630021 ext.206</span>
+                            <span>085640536364</span>
                         </div>
                     </div>
                 </div>
@@ -212,10 +213,10 @@
 
     <div class="container mt-50">
         <div class="row">
-            <div class="card map map-height-three rounded map-gray border-0">
+            <div class="map map-height-three rounded map-gray border-0">
                 <iframe
                     src="https://maps.google.com/maps?q=Jl.+Simongan+No.131%2C+Bongsari%2C+Kec.+Semarang+Barat%2C+Kota+Semarang%2C+Jawa+Tengah+50148&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                    style="border:0" class="rounded" allowfullscreen></iframe>
+                    style="border:0" class="rounded w-100" allowfullscreen></iframe>
             </div>
         </div><!--end col-->
     </div>
