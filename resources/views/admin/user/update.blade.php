@@ -52,16 +52,32 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control">
-                        <div class="invalid-feedback"></div>
+                        <div class="input-group has-validation">
+                            <input type="password" name="password" id="password{{ $user->id }}" class="form-control"
+                                placeholder="Password" required>
+                            <span id="togglePassword"
+                                onclick="togglePassword('password{{ $user->id }}', 'eyeIcon{{ $user->id }}')"
+                                class="input-group-text bg-light text-muted border-1" style="cursor:pointer;">
+                                <span id="eyeIcon{{ $user->id }}" class="mdi mdi-eye-outline"></span>
+                            </span>
+                        </div>
+                        <div class="invalid-feedback" id="password-feedback"></div>
                     </div>
                 </div>
-
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                        <input type="password" name="password_confirmation" class="form-control">
-                        <div class="invalid-feedback"></div>
+                        <div class="input-group">
+                            <input type="password" name="password_confirmation"
+                                id="password_confirmation{{ $user->id }}" class="form-control"
+                                placeholder="Konfirmasi Password" required>
+                            <span id="togglePasswordConfirm"
+                                onclick="togglePassword('password_confirmation{{ $user->id }}', 'eyeIconConfirm{{ $user->id }}')"
+                                class="input-group-text bg-light text-muted border-1" style="cursor:pointer;">
+                                <span id="eyeIconConfirm{{ $user->id }}" class="mdi mdi-eye-outline"></span>
+                            </span>
+                        </div>
+                        <div class="invalid-feedback" id="password_confirmation-feedback"></div>
                     </div>
                 </div>
 

@@ -203,6 +203,11 @@ return [
         'last_name' => 'Nama Belakang',
         'phone' => 'Telepon',
         'entity_code' => 'Perusahaan',
+        'entity_name' => 'Nama Perusahaan',
+        'entity_email' => 'Email',
+        'entity_phone' => 'Telepon',
+        'entity_address_line_1' => 'Alamat',
+        'entity_kota' => 'Kota',
     ],
 
 ];

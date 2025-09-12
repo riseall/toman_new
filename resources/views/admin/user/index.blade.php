@@ -17,7 +17,7 @@
                     </div>
 
                     <div class="table-responsive">
-                        <table class="table table-nowrap table-striped table-hover w-100" id="userTable">
+                        <table class="table table-nowrap table-striped table-hover w-100 fs-7" id="userTable">
                             <thead>
                                 <th>No</th>
                                 <th>Username</th>
@@ -55,6 +55,9 @@
     <script>
         $(function() {
             $('#userTable').DataTable({
+                scrollX: true,
+                scrollY: "50vh",
+                scrollCollapse: true,
                 processing: true,
                 serverSide: false,
                 ajax: "{{ route('user.data') }}",
@@ -93,7 +96,7 @@
                         data: 'id',
                         className: 'text-center',
                         render: function(id) {
-                            return `<button class="btn btn-icon btn-info btn-edit-user" data-id="${id}"><span class="mdi mdi-lead-pencil fs-4"></span></button>`;
+                            return `<button class="btn btn-icon btn-info btn-edit-user" data-id="${id}"><span class="mdi mdi-lead-pencil fs-6"></span></button>`;
                         }
                     }
                 ]
