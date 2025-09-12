@@ -19,7 +19,7 @@
                 <div class="sidebar-submenu">
                     <ul>
                         <li><a href="{{ route('user.index') }}">User</a></li>
-                        <li><a href="">Company</a></li>
+                        <li><a href="{{ route('company.index') }}">Company</a></li>
                     </ul>
                 </div>
             </li>

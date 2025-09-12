@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FasilitasProduksiController;
 use App\Http\Controllers\HomeController;
@@ -42,6 +43,12 @@ Route::post('/layanan/kalibrasi/add', [LayananController::class, 'storeKalibrasi
 // Route Untuk Admin (User)
 Route::resource('user', UserController::class)->except('show', 'destroy');
 Route::get('/user/data', [UserController::class, 'getUser'])->name('user.data');
+
+// Route Untuk Admin (Company)
+Route::resource('company', CompanyController::class)->only('index', 'store');
+Route::get('/company/{entity_code}/edit', [CompanyController::class, 'edit'])->name('company.edit');
+Route::put('/company/{entity_code}', [CompanyController::class, 'update'])->name('company.update');
+Route::get('/company/data', [CompanyController::class, 'getCompany'])->name('company.data');
 
 // Route untuk Admin (Product)
 Route::get('/product', [ProductController::class, 'showProduct'])->name('product.show');
