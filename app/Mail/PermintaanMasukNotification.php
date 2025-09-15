@@ -38,6 +38,7 @@ class PermintaanMasukNotification extends Mailable
     {
         return $this->from(config('mail.from.address'), config('mail.from.name'))
             ->subject('Notifikasi: Permintaan Baru dari Website')
-            ->markdown('user.kontak.notifikasi');
+            ->markdown('user.kontak.notifikasi')
+            ->replyTo($this->contact->email, $this->contact->name);
     }
 }
