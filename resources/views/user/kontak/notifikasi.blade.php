@@ -9,7 +9,7 @@
     
 <tbody>
 <tr>
-<td style="padding: 48px 24px 0; color: #161c2d; font-size: 18px; font-weight: 600;">Halo Admin,</td>
+<td style="padding: 48px 24px 0; color: #161c2d; font-size: 18px; font-weight: 600;">Halo, Admin.</td>
 </tr>
 <tr>
 <td style="padding: 15px 24px 15px; color: #8492a6;">Anda telah menerima permintaan baru dari <strong>{{ $contact->name }}</strong> - {{ $contact->company }}.

@@ -9,7 +9,7 @@
     <meta name="keywords" content="Jasa toll manufacturing [obat, tablet, kapsul], Manufaktur toll, Phapros, Pabrik toll">
 
     <!-- favicon -->
-    <link rel="shortcut icon" href="{{ asset('images/toman.png') }}">
+    <link rel="shortcut icon" href="{{ asset('images/logo/toman.png') }}">
 
     <!-- Css -->
     <!-- Bootstrap Css -->
@@ -32,5 +32,8 @@
     <!--end::Main-->
 </body>
 <!--end::Body-->
+<script src="{{ asset('js/jquery.js') }}"></script>
+<script src="{{ asset('js/sweetalert.js') }}"></script>
+<script src="{{ asset('js/login-general.js') }}"></script>
 
 </html>
