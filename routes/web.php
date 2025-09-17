@@ -70,7 +70,9 @@ Route::get('/portofolio', function () {
     return view('user.portofolio.porto');
 })->name('portofolio.index');
 
-// Route untuk Monitoring
-Route::get('/monitoring', [MonitoringController::class, 'pantau'])->name('monitoring.index');
+// Route untuk Alur Maklon
+Route::get('/alur', function () {
+    return view('user.alur.index');
+})->name('alur.index');
 
 require __DIR__ . '/auth.php';

@@ -38,7 +38,7 @@
         <div class="row justify-content-center">
             <div class="d-flex flex-wrap">
                 @foreach ($product as $prod)
-                    <div class="col-lg-3 col-md-6 col-12 spacing picture-item" {{-- data-groups='["branding"]' --}} style="cursor: pointer">
+                    {{-- <div class="col-lg-3 col-md-6 col-12 spacing picture-item" style="cursor: pointer">
                         <a data-bs-toggle="modal" data-bs-target="#productModal" data-batch="{{ $prod->prod_bets_size }}"
                             data-exp="{{ $prod->prod_exp_yr }}" data-pcg="{{ $prod->prod_package }}">
                             <div class="border-0 work-container work-primary work-classic">
@@ -50,6 +50,25 @@
                                             <h5 class="mb-1">{{ $prod->prod_name }}</h5>
                                             <h6 class="text-muted tag mb-0">{{ $prod->prod_package }}</h6>
                                         </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div> --}}
+
+                    <div class="col-lg-3 col-md-6 col-12 spacing picture-item" style="cursor: pointer" {{-- data-groups='["branding"]' --}}>
+                        <a data-bs-toggle="modal" data-bs-target="#productModal" data-batch="{{ $prod->prod_bets_size }}"
+                            data-exp="{{ $prod->prod_exp_yr }}" data-pcg="{{ $prod->prod_package }}">
+                            <div
+                                class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
+                                <div class="card-body p-0">
+                                    {{-- <a href="assets/images/work/5.jpg" class="lightbox d-inline-block" title=""> --}}
+                                    <img src="{{ asset('images/product/' . $prod->prod_img) }}" class="img-fluid"
+                                        alt="{{ $prod->prod_name }}">
+                                    {{-- </a> --}}
+                                    <div class="content p-3">
+                                        <h5 class="mb-1 text-primary title">{{ $prod->prod_name }}</h5>
+                                        <h6 class="text-muted tag mb-0">{{ $prod->prod_package }}</h6>
                                     </div>
                                 </div>
                             </div>

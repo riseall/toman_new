@@ -26,7 +26,7 @@
                     <div class="card-body">
                         <i class="uil uil-receipt-alt text-primary display-5"></i>
                         <h6 class="mt-2">Total Permintaan</h6>
-                        <span class="fs-4 fw-bold counter-value" data-target="120">0</span>
+                        <span class="fs-4 fw-bold counter-value" data-target="{{ $totalPermintaan }}">0</span>
                     </div>
                 </div>
             </div>
@@ -75,6 +75,10 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="container mt-50">
+        @include('user.monitoring.pantau')
     </div>
 
     @include('user.permintaan.create')

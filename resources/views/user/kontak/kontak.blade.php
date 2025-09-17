@@ -1,6 +1,8 @@
 @extends('layouts.app', [
     'title' => 'Kontak',
-    'desc' => '',
+    'desc' => 'Kami dengan senang hati akan membantu anda dalam setiap proses pembuatan produk anda, 
+Silakan hubungi kami melalui kontak di bawah ini untuk informasi lebih lanjut, kerja sama, atau konsultasi produk. Mari wujudkan produk dengan brand professional anda 
+',
 ])
 
 @section('bg', '807A0366.jpg')

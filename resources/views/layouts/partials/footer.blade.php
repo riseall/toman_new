@@ -39,10 +39,13 @@
                                             class="uil uil-angle-right-b me-1"></i> Layanan</a></li>
                                 <li><a href="{{ route('portofolio.index') }}" class="text-foot"><i
                                             class="uil uil-angle-right-b me-1"></i> Portofolio</a></li>
-                                <li><a href="{{ route('permintaan.index') }}" class="text-foot"><i
-                                            class="uil uil-angle-right-b me-1"></i> Permintaan</a></li>
-                                <li><a href="{{ route('monitoring.index') }}" class="text-foot"><i
-                                            class="uil uil-angle-right-b me-1"></i> Monitoring</a></li>
+                                <li><a href="{{ route('alur.index') }}" class="text-foot"><i
+                                            class="uil uil-angle-right-b me-1"></i> Alur
+                                        Maklon</a></li>
+                                @auth
+                                    <li><a href="{{ route('permintaan.index') }}" class="text-foot"><i
+                                                class="uil uil-angle-right-b me-1"></i> Permintaan</a></li>
+                                @endauth
                                 <li><a href="{{ route('kontak.index') }}" class="text-foot"><i
                                             class="uil uil-angle-right-b me-1"></i> Kontak</a></li>
                             </ul>

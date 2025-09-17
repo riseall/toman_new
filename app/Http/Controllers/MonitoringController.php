@@ -67,6 +67,6 @@ class MonitoringController extends Controller
             $transaksi->stepStatus = $stepStatus;
             $transaksi->totalProgress = $totalProgress;
         }
-        return view('user.monitoring.pantau', compact('dataTransaksi'));
+        return view('user.permintaan.index', compact('dataTransaksi'));
     }
 }
