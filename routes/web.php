@@ -51,10 +51,8 @@ Route::put('/company/{entity_code}', [CompanyController::class, 'update'])->name
 Route::get('/company/data', [CompanyController::class, 'getCompany'])->name('company.data');
 
 // Route untuk Admin (Product)
-Route::get('/product', [ProductController::class, 'showProduct'])->name('product.show');
-Route::post('/product/add', [ProductController::class, 'storeProduct'])->name('product.add');
-Route::put('/product/update/{id}', [ProductController::class, 'updateProduct'])->name('product.update');
-Route::delete('/product/{id}', [ProductController::class, 'deleteProduct'])->name('product.destroy');
+Route::resource('product', ProductController::class)->only('index', 'store', 'edit', 'update');
+Route::get('/product/data', [ProductController::class, 'getProduct'])->name('product.data');
 
 // Route untuk Permintaan
 Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
