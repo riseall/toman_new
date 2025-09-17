@@ -1,96 +1,210 @@
-<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-        <div class="modal-header">
-            <h5 class="modal-title" id="addUserLabel">Tambah User</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+    <div class="modal-content rounded shadow border-0">
+        <div class="modal-header border-bottom">
+            <h5 class="modal-title fw-bold" id="addUserLabel">Tambah User</h5>
+            <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                    class="uil uil-times fs-4 text-dark"></i></button>
         </div>
         <div class="modal-body">
             <div class="container">
-                <h2>Buat User Baru</h2>
-                <form action="{{ route('user.store') }}" method="POST">
+                <form action="{{ route('user.store') }}" method="POST" id="addUserForm">
                     @csrf
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="first_name" class="form-label">Nama Depan</label>
+                                <input type="text" name="first_name" id="first_name" class="form-select"
+                                    placeholder="Nama Depan" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="last_name" class="form-label">Nama Belakang</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control"
+                                    placeholder="Nama Belakang" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
 
-                    <div class="mb-3">
-                        <label for="username" class="form-label">Username</label>
-                        <input type="text" name="username" class="form-control" value="{{ old('username') }}"
-                            required maxlength="20">
-                        @error('username')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input type="text" name="username" id="username" class="form-control"
+                                    placeholder="Username" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" name="email" id="email" class="form-control"
+                                    placeholder="Email" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Telepon</label>
+                                <input type="text" name="phone" id="phone" class="form-control"
+                                    placeholder="Telepon" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <input type="password" name="password" id="password" class="form-control"
+                                        placeholder="Password" required>
+                                    <span id="togglePassword" onclick="togglePassword('password', 'eyeIcon')"
+                                        class="input-group-text bg-light text-muted border-1" style="cursor:pointer;">
+                                        <span id="eyeIcon" class="mdi mdi-eye-outline"></span>
+                                    </span>
+                                </div>
+                                <div class="invalid-feedback" id="password-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
+                                <div class="input-group">
+                                    <input type="password" name="password_confirmation" id="password_confirmation"
+                                        class="form-control" placeholder="Konfirmasi Password" required>
+                                    <span id="togglePasswordConfirm"
+                                        onclick="togglePassword('password_confirmation', 'eyeIconConfirm')"
+                                        class="input-group-text bg-light text-muted border-1" style="cursor:pointer;">
+                                        <span id="eyeIconConfirm" class="mdi mdi-eye-outline"></span>
+                                    </span>
+                                </div>
+                                <div class="invalid-feedback" id="password_confirmation-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="role" class="form-label">Role:</label>
+                                <select class="form-select" id="role" name="role" required>
+                                    <option value="">-- Pilih Role --</option>
+                                    @foreach ($roles as $role)
+                                        <option value="{{ $role->name }}">{{ $role->name }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Perusahaan</label>
+                                <select name="entity_code" id="entity_code" class="form-select" required>
+                                    <option value="">-- Pilih Perusahaan --</option>
+                                    @foreach ($entities as $entity)
+                                        <option value="{{ $entity->entity_code }}">{{ $entity->entity_name }}</option>
+                                    @endforeach
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <label class="col-1 form-check-label" for="is_active">Active</label>
+                            <div class="col-2 form-check form-switch">
+                                <input type="hidden" name="is_active" value="0">
+                                <input type="checkbox" name="is_active" class="form-check-input" id="is_active"
+                                    value="1" checked>
+                            </div>
+                        </div>
                     </div>
-
-                    <div class="mb-3">
-                        <label for="first_name" class="form-label">Nama Depan</label>
-                        <input type="text" name="first_name" class="form-control" value="{{ old('first_name') }}"
-                            required>
-                        @error('first_name')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="last_name" class="form-label">Nama Belakang</label>
-                        <input type="text" name="last_name" class="form-control" value="{{ old('last_name') }}"
-                            required>
-                        @error('last_name')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="email" class="form-label">Email</label>
-                        <input type="email" name="email" class="form-control" value="{{ old('email') }}" required>
-                        @error('email')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="phone" class="form-label">Telepon</label>
-                        <input type="text" name="phone" class="form-control" value="{{ old('phone') }}" required>
-                        @error('phone')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="password" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control" required>
-                        @error('password')
-                            <div class="text-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="password_confirmation" class="form-label">Konfirmasi Password</label>
-                        <input type="password" name="password_confirmation" class="form-control" required>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="role" class="form-label">Role:</label>
-                        <select class="form-select @error('role') is-invalid @enderror" id="role" name="role">
-                            <option value="">-- Pilih Role --</option>
-                            @foreach ($roles as $role)
-                                <option value="{{ $role->name }}"
-                                    {{ old('role') == $role->name ? 'selected' : '' }}>
-                                    {{ $role->name }}
-                                </option>
-                            @endforeach
-                        </select>
-                        @error('role')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                        @enderror
-                    </div>
-
-                    <div class="form-check mb-3">
-                        <input type="checkbox" name="is_active" class="form-check-input" id="is_active" checked>
-                        <label class="form-check-label" for="is_active">Aktif</label>
-                    </div>
-
-                    <button type="submit" class="btn btn-success">Simpan</button>
-                    <a href="{{ route('user.index') }}" class="btn btn-secondary">Batal</a>
                 </form>
             </div>
         </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-soft-danger" data-bs-dismiss="modal">Batal</button>
+            <button type="submit" class="btn btn-success" id="saveUser">Simpan</button>
+        </div>
     </div>
 </div>
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            const addUserModal = $('#addUserModal');
+            const addUserForm = $('#addUserForm');
+
+            // Event Listener saat close modal
+            addUserModal.on('hidden.bs.modal', function() {
+                addUserForm[0].reset();
+                addUserForm.find('.is-invalid').removeClass('is-invalid');
+                addUserForm.find('.invalid-feedback').html('');
+            });
+
+            // Create Permintaan
+            $('#saveUser').click(function(e) {
+                e.preventDefault();
+
+                Swal.fire({
+                    title: 'Mohon Tunggu',
+                    allowOutsideClick: false,
+                    didOpen: () => {
+                        Swal.showLoading();
+                    }
+                });
+
+                // ambil data dari form
+                let formData = $('#addUserForm').serialize();
+                let url = "{{ route('user.store') }}";
+
+                // kirim data ke server
+                $.ajax({
+                    url: url,
+                    type: "POST",
+                    data: formData,
+                    dataType: "json",
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Berhasil!',
+                            text: response.success,
+                            showConfirmButton: false,
+                            timer: 1500,
+                            timerProgressBar: true
+                        }).then(() => {
+                            addUserModal.modal('hide');
+                            addUserModal.one('hidden.bs.modal', function() {
+                                $('#userTable').DataTable().ajax.reload(null,
+                                    false);
+                            });
+                        });
+                    },
+                    error: function(xhr) {
+                        Swal.close();
+
+                        if (xhr.status === 422) {
+                            let errors = xhr.responseJSON.errors;
+                            $.each(errors, function(key, value) {
+                                let inputField = $(`#${key}`);
+                                if (inputField.length) {
+                                    inputField.addClass('is-invalid');
+                                    inputField.next('.invalid-feedback').html(value[0]);
+                                }
+                            });
+                        } else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'Terjadi kesalahan saat menyimpan data.',
+                            });
+                        }
+                    }
+                })
+            })
+
+            $('#addUserForm').on('input change', 'input, textarea, select', function() {
+                $(this).removeClass('is-invalid');
+                $(this).next('.invalid-feedback').html('');
+            });
+        });
+    </script>
+@endpush

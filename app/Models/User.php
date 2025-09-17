@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Mail\ResetPasswordMail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
@@ -49,5 +51,20 @@ class User extends Authenticatable
     public function permintaans()
     {
         return $this->hasMany(Permintaan::class, 'user_id', 'id');
+    }
+
+    public function entity()
+    {
+        return $this->belongsTo(Company::class, 'entity_code', 'entity_code');
+    }
+
+    public function sendPasswordResetNotification($token)
+    {
+        $url = url(route('password.reset', [
+            'token' => $token,
+            'email' => $this->getEmailForPasswordReset(),
+        ], false));
+
+        Mail::to($this->email)->send(new ResetPasswordMail($url, $this));
     }
 }

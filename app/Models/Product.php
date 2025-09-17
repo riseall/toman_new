@@ -11,14 +11,8 @@ class Product extends Model
 
     protected $table = 'products';
 
-    protected $fillable = [
-        'prod_name',
-        'prod_bets_size',
-        'prod_exp_yr',
-        'prod_package',
-        'prod_is_active',
-    ];
-    
+    protected $guarded = ['id'];
+
     protected $casts = [
         'prod_is_active' => 'boolean',
     ];

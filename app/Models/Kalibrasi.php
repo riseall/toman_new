@@ -10,4 +10,6 @@ class Kalibrasi extends Model
     use HasFactory;
 
     protected $table = 'kalibrasi';
+
+    protected $guarded = ['id'];
 }

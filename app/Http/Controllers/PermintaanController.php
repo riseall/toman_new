@@ -2,37 +2,125 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\FasilitasProduksi;
+use App\Models\MonDetail;
+use App\Models\Monitoring;
 use App\Models\Permintaan;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
 
 class PermintaanController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         if (!Auth::check()) {
             return redirect()->route('login')->with('error', 'Anda harus login untuk melihat data ini.');
         }
-
         /** @var \App\Models\User */
         $user = Auth::user();
-        $loggedInUser = $user->id;
-        $userCompanyName = $user->entity_name;
-        $role = $user->role;
+        $userCompany = $user->entity_code;
+        $fasilitas = FasilitasProduksi::all();
         if ($user->hasRole([1, 2])) {
-            $permintaan = Permintaan::with('user')->get();
+            $totalPermintaan = Permintaan::count();
+            $dataTransaksi = Monitoring::orderBy('created_at', 'desc')->paginate(5);
         } else {
-            $permintaan = Permintaan::where('user_id', $loggedInUser)
-                ->whereHas('user', function ($query) use ($userCompanyName) {
-                    $query->where('entity_name', $userCompanyName);
+            // filter berdasarkan perusahaan
+            $totalPermintaan = Permintaan::with('user')->whereHas('user', function ($query) use ($userCompany) {
+                $query->where('entity_code', $userCompany);
+            })->count();
+            $dataTransaksi = Monitoring::where('pp_entity', $user->entity_code)->orderBy('created_at', 'desc')->paginate(5);
+        }
+
+        $stepMap = [
+            1 => 1,
+            2 => 1,
+            3 => 1,
+            4 => 1,
+            5 => 2,
+            6 => 3,
+            7 => 3,
+            8 => 4,
+            9 => 5,
+        ];
+
+        foreach ($dataTransaksi as $transaksi) {
+            $rows = MonDetail::where('pp_mstr_id', $transaksi->id)->get();
+
+            $stepData = [];
+            foreach ($rows as $row) {
+                $step = $stepMap[$row->ppd_sub];
+                $stepData[$step][] = $row;
+            }
+
+            $stepStatus = [];
+            $totalProgress = 0;
+            foreach ($stepData as $step => $items) {
+                $done = 0;
+                $stepProgress = 0;
+                foreach ($items as $item) {
+                    if ($item->ppd_date) {
+                        $done++;
+                        $stepProgress += $item->ppd_value / $item->ppd_det_step;
+                    }
+                }
+                if ($done == count($items)) {
+                    $stepStatus[$step] = 'completed';
+                } elseif ($done > 0) {
+                    $stepStatus[$step] = 'active';
+                } else {
+                    $stepStatus[$step] = '';
+                }
+                $totalProgress += $stepProgress;
+            }
+            $totalProgress = round($totalProgress, 2);
+
+            $transaksi->stepStatus = $stepStatus;
+            $transaksi->totalProgress = $totalProgress;
+        }
+
+        return view('user.permintaan.index', compact('fasilitas', 'totalPermintaan', 'dataTransaksi'));
+    }
+
+    public function getData()
+    {
+        /** @var \App\Models\User */
+        $user = Auth::user();
+        // $loggedInUser = $user->id;
+        $userCompany = $user->entity_code;
+
+        if ($user->hasRole([1, 2])) {
+            $permintaan = Permintaan::with('user.entity')->get();
+        } else {
+            // filter berdasarkan perusahaan
+            $permintaan = Permintaan::with('user.entity')
+                // ->where('user_id', $loggedInUser)
+                ->whereHas('user', function ($query) use ($userCompany) {
+                    $query->where('entity_code', $userCompany);
                 })
                 ->get();
         }
-        return view('user.permintaan.index', compact('permintaan'));
+
+        // hanya ambil field yang dibutuhkan
+        $data = $permintaan->map(function ($item, $index) {
+            return [
+                'id'          => $item->id,
+                'no'          => $index + 1,
+                'entity_name' => $item->user->entity->entity_name ?? '-',
+                'req_date'    => $item->req_date ?? '-',
+                'user_name'   => ($item->user->first_name ?? '') . ' ' . ($item->user->last_name ?? ''),
+                'email'       => $item->user->email ?? '-',
+                'phone'       => $item->user->phone ?? '-',
+                'req_name'    => $item->req_name ?? '-',
+                'action'      => route('permintaan.export_pdf', $item->id),
+            ];
+        });
+
+        return response()->json([
+            'data' => $data
+        ]);
     }
     public function create()
     {
@@ -45,7 +133,8 @@ class PermintaanController extends Controller
         //    Semua kolom yang mungkin ada di tabel Permintaan harus ada di sini,
         //    dengan status 'nullable' jika tidak selalu required.
         $rules = [
-            'req_name' => 'required|in:Tablet,Kapsul,Parental,Cairan,Powder,Semisolid',
+            // 'dossage_id' => 'required|exists:fasilitas_produksi,id',
+            'req_name' => 'required|in:Tablet,Kapsul,Parenteral,Cairan,Powder,Semisolid',
             'req_date' => 'required|date',
             'prod_name' => 'required|string|max:100',
             'act_ingredient' => 'required|string|max:100',
@@ -135,7 +224,7 @@ class PermintaanController extends Controller
                     'dissolusi' => 'nullable|string|max:50',
                 ]);
                 break;
-            case 'Parental':
+            case 'Parenteral':
                 $rules = array_merge($rules, [
                     'type' => 'nullable|string|max:50',
                     'package' => 'nullable|string|max:50',
@@ -186,7 +275,10 @@ class PermintaanController extends Controller
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator)->withInput();
+            return response()->json([
+                'status' => 'error',
+                'errors' => $validator->errors()
+            ], 422);
         }
 
         // Get validated data
@@ -226,6 +318,7 @@ class PermintaanController extends Controller
             }
         }
 
+
         if (Auth::check()) {
             $validatedData['user_id'] = Auth::user()->id;
         } else {
@@ -254,15 +347,19 @@ class PermintaanController extends Controller
 
         try {
             Permintaan::create($validatedData);
-
             DB::commit();
 
-            return redirect()->route('permintaan.index')->with('success', 'Permintaan Toll berhasil ditambahkan!');
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Permintaan Toll berhasil ditambahkan!'
+            ]);
         } catch (\Exception $e) {
             DB::rollBack();
 
-            Log::error('Error creating Permintaan: ' . $e->getMessage(), ['exception' => $e, 'validated_data' => $validatedData]);
-            return redirect()->back()->with('error', 'Gagal menambahkan Permintaan Toll. Silakan coba lagi. Pesan Error: ' . $e->getMessage())->withInput();
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage()
+            ], 500);
         }
     }
 }

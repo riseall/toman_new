@@ -3,11 +3,12 @@
     <tbody>
         <tr>
             <td>Nama Perusahaan</td>
-            <td>: {{ $permintaan->user->entity_name ?? '-' }}</td>
+            <td>: {{ $permintaan->user->entity->entity_name ?? '-' }}</td>
         </tr>
         <tr>
             <td>Alamat Perusahaan</td>
-            <td>: {{ $permintaan->user->company_address ?? '-' }}</td>
+            <td>: {{ $permintaan->user->entity->entity_address_line_1 }}
+                {{ $permintaan->user->entity->entity_address_line_2 ?? '' }}</td>
         </tr>
         <tr>
             <td>Nama PIC</td>
@@ -129,11 +130,11 @@
             </tr>
         </tbody>
     </table>
-@elseif ($permintaan->req_name === 'Parental')
+@elseif ($permintaan->req_name === 'Parenteral')
     <table>
         <tbody>
             <tr>
-                <td colspan="2"><b>Parental</b></td>
+                <td colspan="2"><b>Parenteral</b></td>
             </tr>
             <tr>
                 <td>Jenis</td>
@@ -296,7 +297,7 @@
             <td>- Sensitif Cahaya</td>
             <td>: {{ $permintaan->light_sensitivity ?? '-' }}</td>
         </tr>
-        @if ($permintaan->req_name === 'Parental')
+        @if ($permintaan->req_name === 'Parenteral')
             <tr>
                 <td>- Sensitivitas Oksidasi</td>
                 <td>: {{ $permintaan->oxidation_sensitivity ?? '-' }}</td>
@@ -322,7 +323,7 @@
                 <td>: {{ $permintaan->pmry_pkg_width ?? '-' }}</td>
             </tr>
         @elseif (
-            $permintaan->req_name === 'Parental' ||
+            $permintaan->req_name === 'Parenteral' ||
                 $permintaan->req_name === 'Cairan' ||
                 $permintaan->req_name === 'Powder' ||
                 $permintaan->req_name === 'Semisolid')
@@ -482,7 +483,7 @@
             <p>Jabatan : ...........................................</p>
         </td>
         <td>
-            <p>...........................................,
+            <p>.........................................................,
                 {{ \Carbon\Carbon::parse($permintaan->req_date)->format('d-m-Y') }}</p>
             <br>
             <p>Disetujui Oleh:<br><br><br><br><br>

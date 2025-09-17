@@ -1,177 +1,138 @@
-@extends('layouts.app')
+@extends('layouts.app', [
+    'title' => 'Permintaan',
+    'desc' => '',
+])
+@section('bg', '807A0494.jpg')
 @section('content')
-    <style>
-        .specific-fields {
-            display: none;
-            /* Sembunyikan semua secara default */
-            border: 1px solid #ddd;
-            padding: 1.5rem;
-            margin-top: 1rem;
-            border-radius: 8px;
-            background-color: #f9f9f9;
-        }
-
-        .req-label::after {
-            content: '*';
-            color: red;
-            font-size: .9em;
-            font-weight: normal;
-        }
-    </style>
     <div class="container">
-        <h1>Riwayat Permintaan</h1>
-
-        @include('user.partial.alert')
-
-        <a href="{{ route('permintaan.create') }}" class="btn btn-primary">Tambah Permintaan</a>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Perusahaan</th>
-                    <th scope="col">Tanggal Permohonan</th>
-                    <th scope="col">PIC</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Telp / HP / WA</th>
-                    <th scope="col">Jenis Permintaan</th>
-                    <th scope="col">Cetak</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($permintaan as $item)
-                    <tr>
-                        <th scope="row">{{ $loop->iteration }}</th>
-                        <td>{{ $item->user->entity_name }}</td>
-                        <td>{{ $item->req_date }}</td>
-                        <td>{{ $item->user->first_name }} {{ $item->user->last_name }}</td>
-                        <td>{{ $item->user->email }}</td>
-                        <td>{{ $item->user->phone }}</td>
-                        <td>{{ $item->req_name }}</td>
-                        <td>
-                            <a href="{{ route('permintaan.export_pdf', $item->id) }}" target="_blank"
-                                class="btn btn-warning"><img src="{{ asset('icon/cetak.svg') }}" alt="Cetak"></a>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <div class="section-title pb-2">
+                    <h3 class="title mt-3 mb-3">Riwayat Permintaan</h3>
+                    <p class="text-muted mx-auto para-desc mb-0">Pantau semua transaksi permintaan Anda dengan mudah dan
+                        cepat.</p>
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#permintaanForm" class="btn btn-primary mt-3">
+                        <i class="uil uil-file-plus-alt"></i> Buat Permintaan Baru
+                    </a>
+                </div>
+            </div><!--end col-->
+        </div><!--end row-->
     </div>
 
+    <div class="container">
+        <div class="row justify-content-between">
+            <div class="col-lg-4 col-md-6 col-12 mt-4">
+                <div class="card pricing pricing-primary business-rate text-center border-0 rounded shadow-sm">
+                    <div class="card-body">
+                        <i class="uil uil-receipt-alt text-primary display-5"></i>
+                        <h6 class="mt-2">Total Permintaan</h6>
+                        <span class="fs-4 fw-bold counter-value" data-target="{{ $totalPermintaan }}">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mt-4">
+                <div class="card pricing pricing-warning business-rate text-center border-0 rounded shadow-sm">
+                    <div class="card-body">
+                        <i class="uil uil-hourglass text-warning display-5"></i>
+                        <h6 class="mt-2">Diproses</h6>
+                        <span class="fs-4 fw-bold counter-value" data-target="25">0</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 col-12 mt-4">
+                <div class="card pricing pricing-success business-rate text-center border-0 rounded shadow-sm">
+                    <div class="card-body">
+                        <span class="mdi mdi-checkbox-marked-circle-outline text-success display-5"></span>
+                        <h6 class="mt-2">Selesai</h6>
+                        <span class="fs-4 fw-bold counter-value" data-target="95">0</span>
+                    </div>
+                </div>
+            </div>
+        </div><!--end row-->
+    </div>
+
+    <div class="container mt-50">
+
+        {{-- <a href="{{ route('permintaan.create') }}" class="btn btn-primary">Tambah Permintaan</a> --}}
+        <div class="row justify-content-center">
+            <div class="card p-4  shadow-lg rounded-md">
+                <h4 class="mb-3">Data Permintaan</h4>
+                <div class="table-responsive">
+                    <table class="table mb-0 table-nowrap table-striped table-hover" id="permintaanTable">
+                        <thead>
+                            <tr class="fw-medium">
+                                <th>No.</th>
+                                <th>Perusahaan</th>
+                                <th>Tanggal Permohonan</th>
+                                <th>PIC</th>
+                                <th>Email</th>
+                                <th>Telp / HP / WA</th>
+                                <th>Jenis Permintaan</th>
+                                <th>Cetak</th>
+                            </tr>
+                        </thead>
+                    </table><!--end table-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-50">
+        @include('user.monitoring.pantau')
+    </div>
+
+    @include('user.permintaan.create')
+@endsection
+
+@push('scripts')
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Mengambil elemen yang diperlukan dari DOM
-            const reqNameSelect = document.getElementById('req_name');
-            const dynamicContainer = document.getElementById('dynamic-form');
-            const specificForms = document.querySelectorAll(
-                '.form-specific'); // Gunakan nama yang lebih jelas: specificForms
-            const parentalSpecific = document.getElementById('parental-specific');
-            const primerTabKapSpecific = document.getElementById('primer-tablet-kapsul');
-            const primerLainSpecific = document.getElementById('primer-lainnya');
-            const sekunderParental = document.getElementById('skndr-parental');
-            const sekunderLain = document.getElementById('skndr-lainnya');
-            const privacyPolicy = document.getElementById('privacy-policy');
-            const submitButton = document.getElementById(
-                'submit'); // Mengganti 'submit' dengan 'submitButton' untuk menghindari konflik nama
-
-            // Atur status awal tombol submit
-            submitButton.disabled = !privacyPolicy.checked;
-
-            // Event listener untuk checkbox privacy policy
-            privacyPolicy.addEventListener('change', function() {
-                submitButton.disabled = !this.checked;
+        $(function() {
+            $('#permintaanTable').DataTable({
+                processing: true,
+                ajax: "{{ route('permintaan.data') }}",
+                columns: [{
+                        data: null,
+                        render: function(data, type, row, meta) {
+                            return meta.row + 1; // auto numbering
+                        },
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'entity_name',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'req_date',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'user_name',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'email',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'phone',
+                        defaultContent: '-'
+                    },
+                    {
+                        data: 'req_name',
+                        defaultContent: '-',
+                        className: 'text-center'
+                    },
+                    {
+                        data: null,
+                        className: 'text-center',
+                        render: function(data) {
+                            return `<a href="/permintaan/${data.id}/pdf" target="_blank" class="btn btn-icon btn-info bg-gradient">
+                                <i class="uil uil-print"></i>
+                            </a>`;
+                        }
+                    },
+                ]
             });
-
-            // Fungsi untuk mengosongkan dan menonaktifkan input dalam elemen tertentu
-            function disableAndClearInputs(containerElement) {
-                const inputs = containerElement.querySelectorAll('input, select, textarea');
-                inputs.forEach(item => {
-                    // Nonaktifkan input
-                    item.setAttribute('disabled', 'disabled');
-                    // Kosongkan nilai input
-                    if (item.type === 'checkbox' || item.type === 'radio') {
-                        item.checked = false;
-                    } else {
-                        item.value = '';
-                    }
-                });
-            }
-
-            // Fungsi untuk mengaktifkan input dalam elemen tertentu
-            function enableInputs(containerElement) {
-                const inputs = containerElement.querySelectorAll('input, select, textarea');
-                inputs.forEach(item => {
-                    item.removeAttribute('disabled');
-                });
-            }
-
-            // Fungsi utama untuk mengatur tampilan dan status input form
-            function toggleFormsAndInputStates() {
-                const selectedValue = reqNameSelect.value;
-
-                // --- FASE 1: Sembunyikan dan Nonaktifkan SEMUA form spesifik dan terkait ---
-                specificForms.forEach(group => {
-                    group.style.display = 'none';
-                    disableAndClearInputs(group); // Nonaktifkan dan kosongkan input
-                });
-                parentalSpecific.style.display = 'none';
-                disableAndClearInputs(parentalSpecific);
-                primerTabKapSpecific.style.display = 'none';
-                disableAndClearInputs(primerTabKapSpecific);
-                primerLainSpecific.style.display = 'none';
-                disableAndClearInputs(primerLainSpecific);
-                sekunderParental.style.display = 'none';
-                disableAndClearInputs(sekunderParental);
-                sekunderLain.style.display = 'none';
-                disableAndClearInputs(sekunderLain);
-
-                // Sembunyikan kontainer utama jika tidak ada pilihan yang valid
-                if (!selectedValue) {
-                    dynamicContainer.style.display = 'none';
-                    return; // Berhenti di sini jika tidak ada pilihan
-                }
-
-                // --- FASE 2: Tampilkan dan Aktifkan form yang dipilih dan terkait ---
-                dynamicContainer.style.display = 'block';
-
-                // Tampilkan dan aktifkan form spesifik (misal: form-tablet)
-                const targetFieldId = 'form-' + selectedValue.toLowerCase();
-                const targetGroup = document.getElementById(targetFieldId);
-                if (targetGroup) {
-                    targetGroup.style.display = 'block';
-                    enableInputs(targetGroup); // Aktifkan input di form yang dipilih
-                }
-
-                // Atur tampilan dan status input untuk bagian 'Parental Specific'
-                if (selectedValue === 'Parental') {
-                    parentalSpecific.style.display = 'block';
-                    enableInputs(parentalSpecific);
-                }
-
-                // Atur tampilan dan status input untuk 'Kemasan Primer'
-                if (selectedValue === 'Tablet' || selectedValue === 'Kapsul') {
-                    primerTabKapSpecific.style.display = 'block';
-                    enableInputs(primerTabKapSpecific);
-                } else {
-                    primerLainSpecific.style.display = 'block';
-                    enableInputs(primerLainSpecific);
-                }
-
-                // Atur tampilan dan status input untuk 'Kemasan Sekunder'
-                if (selectedValue === 'Parental') {
-                    sekunderParental.style.display = 'block';
-                    enableInputs(sekunderParental);
-                } else {
-                    sekunderLain.style.display = 'block';
-                    enableInputs(sekunderLain);
-                }
-            }
-
-            // Panggil fungsi saat halaman pertama kali dimuat
-            toggleFormsAndInputStates();
-
-            // Tambahkan event listener untuk perubahan pada selectbox req_name
-            reqNameSelect.addEventListener('change', toggleFormsAndInputStates);
         });
     </script>
-@endsection
+@endpush

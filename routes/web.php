@@ -1,10 +1,17 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FasilitasProduksiController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LayananController;
+use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,29 +25,54 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
+// Route Beranda
+Route::get('/', function () {
+    return view('welcome');
+})->name('home');
 
-Route::group(['middleware' => ['role:super_admin']], function () {
+Route::group(['middleware' => ['role:super_admin|admin_toti']], function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 });
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+// Route Layanan
+Route::get('/layanan/toll_murni', [LayananController::class, 'getTollMurni'])->name('toll_murni');
+Route::get('/layanan/toll_beli', [LayananController::class, 'getTollBeli'])->name('toll_beli');
+Route::get('/layanan/kalibrasi', [LayananController::class, 'getKalibrasi'])->name('kalibrasi');
+Route::post('/layanan/kalibrasi/add', [LayananController::class, 'storeKalibrasi'])->name('kalibrasi.store');
 
 // Route Untuk Admin (User)
-Route::resource('user', 'App\Http\Controllers\UserController');
+Route::resource('user', UserController::class)->except('show', 'destroy');
+Route::get('/user/data', [UserController::class, 'getUser'])->name('user.data');
+
+// Route Untuk Admin (Company)
+Route::resource('company', CompanyController::class)->only('index', 'store');
+Route::get('/company/{entity_code}/edit', [CompanyController::class, 'edit'])->name('company.edit');
+Route::put('/company/{entity_code}', [CompanyController::class, 'update'])->name('company.update');
+Route::get('/company/data', [CompanyController::class, 'getCompany'])->name('company.data');
 
 // Route untuk Admin (Product)
-Route::get('/product', [ProductController::class, 'showProduct'])->name('product.show');
-Route::post('/product/add', [ProductController::class, 'storeProduct'])->name('product.add');
-Route::put('/product/update/{id}', [ProductController::class, 'updateProduct'])->name('product.update');
-Route::delete('/product/{id}', [ProductController::class, 'deleteProduct'])->name('product.destroy');
+Route::resource('product', ProductController::class)->only('index', 'store', 'edit', 'update');
+Route::get('/product/data', [ProductController::class, 'getProduct'])->name('product.data');
 
-// Route::get('/permintaan', [PermintaanController::class, 'showReq'])->name('permintaan.show');
-// Route::post('/permintaan/add', [PermintaanController::class, 'storeReq'])->name('permintaan.add');
-Route::resource('permintaan', PermintaanController::class)->name('permintaan', 'permintaan');
+// Route untuk Permintaan
+Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
+Route::get('/permintaan/data', [PermintaanController::class, 'getData'])->name('permintaan.data');
+
 // Route untuk export PDF
 Route::get('/permintaan/{id}/pdf', [PdfController::class, 'exportPdf'])->name('permintaan.export_pdf');
+
+// Route Untuk Kontak
+Route::get('/kontak', [ContactController::class, 'index'])->name('kontak.index');
+Route::post('/kontak', [ContactController::class, 'store'])->name('kontak.store');
+
+// Route Untuk Portofolio
+Route::get('/portofolio', function () {
+    return view('user.portofolio.porto');
+})->name('portofolio.index');
+
+// Route untuk Alur Maklon
+Route::get('/alur', function () {
+    return view('user.alur.index');
+})->name('alur.index');
 
 require __DIR__ . '/auth.php';
