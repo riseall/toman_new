@@ -23,6 +23,27 @@
                     </ul>
                 </div>
             </li>
+            <li class="sidebar-dropdown">
+                <a href="javascript:void(0)"><i class="mdi mdi-microscope me-2"></i>Layanan</a>
+                <div class="sidebar-submenu">
+                    <ul>
+                        <li><a href="">Fasilitas Produksi</a></li>
+                        <li><a href="{{ route('product.index') }}">Produk</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="sidebar-dropdown">
+                <a href="javascript:void(0)"><i class="mdi mdi-flask-plus me-2"></i>Permintaan</a>
+                <div class="sidebar-submenu">
+                    <ul>
+                        <li><a href="">Toll In</a></li>
+                        <li><a href="">Kalibrasi</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href=""><i class="mdi mdi-message-text-outline me-2"></i>Pesan</a>
+            </li>
         </ul>
         <!-- sidebar-menu  -->
     </div>

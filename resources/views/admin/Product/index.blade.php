@@ -1,75 +1,129 @@
-@extends('layouts.app')
+@extends('admin.layouts.app', [
+    'title' => 'Produk',
+])
 @section('content')
-    <div class="container">
-        <h1 class="text-center mb-4">Daftar Produk</h1>
+    <div class="row justify-content-center">
+        <div class="col-xl-12">
+            <div class="card p-4 shadow-lg rounded-md">
+                <div class="row">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h6 class="mb-0 fw-bold">Data Produk</h6>
 
-        <!-- Button trigger modal Add -->
-        <button type="button" class="btn btn-primary my-3" data-bs-toggle="modal" data-bs-target="#addProduct">
-            Tambah Produk
-        </button>
-        <!-- Modal Add-->
-        <div class="modal fade" id="addProduct" tabindex="-1" aria-labelledby="addProductLabel" aria-hidden="true">
-            @include('admin.Product.add')
-        </div>
-
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
-        @endif
-
-        <table class="table table-bordered table-striped">
-            <thead class="table-dark align-middle">
-                <th>No</th>
-                <th>Nama Produk</th>
-                <th>Bets Size (Pcs)</th>
-                <th>ED Product</th>
-                <th>Kemasan</th>
-                <th>Status</th>
-                <th>Aksi</th>
-            </thead>
-            <tbody>
-                @foreach ($data as $dt)
-                    <tr>
-                        <td>{{ $loop->iteration }}.</td>
-                        <td>{{ $dt->prod_name }}</td>
-                        <td>{{ $dt->prod_bets_size }}</td>
-                        <td>{{ $dt->prod_exp_yr }}</td>
-                        <td>{{ $dt->prod_package }}</td>
-                        <td class="text-center">
-                            @if ($dt->prod_is_active)
-                                <span class="badge bg-success">Aktif</span>
-                            @else
-                                <span class="badge bg-danger">Tidak Aktif</span>
-                            @endif
-                        </td>
-                        <td class="text-center">
-                            <!-- Tombol Edit dengan modal unik -->
-                            <button class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#updateProduct{{ $dt->id }}">Edit</button>
-                            <form action="{{ route('product.destroy', $dt->id) }}" method="POST"
-                                style="display:inline-block;"
-                                onsubmit="return confirm('Yakin ingin menghapus produk ini?')">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-
-                    <!-- Modal Update unik per produk -->
-                    <div class="modal fade" id="updateProduct{{ $dt->id }}" tabindex="-1"
-                        aria-labelledby="updateProductLabel{{ $dt->id }}" aria-hidden="true">
-                        @include('admin.Product.update', ['product' => $dt])
+                        <div class="mb-0 position-relative">
+                            <button type="button" class="btn btn-primary fs-7" data-bs-toggle="modal"
+                                data-bs-target="#addProdModal"> Tambah Produk
+                            </button>
+                        </div>
                     </div>
-                @endforeach
-            </tbody>
-        </table>
+
+                    <div class="table-responsive">
+                        <table class="table table-nowrap table-striped table-hover w-100 fs-7" id="productTable">
+                            <thead>
+                                <th>No</th>
+                                <th>Image</th>
+                                <th>Nama Produk</th>
+                                <th>Bets Size (Pcs)</th>
+                                <th>ED Product</th>
+                                <th>Kemasan</th>
+                                <th>Status</th>
+                                <th>Aksi</th>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- Modal Add-->
+            <div class="modal fade" id="addProdModal" data-backdrop="static" tabindex="-1" aria-labelledby="addUserLabel"
+                aria-hidden="true">
+                @include('admin.product.add')
+            </div>
+            <!-- Modal Update -->
+            <div class="modal fade" id="updateProdModal" tabindex="-1" aria-labelledby="updateProdModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+                    <div class="modal-content" id="updateProdContent">
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $(function() {
+            $('#productTable').DataTable({
+                scrollX: true,
+                scrollY: "50vh",
+                scrollCollapse: true,
+                processing: true,
+                serverSide: false,
+                ajax: "{{ route('product.data') }}",
+                columns: [{
+                        data: 'no',
+                        className: 'text-center'
+                    },
+                    {
+                        data: 'image',
+                        className: 'text-center',
+                        render: function(data) {
+                            if (data) {
+                                return `<img src="/images/product/${data}" alt="Produk" width="70" class="img-thumbnail">`;
+                            }
+                            return `<span class="text-muted">-</span>`;
+                        }
+                    },
+                    {
+                        data: 'name',
+                    },
+                    {
+                        data: 'bets_size',
+                    },
+                    {
+                        data: 'ed_product',
+                    },
+                    {
+                        data: 'package',
+                    },
+                    {
+                        data: 'status',
+                        render: function(data) {
+                            return data == 1 ?
+                                '<span class="badge rounded-pill bg-soft-success">Aktif</span>' :
+                                '<span class="badge rounded-pill bg-soft-danger">Tidak Aktif</span>';
+                        }
+                    },
+                    {
+                        data: 'id',
+                        className: 'text-center',
+                        render: function(id) {
+                            return `<button class="btn btn-icon btn-info btn-edit-prod" data-id="${id}"><span class="mdi mdi-lead-pencil fs-6"></span></button>`;
+                        }
+                    }
+                ]
+            });
+        });
+
+        $(document).on('click', '.btn-edit-prod', function() {
+            let id = $(this).data('id');
+            let url = '/product/' + id + '/edit';
+            $.ajax({
+                url: url,
+                type: 'GET',
+                success: function(response) {
+                    $('#updateProdContent').html(response);
+                    $('#updateProdModal').modal('show');
+                },
+                error: function() {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error!',
+                        text: 'Gagal mengambil data produk.',
+                    });
+                    console.error(xhr.responseText);
+                }
+            });
+        });
+    </script>
+@endpush
