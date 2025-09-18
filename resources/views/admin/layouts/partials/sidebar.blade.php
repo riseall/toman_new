@@ -27,7 +27,7 @@
                 <a href="javascript:void(0)"><i class="mdi mdi-microscope me-2"></i>Layanan</a>
                 <div class="sidebar-submenu">
                     <ul>
-                        <li><a href="">Fasilitas Produksi</a></li>
+                        <li><a href="{{ route('fasilitas.index') }}">Fasilitas Produksi</a></li>
                         <li><a href="{{ route('product.index') }}">Produk</a></li>
                     </ul>
                 </div>

@@ -30,10 +30,12 @@
                 <div class="dropdown dropdown-primary">
                     <span class="dropdown-toggle p-0" data-bs-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
-                        <a href="javascript:void(0)" class="ms-2">
-                            <span class="text-muted">Halo, <strong>{{ Auth::user()->first_name }}</strong></span>
-                            <i class="uil uil-angle-down ms-1 fs-5 dropdown-arrow"></i>
-                        </a>
+                        @auth
+                            <a href="javascript:void(0)" class="ms-2">
+                                <span class="text-muted">Halo, <strong>{{ Auth::user()->first_name }}</strong></span>
+                                <i class="uil uil-angle-down ms-1 fs-5 dropdown-arrow"></i>
+                            </a>
+                        @endauth
                     </span>
                     <div class="dropdown-menu dd-menu dropdown-menu-end shadow border-0 mt-3 py-3"
                         style="min-width: 200px;">

@@ -1,59 +1,53 @@
 <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
     <div class="modal-content rounded shadow border-0">
         <div class="modal-header border-bottom">
-            <h5 class="modal-title fw-bold" id="addProdLabel">Tambah Produk</h5>
+            <h5 class="modal-title fw-bold" id="addFasLabel">Tambah Fasilitas</h5>
             <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" aria-label="Close"><i
                     class="uil uil-times fs-4 text-dark"></i></button>
         </div>
         <div class="modal-body">
             <div class="container">
-                <form action="{{ route('product.store') }}" method="POST" id="addProdForm"
+                <form action="{{ route('fasilitas.store') }}" method="POST" id="addFasForm"
                     enctype="multipart/form-data">
                     @csrf
                     <div class="row">
                         <div class="mb-3">
-                            <label for="prod_name" class="form-label">Nama Produk</label>
-                            <input type="text" class="form-control" id="prod_name" name="Nama Produk"
-                                placeholder="Nama Produk" required>
+                            <label for="dosage_form" class="form-label">Nama Fasilitas</label>
+                            <input type="text" class="form-control" id="dosage_form" name="dosage_form"
+                                placeholder="Nama Fasilitas" required>
                             <div class="invalid-feedback"></div>
                         </div>
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="prod_bets_size" class="form-label">Bets Size</label>
-                                <input type="text" class="form-control" id="prod_bets_size" name="Bets Size"
-                                    placeholder="Bets Size" required>
+                                <label for="type" class="form-label">Jenis</label>
+                                <input type="text" class="form-control" id="type" name="type"
+                                    placeholder="Jenis" required>
                                 <div class="invalid-feedback"></div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label for="prod_exp_yr" class="form-label">ED Product</label>
-                                <input type="text" class="form-control" id="prod_exp_yr" name="ED Product"
-                                    placeholder="ED Product" required>
+                                <label for="unit" class="form-label">Unit</label>
+                                <select name="unit" id="unit" class="form-select" required>
+                                    <option value="">-- Pilih Unit --</option>
+                                    <option value="Tablet">Tablet</option>
+                                    <option value="Capsule">Kapsul</option>
+                                    <option value="Ampoule">Ampul</option>
+                                    <option value="Vial">Vial</option>
+                                    <option value="Bottle">Botol</option>
+                                    <option value="Tube">Tube</option>
+
+                                </select>
                                 <div class="invalid-feedback"></div>
                             </div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="prod_package" class="form-label">Kemasan</label>
-                            <input type="text" class="form-control" id="prod_package" name="Kemasan"
-                                placeholder="Kemasan" required>
-                            <div class="invalid-feedback"></div>
-                        </div>
-
-                        <div class="mb-3">
-                            <label for="prod_img" class="form-label">Gambar Produk</label>
-                            <input type="file" class="form-control" id="prod_img" name="Gambar Produk"
-                                placeholder="Gambar Produk" required>
-                            <div class="invalid-feedback"></div>
                         </div>
 
                         <div class="row">
-                            <label class="col-1 form-check-label" for="prod_is_active">Active</label>
+                            <label class="col-3 col-lg-1 form-check-label" for="is_active">Active</label>
                             <div class="col-2 form-check form-switch">
-                                <input type="hidden" name="prod_is_active" value="0">
-                                <input type="checkbox" name="prod_is_active" class="form-check-input" id="is_active"
+                                <input type="hidden" name="is_active" value="0">
+                                <input type="checkbox" name="is_active" class="form-check-input" id="is_active"
                                     value="1" checked>
                             </div>
                         </div>
@@ -63,7 +57,7 @@
         </div>
         <div class="modal-footer">
             <button type="button" class="btn btn-soft-danger" data-bs-dismiss="modal">Batal</button>
-            <button type="submit" class="btn btn-success" id="saveProduct">Simpan</button>
+            <button type="submit" class="btn btn-success" id="saveFas">Simpan</button>
         </div>
     </div>
 </div>
@@ -71,18 +65,18 @@
 @push('scripts')
     <script>
         $(document).ready(function() {
-            const addProdModal = $('#addProdModal');
-            const addProdForm = $('#addProdForm');
+            const addFasModal = $('#addFasModal');
+            const addFasForm = $('#addFasForm');
 
             // Event Listener saat close modal
-            addProdModal.on('hidden.bs.modal', function() {
-                addProdForm[0].reset();
-                addProdForm.find('.is-invalid').removeClass('is-invalid');
-                addProdForm.find('.invalid-feedback').html('');
+            addFasModal.on('hidden.bs.modal', function() {
+                addFasForm[0].reset();
+                addFasForm.find('.is-invalid').removeClass('is-invalid');
+                addFasForm.find('.invalid-feedback').html('');
             });
 
             // Create Permintaan
-            $('#saveProduct').click(function(e) {
+            $('#saveFas').click(function(e) {
                 e.preventDefault();
 
                 Swal.fire({
@@ -93,7 +87,7 @@
                     }
                 });
 
-                let form = $('#addProdForm');
+                let form = $('#addFasForm');
                 let url = form.attr('action');
                 let formData = new FormData(form[0]);
 
@@ -113,9 +107,9 @@
                             timer: 1500,
                             timerProgressBar: true
                         }).then(() => {
-                            addProdModal.modal('hide');
-                            addProdModal.one('hidden.bs.modal', function() {
-                                $('#productTable').DataTable().ajax.reload(null,
+                            addFasModal.modal('hide');
+                            addFasModal.one('hidden.bs.modal', function() {
+                                $('#fasTable').DataTable().ajax.reload(null,
                                     false);
                             });
                         });
@@ -143,7 +137,7 @@
                 })
             })
 
-            $('#addProdForm').on('input change', 'input, textarea, select', function() {
+            $('#addFasForm').on('input change', 'input, textarea, select', function() {
                 $(this).removeClass('is-invalid');
                 $(this).next('.invalid-feedback').html('');
             });

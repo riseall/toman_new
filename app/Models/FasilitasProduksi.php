@@ -11,6 +11,8 @@ class FasilitasProduksi extends Model
 
     protected $table = 'fasilitas_produksi';
 
+    protected $guarded = ['id'];
+
     function permintaan()
     {
         return $this->hasMany(Permintaan::class, 'dossage_id', 'id');

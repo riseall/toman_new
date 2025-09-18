@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\FasilitasProduksiController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayananController;
@@ -11,6 +12,7 @@ use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Models\FasilitasProduksi;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -53,6 +55,12 @@ Route::get('/company/data', [CompanyController::class, 'getCompany'])->name('com
 // Route untuk Admin (Product)
 Route::resource('product', ProductController::class)->only('index', 'store', 'edit', 'update');
 Route::get('/product/data', [ProductController::class, 'getProduct'])->name('product.data');
+
+// Route untuk Admin (Fasilitas Produksi)
+Route::resource('fasilitas', FasilitasController::class)->only('index', 'store');
+Route::get('/fasilitas/{id}/edit', [FasilitasController::class, 'edit'])->name('fasilitas.edit');
+Route::put('/fasilitas/{id}', [FasilitasController::class, 'update'])->name('fasilitas.update');
+Route::get('/fasilitas/data', [FasilitasController::class, 'getFasilitas'])->name('fasilitas.data');
 
 // Route untuk Permintaan
 Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
