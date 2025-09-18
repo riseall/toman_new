@@ -109,7 +109,7 @@
                         </div>
 
                         <div class="row">
-                            <label class="col-1 form-check-label" for="is_active">Active</label>
+                            <label class="col-3 col-lg-1 form-check-label" for="is_active">Active</label>
                             <div class="col-2 form-check form-switch">
                                 <input type="hidden" name="is_active" value="0">
                                 <input type="checkbox" name="is_active" class="form-check-input" id="is_active"
