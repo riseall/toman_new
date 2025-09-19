@@ -52,7 +52,7 @@
                 <div class="col-md-6">
                     <div class="mb-3">
                         <label for="password" class="form-label">Password</label>
-                        <div class="input-group has-validation">
+                        <div class="input-group">
                             <input type="password" name="password" id="password{{ $user->id }}" class="form-control"
                                 placeholder="Password" required>
                             <span id="togglePassword"

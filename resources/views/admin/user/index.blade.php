@@ -7,7 +7,7 @@
             <div class="card p-4 shadow-lg rounded-md">
                 <div class="row">
                     <div class="d-flex justify-content-between mb-3">
-                        <h6 class="mb-0 fw-bold">Data User</h6>
+                        <h6 class="mb-0 fs-5 fw-bold">Data User</h6>
 
                         <div class="mb-0 position-relative">
                             <button type="button" class="btn btn-primary fs-7" data-bs-toggle="modal"
@@ -96,7 +96,7 @@
                         data: 'id',
                         className: 'text-center',
                         render: function(id) {
-                            return `<button class="btn btn-icon btn-info btn-edit-user" data-id="${id}"><span class="mdi mdi-lead-pencil fs-6"></span></button>`;
+                            return `<button class="btn btn-icon btn-outline-info btn-edit-user" data-id="${id}"><span class="mdi mdi-lead-pencil fs-6"></span></button>`;
                         }
                     }
                 ]
