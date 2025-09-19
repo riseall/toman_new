@@ -97,12 +97,13 @@
 
                                 <div class="col-md-6">
                                     <div class="mb-3">
-                                        <label for="req_name" class="form-label req-label">Jenis
+                                        <label for="dossage_id" class="form-label req-label">Jenis
                                             Permintaan</label>
-                                        <select class="form-select fs-6" id="req_name" name="req_name" required>
+                                        <select class="form-select fs-6" id="dossage_id" name="dossage_id" required>
                                             <option value="">Pilih Jenis Permintaan</option>
                                             @foreach ($fasilitas as $item)
-                                                <option value="{{ $item->type }}">{{ $item->dosage_form }}
+                                                <option value="{{ $item->id }}" data-type="{{ $item->type }}">
+                                                    {{ $item->dosage_form }}
                                                 </option>
                                                 {{-- <option value="Tablet">Tablet</option>
                                                     <option value="Kapsul">Kapsul</option>

@@ -11,6 +11,7 @@ use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TollController;
 use App\Http\Controllers\UserController;
 use App\Models\FasilitasProduksi;
 use App\Models\User;
@@ -61,6 +62,11 @@ Route::resource('fasilitas', FasilitasController::class)->only('index', 'store')
 Route::get('/fasilitas/{id}/edit', [FasilitasController::class, 'edit'])->name('fasilitas.edit');
 Route::put('/fasilitas/{id}', [FasilitasController::class, 'update'])->name('fasilitas.update');
 Route::get('/fasilitas/data', [FasilitasController::class, 'getFasilitas'])->name('fasilitas.data');
+
+// Route Untuk Admin (Permintaan)
+Route::get('/admPermintaan', [TollController::class, 'index'])->name('companies.index');
+Route::get('/admPermintaan/{entity_code}/show', [TollController::class, 'show'])->name('companies.show');
+Route::get('/admPermintaan/{entity_code}/data', [TollController::class, 'getPermintaans'])->name('companies.data');
 
 // Route untuk Permintaan
 Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');

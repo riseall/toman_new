@@ -16,4 +16,16 @@ class Company extends Model
     {
         return $this->hasMany(User::class, 'entity_code', 'entity_code');
     }
+
+    public function permintaans()
+    {
+        return $this->hasManyThrough(
+            Permintaan::class, // model tujuan
+            User::class,       // model perantara
+            'entity_code',     // FK di tabel users
+            'user_id',         // FK di tabel permintaan
+            'entity_code',     // PK di tabel companies
+            'id'               // PK di tabel users
+        );
+    }
 }

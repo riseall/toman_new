@@ -22,7 +22,7 @@ class PermintaanController extends Controller
         /** @var \App\Models\User */
         $user = Auth::user();
         $userCompany = $user->entity_code;
-        $fasilitas = FasilitasProduksi::all();
+        $fasilitas = FasilitasProduksi::where('is_active', 1)->get();
         if ($user->hasRole([1, 2])) {
             $totalPermintaan = Permintaan::count();
             $dataTransaksi = Monitoring::orderBy('created_at', 'desc')->paginate(5);
@@ -133,7 +133,7 @@ class PermintaanController extends Controller
         //    Semua kolom yang mungkin ada di tabel Permintaan harus ada di sini,
         //    dengan status 'nullable' jika tidak selalu required.
         $rules = [
-            // 'dossage_id' => 'required|exists:fasilitas_produksi,id',
+            'dossage_id' => 'required|exists:fasilitas_produksi,id',
             'req_name' => 'required|in:Tablet,Kapsul,Parenteral,Cairan,Powder,Semisolid',
             'req_date' => 'required|date',
             'prod_name' => 'required|string|max:100',
@@ -197,7 +197,9 @@ class PermintaanController extends Controller
             'oxidation_sensitivity' => 'nullable|string|max:50',
         ];
 
-        $reqName = $request->input('req_name');
+        $dosageForm = FasilitasProduksi::findOrFail($request['dossage_id']);
+        $reqName = $dosageForm->type;
+        $request['req_name'] = $reqName;
 
         // 2. Add conditional validation rules based on 'req_name'
         //    Di sini, kita hanya akan menimpa 'nullable' menjadi 'required' jika diperlukan.
@@ -269,9 +271,6 @@ class PermintaanController extends Controller
                 break;
         }
 
-        // --- DEBUGGING: Uncomment baris di bawah ini untuk melihat data yang diterima dari form
-        // dd($request->all());
-
         $validator = Validator::make($request->all(), $rules);
 
         if ($validator->fails()) {
@@ -284,7 +283,8 @@ class PermintaanController extends Controller
         // Get validated data
         $validatedData = $validator->validated();
 
-        $reqName = $request->input('req_name');
+        // dd($validatedData);
+
         $fileFields = [
             'doc_cpob',
             'doc_permiss',

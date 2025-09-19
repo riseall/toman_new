@@ -41,10 +41,6 @@ class User extends Authenticatable
         'is_active' => 'boolean',
     ];
 
-    public function company()
-    {
-        return $this->belongsTo(Company::class);
-    }
     /**
      * Get the permintaan associated with the user.
      */

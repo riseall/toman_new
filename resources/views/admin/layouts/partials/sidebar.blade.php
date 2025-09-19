@@ -36,7 +36,7 @@
                 <a href="javascript:void(0)"><i class="mdi mdi-flask-plus me-2"></i>Permintaan</a>
                 <div class="sidebar-submenu">
                     <ul>
-                        <li><a href="">Toll In</a></li>
+                        <li><a href="{{ route('companies.index') }}">Toll In</a></li>
                         <li><a href="">Kalibrasi</a></li>
                     </ul>
                 </div>

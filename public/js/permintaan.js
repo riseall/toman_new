@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     // Mengambil elemen yang diperlukan dari DOM
-    const reqNameSelect = document.getElementById("req_name");
+    const reqNameSelect = document.getElementById("dossage_id");
     const dynamicContainer = document.getElementById("dynamic-form");
     const specificForms = document.querySelectorAll(".form-specific"); // Gunakan nama yang lebih jelas: specificForms
     const parenteralSpecific = document.getElementById("parenteral-specific");
@@ -50,7 +50,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Fungsi utama untuk mengatur tampilan dan status input form
     function toggleFormsAndInputStates() {
-        const selectedValue = reqNameSelect.value;
+        const selectedValue = $("#dossage_id option:selected").data("type");
+
+        console.log(selectedValue);
 
         // --- FASE 1: Sembunyikan dan Nonaktifkan SEMUA form spesifik dan terkait ---
         specificForms.forEach((group) => {
