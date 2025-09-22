@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'title' => 'Kalibrasi dan Lain-lain',
-    'desc' => 'Kami menyediakan berbagai layanan untuk mendukung kebutuhan Anda dengan kualitas terbaik.',
+    'desc' => '',
 ])
 @section('content')
     <style>

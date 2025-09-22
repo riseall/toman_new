@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'title' => 'Toll Murni',
-    'desc' => 'Kami menawarkan Jasa Toll Manufacturing dengan sistem Toll Murni, yaitu jasa pembuatan obat yang mencakup proses produksi mulai dari pengembangan formula sampai dengan pengemasan produk serta quality control. Pelanggan dapat memilih cakupan apa saja yang dibutuhkan, baik sebagian maupun seluruhnya.',
+    'desc' => '',
 ])
 @section('content')
     <!--Fasilitas Produksi start-->

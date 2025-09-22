@@ -22,7 +22,11 @@
 
                         <div class="content mt-4">
                             <h5>Toll Murni</h5>
-                            <p class="text-muted mb-0">Menawarkan Jasa Toll Manufacturing dengan sistem Toll Murni.</p>
+                            <p class="text-muted mb-0">Jasa pembuatan sediaan farmasi oleh PT Phapros Tbk dimana kami
+                                menyediakan sebagian atau seluruh material sesuai spesifikasi pelanggan. Pelanggan dapat
+                                memilih cakupan layanan yang dibutuhkan, mulai dari pengadaan material, proses produksi,
+                                hingga pembelian produk jadi serta dossier produk.
+                            </p>
                         </div>
                     </div>
                 </a>
@@ -37,7 +41,10 @@
 
                         <div class="content mt-4">
                             <h5>Toll Beli</h5>
-                            <p class="text-muted mb-0">Menyediakan jasa Toll Manufacturing dengan sistem beli produk.
+                            <p class="text-muted mb-0">Jasa pembuatan sediaan farmasi oleh PT Phapros Tbk dimana pelanggan
+                                akan menyediakan material sendiri dan PT Phapros Tbk hanya bertanggung jawab atas proses
+                                produksi hingga menjadi produk jadi sesuai dengan spesifikasi yang diinginkan pelanggan.
+
                             </p>
                         </div>
                     </div>
@@ -53,8 +60,10 @@
 
                         <div class="content mt-4">
                             <h5>Kalibrasi dan lain-lain</h5>
-                            <p class="text-muted mb-0">Menawarkan Jasa Kalibrasi untuk alat-alat pengukuran di
-                                perusahaan Anda.</p>
+                            <p class="text-muted mb-0">Sejak 2014, PT Phapros Tbk telah menjadi mitra andal bagi lebih dari
+                                25 pelanggan dari berbagai sektor, mulai dari industri farmasi, instansi pemerintah, rumah
+                                sakit, hingga universitas dalam memenuhi kebutuhan kalibrasi dan pengujian berkualitas.
+                            </p>
                         </div>
                     </div>
                 </a>
@@ -302,37 +311,40 @@
                                 <button class="accordion-button border-0 bg-light" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
                                     aria-controls="collapseOne">
-                                    How does it work ?
+                                    Produk apa saja yang bisa diproduksi oleh PT Phapros Tbk ?
                                 </button>
                             </h2>
                             <div id="collapseOne" class="accordion-collapse border-0 collapse show"
                                 aria-labelledby="headingOne" data-bs-parent="#accordionExample">
                                 <div class="accordion-body text-muted">
-                                    There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have
-                                    suffered alteration in some form.
+                                    PT Phapros Tbk menyediakan layanan produksi mencakup:
+                                    <ul>
+                                        <li>Sediaan solid: tablet, tablet salut selaput, kaplet, kapsul</li>
+                                        <li>Semi solid: krim, salep</li>
+                                        <li>Liquid: sirup (dalam kemasan botol ataupun sachet)</li>
+                                        <li>Injeksi: ampul, cairan dalam vial, serbuk injeksi dalam vial</li>
+                                        <li>Serbuk steril injeksi antibiotik betalaktam, sefalosporin</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="accordion-item rounded shadow mt-3 wow animate__animated animate__fadeInUp"
+                        {{-- <div class="accordion-item rounded shadow mt-3 wow animate__animated animate__fadeInUp"
                             data-wow-delay=".5s">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button border-0 bg-light collapsed" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
                                     aria-controls="collapseTwo">
-                                    Do I need a designer to use Landrick ?
+                                    Produk apa saja yang bisa dilayani dengan skema toll beli ?
                                 </button>
                             </h2>
                             <div id="collapseTwo" class="accordion-collapse border-0 collapse"
                                 aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                 <div class="accordion-body text-muted">
-                                    There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have
-                                    suffered alteration in some form.
+                                    Produk yang bisa kami layani dengan skema toll beli yaitu mencakup (list produk menyusul)
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
 
                         <div class="accordion-item rounded shadow mt-3 wow animate__animated animate__fadeInUp"
                             data-wow-delay=".7s">
@@ -340,15 +352,32 @@
                                 <button class="accordion-button border-0 bg-light collapsed" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
                                     aria-controls="collapseThree">
-                                    What do I need to do to start selling ?
+                                    Apakah fasilitas produksi PT Phapros Tbk sudah tersertifikasi ?
                                 </button>
                             </h2>
                             <div id="collapseThree" class="accordion-collapse border-0 collapse"
                                 aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                 <div class="accordion-body text-muted">
-                                    There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have
-                                    suffered alteration in some form.
+                                    Fasilitas produksi PT Phapros Tbk telah tersertifikasi sesuai berbagai standar, antara
+                                    lain:
+                                    <ol>
+                                        <li>Cara Pembuatan Obat yang Baik (CPOB) terkini atau current Good Manufacturing
+                                            Practices</li>
+                                        <li>Cara Pembuatan Obat Tradisional yang Baik (CPOTB) terkini atau current Herbal
+                                            Good
+                                            Manufacturing Practices</li>
+                                        <li>Cara Pembuatan Alat Kesehatan yang Baik (CPAKB) serta persyaratan penyaluran
+                                            alat
+                                            kesehatan</li>
+                                        <li>Persyaratan Standar Akuntansi Keuangan (PSAK)</li>
+                                        <li>Sistem Manajemen Mutu terintegrasi yang mencakup:</li>
+                                        <ol type="a">
+                                            <li>ISO 9001</li>
+                                            <li>ISO 14001</li>
+                                            <li>OHSAS 18001</li>
+                                            <li>ISO/IEC 17025 dan Manajemen Risiko</li>
+                                        </ol>
+                                    </ol>
                                 </div>
                             </div>
                         </div>
@@ -359,15 +388,134 @@
                                 <button class="accordion-button border-0 bg-light collapsed" type="button"
                                     data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false"
                                     aria-controls="collapseFour">
-                                    What happens when I receive an order ?
+                                    Bagaimana dengan keamanan dan kerahasiaan produk pelanggan ?
                                 </button>
                             </h2>
                             <div id="collapseFour" class="accordion-collapse border-0 collapse"
                                 aria-labelledby="headingFour" data-bs-parent="#accordionExample">
                                 <div class="accordion-body text-muted">
-                                    There are many variations of passages of Lorem Ipsum available, but the majority
-                                    have
-                                    suffered alteration in some form.
+                                    Kami menjaga kerahasiaan produk Anda secara ketat melalui Perjanjian Kerja Sama yang
+                                    didukung Non-Disclosure Agreement (NDA) dan Confidential Disclosure Agreement (CDA).
+                                    Kami senantiasa memastikan setiap informasi dan produk pelanggan terlindungi secara
+                                    ketat selama seluruh proses Toll Manufacturing.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item rounded shadow mt-3 wow animate__animated animate__fadeInUp"
+                            data-wow-delay=".9s">
+                            <h2 class="accordion-header" id="headingFive">
+                                <button class="accordion-button border-0 bg-light collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false"
+                                    aria-controls="collapseFive">
+                                    Apakah PT Phapros Tbk juga membantu perizinan registrasi obat ?
+                                </button>
+                            </h2>
+                            <div id="collapseFive" class="accordion-collapse border-0 collapse"
+                                aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted">
+                                    Tentu, PT Phapros Tbk siap mendampingi Anda dalam proses perizinan registrasi obat,
+                                    mulai dari pengumpulan dokumen, koordinasi dengan pihak berwenang, hingga memastikan
+                                    seluruh persyaratan terpenuhi. Dengan komitmen ‘Ease Your Business’, kami memastikan
+                                    proses registrasi dan operasional bisnis Anda menjadi lebih sederhana, efisien, dan
+                                    aman. Jangan ragu untuk menghubungi tim kami untuk mendapatkan dukungan penuh dalam Toll
+                                    Manufacturing dan registrasi obat Anda
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item rounded shadow mt-3 wow animate__animated animate__fadeInUp"
+                            data-wow-delay=".9s">
+                            <h2 class="accordion-header" id="headingSix">
+                                <button class="accordion-button border-0 bg-light collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false"
+                                    aria-controls="collapseSix">
+                                    Apakah harga yang ditawarkan PT Phapros Tbk bisa dinegosiasi ?
+                                </button>
+                            </h2>
+                            <div id="collapseSix" class="accordion-collapse border-0 collapse"
+                                aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted">
+                                    Tentu saja, harga layanan kami fleksibel dan bisa dinegosiasikan. Diskusikan kebutuhan
+                                    Anda dan kami akan menyesuaikan paket terbaik tanpa mengurangi kualitas layanan Toll
+                                    Manufacturing kami.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item rounded shadow mt-3 wow animate__animated animate__fadeInUp"
+                            data-wow-delay=".9s">
+                            <h2 class="accordion-header" id="headingSeven">
+                                <button class="accordion-button border-0 bg-light collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false"
+                                    aria-controls="collapseSeven">
+                                    Bagaimana cara memulai kerjasama Toll Manufacturing dengan PT Phapros Tbk ?
+                                </button>
+                            </h2>
+                            <div id="collapseSeven" class="accordion-collapse border-0 collapse"
+                                aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted">
+                                    Memulai kerjasama Toll Manufacturing dengan PT Phapros Tbk kini lebih mudah dan praktis.
+                                    Cukup ikuti panduan sederhana berikut, dan tim kami akan segera memproses permohonan
+                                    Anda:
+                                    <ol>
+                                        <li> Kunjungi Web Toman: https://app.phapros.co.id/toman/</li>
+                                        <li> Pilih menu Toll Murni atau Toll Beli</li>
+                                        <li> Klik ‘Daftar Toll Parenteral’</li>
+                                        <li> Isi Form Permohonan Toll Manufacturing</li>
+                                        <li> Centang kotak ‘please confirm that you agree’</li>
+                                        <li> Klik Kirim</li>
+                                    </ol>
+                                    Segera setelah form diterima, tim kami akan menindaklanjuti untuk memastikan proses Toll
+                                    Manufacturing berjalan lancar dan sesuai kebutuhan Anda.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item rounded shadow mt-3 wow animate__animated animate__fadeInUp"
+                            data-wow-delay=".9s">
+                            <h2 class="accordion-header" id="headingEight">
+                                <button class="accordion-button border-0 bg-light collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false"
+                                    aria-controls="collapseEight">
+                                    Bagaimana cara memulai jasa kalibrasi oleh PT Phapros Tbk ?
+                                </button>
+                            </h2>
+                            <div id="collapseEight" class="accordion-collapse border-0 collapse"
+                                aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted">
+                                    Memulai layanan kalibrasi oleh PT Phapros Tbk dengan mudah dan cepat. Cukup ikuti
+                                    langkah sederhana berikut:”
+                                    <ol>
+                                        <li>Kunjungi Web Toman: https://app.phapros.co.id/toman/
+                                        <li>Pilih menu ‘Jasa Kalibrasi’
+                                        <li>Isi Form Pendaftaran (form terlampir di website)</li>
+                                        <li>Kirim Form Pendaftaran yang sudah diisi melalui email ke kalibrasi@phapros.co.id
+                                            dan
+                                            tollintolloutphapros@gmail.com , serta lampirkan Sertifikat Kalibrasi terakhir
+                                            jika ada</li>
+                                    </ol>
+                                    Tim kami akan segera menindaklanjuti pendaftaran Anda dan memastikan layanan kalibrasi
+                                    berjalan lancar sesuai kebutuhan.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item rounded shadow mt-3 wow animate__animated animate__fadeInUp"
+                            data-wow-delay=".9s">
+                            <h2 class="accordion-header" id="headingNine">
+                                <button class="accordion-button border-0 bg-light collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false"
+                                    aria-controls="collapseNine">
+                                    Apakah bisa melakukan jasa kalibrasi di tempat pelanggan ?
+                                </button>
+                            </h2>
+                            <div id="collapseNine" class="accordion-collapse border-0 collapse"
+                                aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                                <div class="accordion-body text-muted">
+                                    Tentu, PT Phapros Tbk menawarkan layanan kalibrasi yang fleksibel: bisa dilakukan
+                                    langsung di lokasi Anda (in situ) atau di fasilitas kami. Kenyamanan dan kepuasan
+                                    pelanggan selalu menjadi prioritas.
                                 </div>
                             </div>
                         </div>

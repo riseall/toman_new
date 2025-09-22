@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'title' => 'Toll Beli',
-    'desc' => 'Kami menyediakan jasa Toll Manufacturing dengan sistem beli produk.',
+    'desc' => '',
 ])
 @section('content')
     <div class="container">
