@@ -43,4 +43,10 @@ class ContactController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan pada server, silakan coba lagi.'); // Gunakan key 'error' untuk notif gagal
         }
     }
+
+    public function indexPesan()
+    {
+        $pesan = Contact::all()->sortByDesc('created_at');
+        return view('admin.pesan.index', compact('pesan'));
+    }
 }

@@ -10,6 +10,7 @@ use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TollController;
 use App\Http\Controllers\UserController;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,6 +66,9 @@ Route::get('/admPermintaan/{entity_code}/data', [TollController::class, 'getPerm
 Route::get('/admKalibrasi', [TollController::class, 'indexKalibrasi'])->name('kalibrasi.index');
 Route::get('/admKalibrasi/{entity_code}/show', [TollController::class, 'showKalibrasi'])->name('kalibrasi.show');
 Route::get('/admKalibrasi/{entity_code}/data', [TollController::class, 'getKalibrasis'])->name('kalibrasi.data');
+
+// Route Untuk Admin (Pesan)
+Route::get('/pesan', [ContactController::class, 'indexPesan'])->name('pesan.index');
 
 // Route untuk Permintaan
 Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
