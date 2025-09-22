@@ -37,7 +37,7 @@
                 <div class="sidebar-submenu">
                     <ul>
                         <li><a href="{{ route('companies.index') }}">Toll In</a></li>
-                        <li><a href="">Kalibrasi</a></li>
+                        <li><a href="{{ route('kalibrasi.index') }}">Kalibrasi</a></li>
                     </ul>
                 </div>
             </li>

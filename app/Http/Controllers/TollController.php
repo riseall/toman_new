@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class TollController extends Controller
 {
-    public function index()
+    public function indexPermintaan()
     {
         $company = Company::with(['permintaans.user'])
             ->withCount('permintaans')
@@ -17,7 +17,16 @@ class TollController extends Controller
         return view('admin.permintaan.toll_in', compact('company'));
     }
 
-    public function show($entity_code)
+    public function indexKalibrasi()
+    {
+        $kalibrasi = Company::with(['kalibrasis.user'])
+            ->withCount('kalibrasis')
+            ->having('kalibrasis_count', '>', 0)
+            ->get();
+        return view('admin.permintaan.kalibrasi', compact('kalibrasi'));
+    }
+
+    public function showPermintaan($entity_code)
     {
         $docTitles = [
             'doc_cpob'     => 'Dokumen CPOB',
@@ -38,6 +47,14 @@ class TollController extends Controller
             ->where('entity_code', $entity_code)
             ->firstOrFail();
         return view('admin.permintaan.show_toll', compact('company', 'docTitles'));
+    }
+
+    public function showKalibrasi($entity_code)
+    {
+        $kalibrasi = Company::with(['kalibrasis.user'])
+            ->where('entity_code', $entity_code)
+            ->firstOrFail();
+        return view('admin.permintaan.show_kali', compact('kalibrasi'));
     }
 
     public function getPermintaans($entity_code)
@@ -67,6 +84,31 @@ class TollController extends Controller
                 'doc_protap' => $p->doc_protap ? url('/storage/' . $p->doc_protap) : null,
                 'doc_process' => $p->doc_process ? url('/storage/' . $p->doc_process) : null,
                 'any_doc' => $p->any_doc ? url('/storage/' . $p->any_doc) : null
+            ];
+        });
+
+        return response()->json([
+            'data' => $data
+        ]);
+    }
+
+    public function getKalibrasis($entity_code)
+    {
+        $kalibrasis = Company::with(['kalibrasis.user'])
+            ->where('entity_code', $entity_code)
+            ->firstOrFail();;
+
+        $data = $kalibrasis->kalibrasis->map(function ($p, $i) {
+            return [
+                'id'         => $p->id,
+                'no'         => $i + 1,
+                'npwp'       => $p->npwp,
+                'alamat_npwp' => $p->npwp_address,
+                'nama_alat'  => $p->tool_name,
+                'merk_alat' => $p->tool_brand,
+                'model_alat'  => $p->tool_type,
+                'no_seri'    => $p->tool_no,
+                'tanggal'    => $p->created_at->format('Y-m-d'),
             ];
         });
 

@@ -1,0 +1,74 @@
+body {
+    font-family: "helvetica";
+    font-size: 12pt;
+    margin: 20px;
+    line-height: 1.4;
+}
+
+.header-baris {
+    width: 98%;
+    margin: 0 auto;
+    border: 0px solid #fff;
+}
+
+.header-kolom1 {
+    width: 70%;
+    border: 0px solid #fff;
+}
+
+.header-kolom2 {
+    width: 30%;
+    border: 0px solid #fff;
+}
+
+h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+}
+
+ol {
+    font-size: 12px;
+    margin: 5px 0 10px 20px;
+    padding: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    font-size: 8pt;
+}
+
+table td {
+    border: 2px solid #5fa4f3;
+    padding: 2px 4px;
+    vertical-align: top;
+}
+
+table td.label {
+    width: 35%;
+    font-weight: bold;
+    font-size: 8pt;
+}
+
+table td.label span {
+    float: right;
+}
+
+.titik-koma {
+    width: 2%;
+    text-align: center;
+}
+
+.signature {
+    text-align: right;
+    font-size: 12px;
+}
+
+.sub-section {
+    font-size: 8pt;
+    margin-top: 10px;
+}

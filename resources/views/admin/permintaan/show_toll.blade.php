@@ -1,5 +1,5 @@
 @extends('admin.layouts.app', [
-    'title' => 'Permintaan',
+    'title' => 'Detail Permintaan Toll In',
 ])
 
 @section('content')
@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="d-flex justify-content-between mb-3">
                         <div>
-                            <h6 class="mb-0 fs-5 fw-bold">Detail Permintaan</h6>
+                            <h6 class="mb-0 fs-5 fw-bold">Detail Permintaan Toll In</h6>
                             <span class="fw-semibold text-primary">{{ $company->entity_name }}</span>
                         </div>
 
@@ -281,7 +281,7 @@
                         data: 'id',
                         className: 'text-center',
                         render: function(id) {
-                            return `<a href="/permintaan/${id}/pdf" class="btn btn-icon btn-outline-success"><span class="mdi mdi-printer-outline fs-5"></span></a>`;
+                            return `<a href="/permintaan/${id}/pdf" target="_blank" class="btn btn-icon btn-outline-success"><span class="mdi mdi-printer-outline fs-5"></span></a>`;
                         }
                     },
                 ]

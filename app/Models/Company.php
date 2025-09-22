@@ -28,4 +28,16 @@ class Company extends Model
             'id'               // PK di tabel users
         );
     }
+
+    public function kalibrasis()
+    {
+        return $this->hasManyThrough(
+            Kalibrasi::class, // model tujuan
+            User::class,       // model perantara
+            'entity_code',     // FK di tabel users
+            'user_id',         // FK di tabel kalibrasi
+            'entity_code',     // PK di tabel companies
+            'id'               // PK di tabel users
+        );
+    }
 }

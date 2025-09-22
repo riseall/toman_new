@@ -4,17 +4,12 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FasilitasController;
-use App\Http\Controllers\FasilitasProduksiController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LayananController;
-use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TollController;
 use App\Http\Controllers\UserController;
-use App\Models\FasilitasProduksi;
-use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -64,9 +59,12 @@ Route::put('/fasilitas/{id}', [FasilitasController::class, 'update'])->name('fas
 Route::get('/fasilitas/data', [FasilitasController::class, 'getFasilitas'])->name('fasilitas.data');
 
 // Route Untuk Admin (Permintaan)
-Route::get('/admPermintaan', [TollController::class, 'index'])->name('companies.index');
-Route::get('/admPermintaan/{entity_code}/show', [TollController::class, 'show'])->name('companies.show');
+Route::get('/admPermintaan', [TollController::class, 'indexPermintaan'])->name('companies.index');
+Route::get('/admPermintaan/{entity_code}/show', [TollController::class, 'showPermintaan'])->name('companies.show');
 Route::get('/admPermintaan/{entity_code}/data', [TollController::class, 'getPermintaans'])->name('companies.data');
+Route::get('/admKalibrasi', [TollController::class, 'indexKalibrasi'])->name('kalibrasi.index');
+Route::get('/admKalibrasi/{entity_code}/show', [TollController::class, 'showKalibrasi'])->name('kalibrasi.show');
+Route::get('/admKalibrasi/{entity_code}/data', [TollController::class, 'getKalibrasis'])->name('kalibrasi.data');
 
 // Route untuk Permintaan
 Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
@@ -74,6 +72,7 @@ Route::get('/permintaan/data', [PermintaanController::class, 'getData'])->name('
 
 // Route untuk export PDF
 Route::get('/permintaan/{id}/pdf', [PdfController::class, 'exportPdf'])->name('permintaan.export_pdf');
+Route::get('/admKalibrasi/{id}/pdf', [PdfController::class, 'exportKali'])->name('kalibrasi.export_pdf');
 
 // Route Untuk Kontak
 Route::get('/kontak', [ContactController::class, 'index'])->name('kontak.index');

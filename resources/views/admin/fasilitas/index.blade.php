@@ -83,7 +83,7 @@
                         data: 'id',
                         className: 'text-center',
                         render: function(id) {
-                            return `<button class="btn btn-icon btn-info btn-edit-prod" data-id="${id}"><span class="mdi mdi-lead-pencil fs-5"></span></button>`;
+                            return `<button class="btn btn-icon btn-outline-info btn-edit-prod" data-id="${id}"><span class="mdi mdi-lead-pencil fs-5"></span></button>`;
                         }
                     }
                 ]

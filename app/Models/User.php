@@ -54,6 +54,11 @@ class User extends Authenticatable
         return $this->belongsTo(Company::class, 'entity_code', 'entity_code');
     }
 
+    public function kalibrasis()
+    {
+        return $this->hasMany(Kalibrasi::class, 'user_id', 'id');
+    }
+
     public function sendPasswordResetNotification($token)
     {
         $url = url(route('password.reset', [

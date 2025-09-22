@@ -18,7 +18,7 @@
                                 <th>Nama Perusahaan</th>
                                 <th>Alamat</th>
                                 <th>Total Permintaan</th>
-                                <th>Aksi</th>
+                                <th>Detail</th>
                             </thead>
                             <tbody>
                                 @foreach ($company as $cp)
@@ -29,7 +29,7 @@
                                         <td>{{ $cp->permintaans_count }}</td>
                                         <td>
                                             <a href="{{ route('companies.show', $cp->entity_code) }}"
-                                                class="btn btn-icon btn-primary"><span
+                                                class="btn btn-icon btn-outline-primary"><span
                                                     class="mdi mdi-eye-outline fs-5"></span></a>
                                         </td>
                                     </tr>
