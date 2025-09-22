@@ -42,7 +42,7 @@
                 </div>
             </li>
             <li>
-                <a href=""><i class="mdi mdi-message-text-outline me-2"></i>Pesan</a>
+                <a href="{{ route('pesan.index') }}"><i class="mdi mdi-message-text-outline me-2"></i>Pesan</a>
             </li>
         </ul>
         <!-- sidebar-menu  -->

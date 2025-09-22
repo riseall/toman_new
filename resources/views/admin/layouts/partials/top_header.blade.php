@@ -12,7 +12,7 @@
             <a id="close-sidebar" class="btn btn-icon btn-soft-light" href="javascript:void(0)">
                 <i class="uil uil-bars"></i>
             </a>
-            <div class="search-bar p-0 d-none d-md-block ms-2">
+            {{-- <div class="search-bar p-0 d-none d-md-block ms-2">
                 <div id="search" class="menu-search mb-0">
                     <form role="search" method="get" id="searchform" class="searchform">
                         <div>
@@ -22,7 +22,7 @@
                         </div>
                     </form>
                 </div>
-            </div>
+            </div> --}}
         </div>
 
         <ul class="list-unstyled mb-0">

@@ -29,13 +29,12 @@
 
             <!--Login button Start-->
             <ul class="buy-button list-inline mb-0">
-                <li class="list-inline-item mb-0 pe-1">
+                {{-- <li class="list-inline-item mb-0 pe-1">
                     <div class="dropdown">
                         <a type="button" class="dropdown-toggle p-sm-1 show" data-bs-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="true">
                             <i class="uil uil-search text-white title-dark btn-icon-light fs-5 align-middle"></i>
                             <i class="uil uil-search text-dark btn-icon-dark fs-5 align-middle"></i>
-                            {{-- <i class="uil uil-search text-dark fs-5 align-middle"></i> --}}
                         </a>
                         <div class="dropdown-menu dropdown-menu-end bg-white shadow rounded border-0 mt-3 p-0"
                             style="width: 300px; position: absolute; inset: 0px 0px auto auto; margin: 0px; transform: translate(0px, 40px);"
@@ -51,7 +50,7 @@
                             </div>
                         </div>
                     </div>
-                </li>
+                </li> --}}
                 @guest
                     <li class="list-inline-item mb-0 ps-1">
                         <a onclick="window.location.href='{{ route('login') }}'" data-bs-toggle="offcanvas"
