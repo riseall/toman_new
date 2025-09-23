@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'title' => 'Permintaan',
+    'title' => 'Permintaan Toll',
     'desc' => '',
 ])
 @section('bg', '807A0494.jpg')
@@ -20,7 +20,7 @@
     </div>
 
     <div class="container">
-        <div class="row justify-content-between">
+        {{-- <div class="row justify-content-between">
             <div class="col-lg-4 col-md-6 col-12 mt-4">
                 <div class="card pricing pricing-primary business-rate text-center border-0 rounded shadow-sm">
                     <div class="card-body">
@@ -48,7 +48,7 @@
                     </div>
                 </div>
             </div>
-        </div><!--end row-->
+        </div><!--end row--> --}}
     </div>
 
     <div class="container mt-50">

@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\KalibrasiController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
@@ -73,6 +74,10 @@ Route::get('/pesan', [ContactController::class, 'indexPesan'])->name('pesan.inde
 // Route untuk Permintaan
 Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
 Route::get('/permintaan/data', [PermintaanController::class, 'getData'])->name('permintaan.data');
+
+// Route untuk Kalibrasi
+Route::resource('cal', KalibrasiController::class)->only('index', 'create', 'store');
+Route::get('/cal/data', [KalibrasiController::class, 'getData'])->name('cal.data');
 
 // Route untuk export PDF
 Route::get('/permintaan/{id}/pdf', [PdfController::class, 'exportPdf'])->name('permintaan.export_pdf');
