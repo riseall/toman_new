@@ -169,20 +169,27 @@ window.addEventListener("scroll", (ev) => {
 });
 
 // back-to-top
-var mybutton = document.getElementById("back-to-top");
+var backToTopButton = document.getElementById("back-to-top");
+var scrollTopButton = document.getElementById("scroll-to-top");
+var boxScroll = document.getElementById("box-scroll");
+
 window.onscroll = function () {
     scrollFunction();
 };
 
 function scrollFunction() {
-    if (mybutton != null) {
+    if (backToTopButton != null && scrollTopButton != null) {
         if (
             document.body.scrollTop > 500 ||
             document.documentElement.scrollTop > 500
         ) {
-            mybutton.style.display = "block";
+            backToTopButton.style.display = "block";
+            scrollTopButton.style.display = "block";
+            boxScroll.style.display = "block";
         } else {
-            mybutton.style.display = "none";
+            backToTopButton.style.display = "none";
+            scrollTopButton.style.display = "none";
+            boxScroll.style.display = "none";
         }
     }
 }

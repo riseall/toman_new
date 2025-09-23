@@ -24,7 +24,6 @@
     <link href="{{ asset('libs/@iconscout/css/line.css') }}" type="text/css" rel="stylesheet">
     <!-- Style Css-->
     <link href="{{ asset('css/style.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
@@ -61,6 +60,8 @@
     <a href="#" onclick="topFunction()" id="back-to-top" class="back-to-top fs-5"><i data-feather="arrow-up"
             class="fea icon-sm icons align-middle"></i></a>
     <!-- Back to top -->
+
+    @include('user.kontak.whatsapp')
 
     <!-- javascript -->
     <!-- JAVASCRIPT -->

@@ -59,8 +59,11 @@
             class="fea icon-sm icons align-middle"></i></a>
     <!-- Back to top -->
 
+    @include('user.kontak.whatsapp')
+
     <!-- javascript -->
     <!-- JAVASCRIPT -->
+    <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
     <!-- Lightbox -->
     <script src="{{ asset('libs/shufflejs/shuffle.min.js') }}"></script>
@@ -73,6 +76,7 @@
     <!--Note: All init (custom) js like tiny slider, counter, countdown, lightbox, gallery, swiper slider etc.-->
     <script src="{{ asset('js/app.js') }}"></script>
     <!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
+    @stack('scripts')
 </body>
 
 </html>
