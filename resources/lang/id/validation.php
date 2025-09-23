@@ -168,6 +168,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'g-recaptcha-response' => [
+            'required' => 'Silakan konfirmasi bahwa anda bukan robot.',
+        ],
     ],
 
     /*

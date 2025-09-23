@@ -44,7 +44,7 @@
                                         Maklon</a></li>
                                 @auth
                                     <li><a href="{{ route('permintaan.index') }}" class="text-foot"><i
-                                                class="uil uil-angle-right-b me-1"></i> Permintaan</a></li>
+                                                class="uil uil-angle-right-b me-1"></i> Monitoring</a></li>
                                 @endauth
                                 <li><a href="{{ route('kontak.index') }}" class="text-foot"><i
                                             class="uil uil-angle-right-b me-1"></i> Kontak</a></li>

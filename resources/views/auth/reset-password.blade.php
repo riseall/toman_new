@@ -4,7 +4,7 @@
         <!--begin::Aside-->
         <div class="login-aside order-2 order-lg-1 d-flex flex-row-auto position-relative overflow-hidden h-100">
             <!--begin: Aside Container-->
-            <div class="d-flex flex-column-fluid flex-column justify-content-between py-9 px-7 py-lg-13 px-lg-35">
+            <div class="d-flex flex-column-fluid flex-column justify-content-between py-9 px-7 py-lg-13">
                 <!--begin::Logo-->
                 <a href="{{ route('login') }}" class="text-center pt-2">
                     <img src="{{ asset('images/logo/logoPH.png') }}" class="max-h-75px" alt="" />
@@ -42,6 +42,18 @@
                                 <div class="form-group">
                                     <input class="form-control " type="password" name="password_confirmation"
                                         placeholder="Konfirmasi Password" required />
+                                </div>
+
+                                <div class="form-group d-flex flex-wrap flex-center">
+                                    <div class="mb-0">
+                                        <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}">
+                                        </div>
+                                    </div>
+                                    @error('g-recaptcha-response')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
 
                                 <div class="text-center">

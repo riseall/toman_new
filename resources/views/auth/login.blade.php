@@ -5,7 +5,7 @@
         <!--begin::Aside-->
         <div class="login-aside order-2 order-lg-1 d-flex flex-row-auto position-relative overflow-hidden h-100">
             <!--begin: Aside Container-->
-            <div class="d-flex flex-column-fluid flex-column justify-content-between py-9 px-7 py-lg-13 px-lg-35">
+            <div class="d-flex flex-column-fluid flex-column justify-content-between py-9 px-7 py-lg-13 px-lg-23">
                 <!--begin::Logo-->
                 <a href="{{ route('login') }}" class="text-center pt-2">
                     <img src="{{ asset('images/logo/logoPH.png') }}" class="max-h-75px" alt="" />
@@ -71,6 +71,18 @@
                             </div>
                             <!--end::Form group-->
                             <!--begin::Action-->
+                            <div class="form-group d-flex flex-wrap flex-center">
+                                <div class="mb-0">
+                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}">
+                                    </div>
+                                </div>
+                                @error('g-recaptcha-response')
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+
                             <div class="text-center pt-2">
                                 <button type="submit" id="kt_login_signin_submit"
                                     class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-3">Masuk</button>
@@ -105,6 +117,17 @@
                             </div>
                             <!--end::Form group-->
                             <!--begin::Form group-->
+                            <div class="form-group d-flex flex-wrap flex-center">
+                                <div class="mb-0">
+                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}">
+                                    </div>
+                                </div>
+                                @error('g-recaptcha-response')
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
                             <div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3">
                                 <button type="submit" id="kt_login_forgot_submit"
                                     class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-3">Kirim</button>

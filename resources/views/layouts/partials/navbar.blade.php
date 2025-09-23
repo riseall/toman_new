@@ -115,7 +115,15 @@
                     <li><a href="{{ route('alur.index') }}" class="sub-menu-item">Alur Maklon</a></li>
 
                     @auth
-                        <li><a href="{{ route('permintaan.index') }}" class="sub-menu-item">Permintaan</a></li>
+                        <li class="has-submenu parent-menu-item">
+                            <a href="javascript:void(0)">Monitoring</a><span class="menu-arrow"></span>
+                            <ul class="submenu">
+                                <li><a href="{{ route('permintaan.index') }}" class="sub-menu-item">Permintaan Toll</a>
+                                </li>
+                                <li><a href="{{ route('cal.index') }}" class="sub-menu-item">Kalibrasi dan lain-lain</a>
+                                </li>
+                            </ul>
+                        </li>
                     @endauth
 
                     <li><a href="{{ route('kontak.index') }}" class="sub-menu-item">Kontak</a></li>
