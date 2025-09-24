@@ -32,6 +32,7 @@
         {{-- end::content --}}
     </div>
     <!--end::Main-->
+    <x-session-timeout />
 </body>
 <!--end::Body-->
 <script src="{{ asset('js/jquery.js') }}"></script>

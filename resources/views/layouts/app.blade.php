@@ -84,6 +84,7 @@
     <link rel="stylesheet" href="{{ asset('plugin/dataTables/css/dataTables.bootstrap5.min.css') }}">
     <script src="{{ asset('plugin/dataTables/js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('plugin/dataTables/js/dataTables.bootstrap5.min.js') }}"></script>
+    <x-session-timeout />
     @stack('scripts')
 </body>
 
