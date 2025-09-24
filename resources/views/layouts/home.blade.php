@@ -3,16 +3,63 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Toman - {{ $title }}</title>
+    @php
+        use Illuminate\Support\Str;
+        $seoTitle = isset($title) ? 'Toman - ' . $title : config('seo.title');
+        $seoDescription = $metaDescription ?? config('seo.description');
+        $seoKeywords = $metaKeywords ?? config('seo.keywords');
+        $rawImage = $metaImage ?? config('seo.image');
+        $seoImage = Str::startsWith($rawImage, ['http://', 'https://']) ? $rawImage : asset($rawImage);
+        $seoUrl = $metaUrl ?? url()->current();
+        $seoType = $metaType ?? 'website';
+        $seoNoindex = $metaNoindex ?? false;
+        $siteName = config('seo.site_name') ?? config('app.name');
+    @endphp
+
+    <title>{{ $seoTitle }}</title>
+    <meta name="description" content="{{ $seoDescription }}">
+    <meta name="keywords" content="{{ $seoKeywords }}">
+    <link rel="canonical" href="{{ $seoUrl }}">
+    @if ($seoNoindex)
+        <meta name="robots" content="noindex, nofollow">
+    @endif
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="{{ app()->getLocale() }}">
+    <meta property="og:type" content="{{ $seoType }}">
+    <meta property="og:title" content="{{ $seoTitle }}">
+    <meta property="og:description" content="{{ $seoDescription }}">
+    <meta property="og:url" content="{{ $seoUrl }}">
+    <meta property="og:image" content="{{ $seoImage }}">
+    <meta property="og:site_name" content="{{ $siteName }}">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ $seoTitle }}">
+    <meta name="twitter:description" content="{{ $seoDescription }}">
+    <meta name="twitter:image" content="{{ $seoImage }}">
+
+    <!-- JSON-LD structured data (WebSite) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "{{ $siteName }}",
+      "url": "{{ url('/') }}",
+      "description": "{{ $seoDescription }}"
+    }
+    </script>
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Toll Manufakturing Pt. Phapros.tbk">
-    <meta name="keywords" content="Jasa toll manufacturing [obat, tablet, kapsul], Manufaktur toll, Phapros, Pabrik toll">
 
     <!-- favicon -->
     <link rel="shortcut icon" href="{{ asset('images/logo/toman.png') }}">
 
     <!-- Css -->
+    <link href="{{ asset('libs/tiny-slider/tiny-slider.css') }}" rel="stylesheet">
     <link href="{{ asset('libs/tobii/css/tobii.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('libs/animate.css/animate.css') }}" rel="stylesheet">
+
     <!-- Bootstrap Css -->
     <link href="{{ asset('css/bootstrap.css') }}" id="bootstrap-style" class="theme-opt" rel="stylesheet"
         type="text/css">
@@ -21,7 +68,6 @@
     <link href="{{ asset('libs/@iconscout/css/line.css') }}" type="text/css" rel="stylesheet">
     <!-- Style Css-->
     <link href="{{ asset('css/style.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
-
 </head>
 
 <body>
