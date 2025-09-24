@@ -73,14 +73,14 @@
                             <!--begin::Action-->
                             <div class="form-group d-flex flex-wrap flex-center">
                                 <div class="mb-0">
-                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}">
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}">
                                     </div>
+                                    @error('g-recaptcha-response')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                                @error('g-recaptcha-response')
-                                    <div class="invalid-feedback d-block">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
                             </div>
 
                             <div class="text-center pt-2">
@@ -119,14 +119,13 @@
                             <!--begin::Form group-->
                             <div class="form-group d-flex flex-wrap flex-center">
                                 <div class="mb-0">
-                                    <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}">
-                                    </div>
+                                    <div id="recaptcha-forgot"></div>
+                                    @error('g-recaptcha-response')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
                                 </div>
-                                @error('g-recaptcha-response')
-                                    <div class="invalid-feedback d-block">
-                                        {{ $message }}
-                                    </div>
-                                @enderror
                             </div>
                             <div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3">
                                 <button type="submit" id="kt_login_forgot_submit"
@@ -183,4 +182,18 @@
             }
         }
     </script>
+    <script>
+        window.recaptchaSiteKey = "{{ config('services.recaptcha.site_key') }}";
+    </script>
+    @if (session('status'))
+        <script>
+            Swal.fire({
+                title: 'Berhasil!',
+                text: {!! json_encode(session('status')) !!},
+                icon: 'success',
+                allowOutsideClick: false
+            });
+        </script>
+        +
+    @endif
 @endsection

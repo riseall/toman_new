@@ -4,6 +4,35 @@
 var KTLogin = (function () {
     var _login;
 
+    var _recaptchaSignInWidget = null;
+    var _recaptchaForgotWidget = null;
+
+    var _renderRecaptchas = function () {
+        // tunggu grecaptcha tersedia
+        if (typeof grecaptcha === "undefined") {
+            setTimeout(_renderRecaptchas, 300);
+            return;
+        }
+        var siteKey = window.recaptchaSiteKey || null;
+        if (!siteKey) return;
+        if (
+            document.getElementById("recaptcha-signin") &&
+            _recaptchaSignInWidget === null
+        ) {
+            _recaptchaSignInWidget = grecaptcha.render("recaptcha-signin", {
+                sitekey: siteKey,
+            });
+        }
+        if (
+            document.getElementById("recaptcha-forgot") &&
+            _recaptchaForgotWidget === null
+        ) {
+            _recaptchaForgotWidget = grecaptcha.render("recaptcha-forgot", {
+                sitekey: siteKey,
+            });
+        }
+    };
+
     var _showForm = function (form) {
         var cls = "login-" + form + "-on";
         var form = "kt_login_" + form + "_form";
@@ -41,6 +70,29 @@ var KTLogin = (function () {
                 return;
             }
 
+            var captchaToken = "";
+            try {
+                if (
+                    typeof grecaptcha !== "undefined" &&
+                    _recaptchaForgotWidget !== null
+                ) {
+                    captchaToken = grecaptcha.getResponse(
+                        _recaptchaForgotWidget
+                    );
+                }
+            } catch (err) {
+                captchaToken = "";
+            }
+
+            if (!captchaToken) {
+                Swal.fire(
+                    "Oops!",
+                    "Silakan selesaikan captcha terlebih dahulu.",
+                    "error"
+                );
+                return;
+            }
+
             // ambil token CSRF dari form
             let token = $("#kt_login_forgot_form input[name='_token']").val();
 
@@ -50,6 +102,7 @@ var KTLogin = (function () {
                 data: {
                     _token: token,
                     email: email,
+                    "g-recaptcha-response": captchaToken,
                 },
                 beforeSend: function () {
                     Swal.fire({
@@ -71,6 +124,9 @@ var KTLogin = (function () {
 
                     // reset form
                     $("#kt_login_forgot_form")[0].reset();
+                    try {
+                        grecaptcha.reset(_recaptchaForgotWidget);
+                    } catch (e) {}
                 },
                 error: function (xhr) {
                     let err = xhr.responseJSON;
@@ -82,6 +138,9 @@ var KTLogin = (function () {
                                     err.errors.email[0]))) ||
                         "Gagal mengirim email. Coba lagi.";
                     Swal.fire("Oops!", msg, "error");
+                    try {
+                        grecaptcha.reset(_recaptchaForgotWidget);
+                    } catch (e) {}
                 },
             });
         });
@@ -93,6 +152,7 @@ var KTLogin = (function () {
         init: function () {
             _login = $("#kt_login");
 
+            _renderRecaptchas();
             _handleSignInForm();
             _handleForgotForm();
         },

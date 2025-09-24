@@ -9,12 +9,20 @@
 
         // Warning 1 menit sebelum expired
         warningTimer = setTimeout(() => {
-            alert("⚠️ Sesi Anda akan habis dalam 1 menit karena tidak ada aktivitas.");
+            Swal.fire({
+                title: 'Sesi Anda akan habis dalam 1 menit',
+                text: 'Karena tidak ada aktivitas.',
+                icon: 'warning',
+                confirmButtonText: 'OK',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.reload();
+                }
+            });
         }, window.sessionLifetime - 60000);
 
-        // Auto redirect ke login
         idleTimer = setTimeout(() => {
-            window.location.href = "{{ route('home') }}";
+            window.location.reload();
         }, window.sessionLifetime);
     }
 

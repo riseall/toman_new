@@ -26,13 +26,16 @@ class ReCaptcha implements Rule
      */
     public function passes($attribute, $value)
     {
+        $recaptcha = request('g-recaptcha-response');
         $response = Http::asForm()->post('https://www.google.com/recaptcha/api/siteverify', [
-            'secret' => env('RECAPTCHA_SECRET_KEY'),
-            'response' => $value,
+            'secret' => config('services.recaptcha.secret'),
+            'response' => $recaptcha,
             'remoteip' => request()->ip(),
         ]);
 
-        return $response->json('success') ?? false;
+        if (! ($response->json('success') ?? false)) {
+            return back()->withErrors(['g-recaptcha-response' => 'Captcha verification failed. Please try again.']);
+        }
     }
 
     /**

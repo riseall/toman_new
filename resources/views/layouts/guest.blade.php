@@ -18,7 +18,6 @@
     <link href="{{ asset('css/style.bundle.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 </head>
 
 <!--begin::Body-->
