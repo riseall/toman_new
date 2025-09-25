@@ -185,7 +185,12 @@
                                         <input type="checkbox" name="" id="privacy-policy">
                                         <label for="privacy-policy" class="form-label">Please confirm that you
                                             agree to our
-                                            <a href="#">Privacy Policy</a>.</label>
+                                            <a href="#" onclick="togglePolicy()">Privacy Policy</a>.</label>
+                                    </div>
+
+                                    <div id="policy"
+                                        style="display:none; margin-top:10px; max-height:300px; overflow:auto; border:1px solid #ccc; padding:10px;">
+                                        @include('user.privacy-policy')
                                     </div>
                                 </div>
                             </form>
@@ -299,5 +304,11 @@
                 $(this).next('.invalid-feedback').html('');
             });
         });
+    </script>
+    <script>
+        function togglePolicy() {
+            const el = document.getElementById("policy");
+            el.style.display = el.style.display === "none" ? "block" : "none";
+        }
     </script>
 @endpush

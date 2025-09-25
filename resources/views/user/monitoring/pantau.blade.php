@@ -196,7 +196,11 @@
     <div class="row">
         <div class="col-12 mt-4 pt-2">
             <div class="pagination justify-content-center mb-0">
-                {{ $dataTransaksi->links('pagination::bootstrap-4') }}
+                {{ $dataTransaksi->appends([
+                        'links' => $dataTransaksi->onEachSide(1, function ($item) {
+                            return $item->url() == request()->url() ? '' : $item->link();
+                        }),
+                    ])->links('pagination::bootstrap-4') }}
             </div>
         </div><!--end col-->
     </div><!--end row-->

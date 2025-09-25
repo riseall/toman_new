@@ -1,8 +1,6 @@
 @extends('layouts.app', [
     'title' => 'Kontak',
-    'desc' => 'Kami dengan senang hati akan membantu anda dalam setiap proses pembuatan produk anda, 
-Silakan hubungi kami melalui kontak di bawah ini untuk informasi lebih lanjut, kerja sama, atau konsultasi produk. Mari wujudkan produk dengan brand professional anda 
-',
+    'desc' => '',
 ])
 
 @section('bg', '807A0366.jpg')
@@ -13,8 +11,10 @@ Silakan hubungi kami melalui kontak di bawah ini untuk informasi lebih lanjut, k
                 <div class="section-title mb-4 pb-2 wow animate__ animate__fadeInUp animated" data-wow-delay=".1s"
                     style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                     <h3 class="title mb-4">Hubungi Kami</h3>
-                    <p class="text-muted para-desc mb-0 mx-auto">Jika Anda mempunyai saran, masukan atau pertanyaan ataupun
-                        Keluhan yang dapat memperbaiki kinerja kami, silakan menghubungi kami.
+                    <p class="text-muted para-desc mb-0 mx-auto">Kami dengan senang hati akan membantu anda dalam setiap
+                        proses pembuatan produk anda,
+                        Silakan hubungi kami melalui kontak di bawah ini untuk informasi lebih lanjut, kerja sama, atau
+                        konsultasi produk. Mari wujudkan produk dengan brand professional anda.
                 </div>
             </div>
         </div><!--end row-->
@@ -193,7 +193,8 @@ Silakan hubungi kami melalui kontak di bawah ini untuk informasi lebih lanjut, k
                                             <input class="form-check-input" type="checkbox" value="" db
                                                 id="privacyPolicy">
                                             <label class="form-check-label" for="privacyPolicy">Please confirm that you
-                                                agree to our <a href="#" class="text-primary">Privacy
+                                                agree to our <a href="#" data-bs-toggle="modal"
+                                                    data-bs-target="#privacyPolicyModal" class="text-primary">Privacy
                                                     Policy</a></label>
                                         </div>
                                     </div>
@@ -208,6 +209,30 @@ Silakan hubungi kami melalui kontak di bawah ini untuk informasi lebih lanjut, k
                             </div><!--end row-->
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="privacyPolicyModal" tabindex="-1" role="dialog"
+        aria-labelledby="privacyPolicyModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="privacyPolicyModalLabel">Kebijakan Privasi PT Phapros Tbk</h5>
+                    <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" aria-label="Close"><i
+                            class="uil uil-times fs-4 text-dark"></i></button>
+                </div>
+                <div class="modal-body" style="text-align: justify;">
+                    <div class="container">
+                        <div class="card">
+                            @include('user.privacy-policy')
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal"
+                        aria-label="Close">Tutup</button>
                 </div>
             </div>
         </div>
@@ -241,7 +266,7 @@ Silakan hubungi kami melalui kontak di bawah ini untuk informasi lebih lanjut, k
                 title: 'Berhasil!',
                 text: '{{ session('success') }}',
                 showConfirmButton: false,
-                timer: 3000
+                timer: 1000
             });
         @endif
 

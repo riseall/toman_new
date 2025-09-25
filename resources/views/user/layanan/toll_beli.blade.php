@@ -93,15 +93,16 @@
         <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content rounded shadow border-0">
                 <div class="modal-header border-bottom">
+                    <h5 class="m-0">Detail Produk</h5>
                     <button type="button" class="btn btn-icon btn-close" data-bs-dismiss="modal" id="close-modal"><i
                             class="uil uil-times fs-4 text-dark"></i></button>
                 </div>
                 <div class="modal-body">
-                    <div class="row">
-                        <div class="col-lg-5">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
                             <img src="" class="img-fluid rounded" id="productImage" alt="">
                         </div>
-                        <div class="col-lg-7">
+                        <div class="col-lg-6">
                             <h5 class="modal-title text-primary mb-2" id="productModalLabel"></h5>
                             <strong>Kemasan: </strong>
                             <p id="package"></p>

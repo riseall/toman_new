@@ -62,12 +62,12 @@
                         <thead>
                             <tr class="fw-medium">
                                 <th>No.</th>
-                                <th>Perusahaan</th>
-                                <th>Tanggal Permohonan</th>
-                                <th>PIC</th>
-                                <th>Email</th>
-                                <th>Telp / HP / WA</th>
                                 <th>Jenis Permintaan</th>
+                                <th>Tanggal Permohonan</th>
+                                <th>Nama Produk</th>
+                                <th>Lingkup Pekerjaan</th>
+                                <th>PIC</th>
+                                <th>Telp / HP / WA</th>
                                 <th>Cetak</th>
                             </tr>
                         </thead>
@@ -98,29 +98,22 @@
                         className: 'text-center'
                     },
                     {
-                        data: 'entity_name',
-                        defaultContent: '-'
+                        data: 'req_name',
                     },
                     {
                         data: 'req_date',
-                        defaultContent: '-'
+                    },
+                    {
+                        data: 'prod_name',
+                    },
+                    {
+                        data: 'work_scope',
                     },
                     {
                         data: 'user_name',
-                        defaultContent: '-'
                     },
                     {
-                        data: 'email',
-                        defaultContent: '-'
-                    },
-                    {
-                        data: 'phone',
-                        defaultContent: '-'
-                    },
-                    {
-                        data: 'req_name',
-                        defaultContent: '-',
-                        className: 'text-center'
+                        data: 'phone'
                     },
                     {
                         data: null,

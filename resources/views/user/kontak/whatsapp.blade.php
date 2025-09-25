@@ -49,25 +49,4 @@
 
 @push('scripts')
     <script src="{{ asset('js/joinchat.js') }}"></script>
-    {{-- <script>
-        var waButton = document.getElementById("whatsapp-button");
-        window.onscroll = function() {
-            scroll();
-        };
-
-        console.log(waButton);
-
-        function scroll() {
-            if (waButton != null) {
-                if (
-                    document.body.scrollTop > 500 ||
-                    document.documentElement.scrollTop > 500
-                ) {
-                    waButton.style.display = "block";
-                } else {
-                    waButton.style.display = "none";
-                }
-            }
-        }
-    </script> --}}
 @endpush
