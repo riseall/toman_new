@@ -34,7 +34,7 @@ class ContactController extends Controller
             // Kirim notifikasi email
             $adminEmails = config('notification.admin_emails');
             if (!empty($adminEmails)) {
-                Mail::to($adminEmails)->queue(new PermintaanMasukNotification($kontakBaru));
+                Mail::to($adminEmails)->send(new PermintaanMasukNotification($kontakBaru));
             }
 
             return redirect()->back()->with('success', 'Pesan Anda telah berhasil dikirim!');

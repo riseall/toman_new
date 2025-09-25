@@ -185,15 +185,14 @@
     <script>
         window.recaptchaSiteKey = "{{ config('services.recaptcha.site_key') }}";
     </script>
-    @if (session('status'))
+    @if (session('password_reset'))
         <script>
             Swal.fire({
                 title: 'Berhasil!',
-                text: {!! json_encode(session('status')) !!},
+                text: {!! json_encode(session('password_reset_message')) !!},
                 icon: 'success',
                 allowOutsideClick: false
             });
         </script>
-        +
     @endif
 @endsection

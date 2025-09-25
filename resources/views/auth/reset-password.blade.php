@@ -132,15 +132,13 @@
             }
         }
     </script>
-    @if (session('status'))
+    @if (session('password_reset'))
         <script>
             Swal.fire({
                 title: 'Berhasil!',
-                text: {!! json_encode(session('status')) !!},
+                text: {!! json_encode(session('password_reset_message')) !!},
                 icon: 'success',
                 allowOutsideClick: false
-            }).then(function() {
-                window.location.href = "{{ route('login') }}";
             });
         </script>
     @endif

@@ -30,8 +30,39 @@ Route::get('/', function () {
     return view('welcome');
 })->name('home');
 
-Route::group(['middleware' => ['role:super_admin|admin_toti']], function () {
+Route::group(['middleware' => ['auth', 'role:super_admin|admin_toti']], function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+    // Route Untuk Admin (User)
+    Route::resource('user', UserController::class)->except('show', 'destroy');
+    Route::get('/user/data', [UserController::class, 'getUser'])->name('user.data');
+
+    // Route Untuk Admin (Company)
+    Route::resource('company', CompanyController::class)->only('index', 'store');
+    Route::get('/company/{entity_code}/edit', [CompanyController::class, 'edit'])->name('company.edit');
+    Route::put('/company/{entity_code}', [CompanyController::class, 'update'])->name('company.update');
+    Route::get('/company/data', [CompanyController::class, 'getCompany'])->name('company.data');
+
+    // Route untuk Admin (Product)
+    Route::resource('product', ProductController::class)->only('index', 'store', 'edit', 'update');
+    Route::get('/product/data', [ProductController::class, 'getProduct'])->name('product.data');
+
+    // Route untuk Admin (Fasilitas Produksi)
+    Route::resource('fasilitas', FasilitasController::class)->only('index', 'store');
+    Route::get('/fasilitas/{id}/edit', [FasilitasController::class, 'edit'])->name('fasilitas.edit');
+    Route::put('/fasilitas/{id}', [FasilitasController::class, 'update'])->name('fasilitas.update');
+    Route::get('/fasilitas/data', [FasilitasController::class, 'getFasilitas'])->name('fasilitas.data');
+
+    // Route Untuk Admin (Permintaan)
+    Route::get('/admPermintaan', [TollController::class, 'indexPermintaan'])->name('companies.index');
+    Route::get('/admPermintaan/{entity_code}/show', [TollController::class, 'showPermintaan'])->name('companies.show');
+    Route::get('/admPermintaan/{entity_code}/data', [TollController::class, 'getPermintaans'])->name('companies.data');
+    Route::get('/admKalibrasi', [TollController::class, 'indexKalibrasi'])->name('kalibrasi.index');
+    Route::get('/admKalibrasi/{entity_code}/show', [TollController::class, 'showKalibrasi'])->name('kalibrasi.show');
+    Route::get('/admKalibrasi/{entity_code}/data', [TollController::class, 'getKalibrasis'])->name('kalibrasi.data');
+
+    // Route Untuk Admin (Pesan)
+    Route::get('/pesan', [ContactController::class, 'indexPesan'])->name('pesan.index');
 });
 
 // Route Layanan
@@ -40,40 +71,11 @@ Route::get('/layanan/toll_beli', [LayananController::class, 'getTollBeli'])->nam
 Route::get('/layanan/kalibrasi', [LayananController::class, 'getKalibrasi'])->name('kalibrasi');
 Route::post('/layanan/kalibrasi/add', [LayananController::class, 'storeKalibrasi'])->name('kalibrasi.store');
 
-// Route Untuk Admin (User)
-Route::resource('user', UserController::class)->except('show', 'destroy');
-Route::get('/user/data', [UserController::class, 'getUser'])->name('user.data');
-
-// Route Untuk Admin (Company)
-Route::resource('company', CompanyController::class)->only('index', 'store');
-Route::get('/company/{entity_code}/edit', [CompanyController::class, 'edit'])->name('company.edit');
-Route::put('/company/{entity_code}', [CompanyController::class, 'update'])->name('company.update');
-Route::get('/company/data', [CompanyController::class, 'getCompany'])->name('company.data');
-
-// Route untuk Admin (Product)
-Route::resource('product', ProductController::class)->only('index', 'store', 'edit', 'update');
-Route::get('/product/data', [ProductController::class, 'getProduct'])->name('product.data');
-
-// Route untuk Admin (Fasilitas Produksi)
-Route::resource('fasilitas', FasilitasController::class)->only('index', 'store');
-Route::get('/fasilitas/{id}/edit', [FasilitasController::class, 'edit'])->name('fasilitas.edit');
-Route::put('/fasilitas/{id}', [FasilitasController::class, 'update'])->name('fasilitas.update');
-Route::get('/fasilitas/data', [FasilitasController::class, 'getFasilitas'])->name('fasilitas.data');
-
-// Route Untuk Admin (Permintaan)
-Route::get('/admPermintaan', [TollController::class, 'indexPermintaan'])->name('companies.index');
-Route::get('/admPermintaan/{entity_code}/show', [TollController::class, 'showPermintaan'])->name('companies.show');
-Route::get('/admPermintaan/{entity_code}/data', [TollController::class, 'getPermintaans'])->name('companies.data');
-Route::get('/admKalibrasi', [TollController::class, 'indexKalibrasi'])->name('kalibrasi.index');
-Route::get('/admKalibrasi/{entity_code}/show', [TollController::class, 'showKalibrasi'])->name('kalibrasi.show');
-Route::get('/admKalibrasi/{entity_code}/data', [TollController::class, 'getKalibrasis'])->name('kalibrasi.data');
-
-// Route Untuk Admin (Pesan)
-Route::get('/pesan', [ContactController::class, 'indexPesan'])->name('pesan.index');
-
-// Route untuk Permintaan
-Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
-Route::get('/permintaan/data', [PermintaanController::class, 'getData'])->name('permintaan.data');
+Route::group(['middleware' => ['auth']], function () {
+    // Route untuk Permintaan
+    Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
+    Route::get('/permintaan/data', [PermintaanController::class, 'getData'])->name('permintaan.data');
+});
 
 // Route untuk Kalibrasi
 Route::resource('cal', KalibrasiController::class)->only('index', 'create', 'store');

@@ -92,10 +92,10 @@ class PermintaanController extends Controller
         $userCompany = $user->entity_code;
 
         if ($user->hasRole([1, 2])) {
-            $permintaan = Permintaan::with('user.entity')->get();
+            $permintaan = Permintaan::with(['user.entity', 'fasilitasProduksi'])->get();
         } else {
             // filter berdasarkan perusahaan
-            $permintaan = Permintaan::with('user.entity')
+            $permintaan = Permintaan::with(['user.entity', 'fasilitasProduksi'])
                 // ->where('user_id', $loggedInUser)
                 ->whereHas('user', function ($query) use ($userCompany) {
                     $query->where('entity_code', $userCompany);
@@ -109,11 +109,12 @@ class PermintaanController extends Controller
                 'id'          => $item->id,
                 'no'          => $index + 1,
                 'entity_name' => $item->user->entity->entity_name ?? '-',
+                'req_name'    => $item->fasilitasProduksi->dosage_form ?? '-',
                 'req_date'    => $item->req_date ?? '-',
+                'prod_name'   => $item->prod_name ?? '-',
+                'work_scope'  => $item->work_scope ?? '-',
                 'user_name'   => ($item->user->first_name ?? '') . ' ' . ($item->user->last_name ?? ''),
-                'email'       => $item->user->email ?? '-',
                 'phone'       => $item->user->phone ?? '-',
-                'req_name'    => $item->req_name ?? '-',
                 'action'      => route('permintaan.export_pdf', $item->id),
             ];
         });

@@ -18,7 +18,7 @@
                                                 data-type='[ "Tepat.", "Andal.", "Sesuai Standar Global." ]'>
                                                 <span class="wrap"></span> </span>
                                         </h1>
-                                        <p class="text-white-90" style="max-width: 650px;">Dengan pendekatan
+                                        <p class="text-white-90" style="max-width: 680px;">Dengan pendekatan
                                             kolaboratif, keunggulan teknologi, dan kepatuhan terhadap regulasi, kami
                                             hadir untuk mewujudkan ide Anda menjadi produk farmasi unggulan yang
                                             terpercaya.

@@ -7394,7 +7394,7 @@ body[data-layout-mode="dark"] .mode-light {
 
 /* Styling untuk gambar sertifikat Anda (sesuaikan dengan desain Anda) */
 .client-logo {
-    height: 6rem;
+    height: 4rem;
     aspect-ratio: 4/2;
     object-fit: contain;
     background-blend-mode: color-burn;
