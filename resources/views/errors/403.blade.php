@@ -20,12 +20,7 @@
     <link href="{{ asset('css/style.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
 </head>
 
-<body>
-    <div class="back-to-home rounded d-none d-sm-block">
-        <a href="" class="back-button btn btn-icon btn-primary"><i data-feather="arrow-left"
-                class="icons"></i></a>
-    </div>
-
+<body onload="setTimeout(function(){ window.location.href = '{{ route('home') }}'; }, 2000);">
     <!-- ERROR PAGE -->
     <section class="bg-home d-flex align-items-center">
         <div class="container">
@@ -40,11 +35,11 @@
                 </div><!--end col-->
             </div><!--end row-->
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-md-12 text-center">
                     <a href="{{ route('home') }}" class="btn btn-primary mt-4">Go To Home</a>
                 </div><!--end col-->
-            </div><!--end row-->
+            </div><!--end row--> --}}
         </div><!--end container-->
     </section><!--end section-->
     <!-- ERROR PAGE -->
