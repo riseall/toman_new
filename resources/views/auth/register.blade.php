@@ -1,61 +1,173 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo width="82" />
-            </a>
-        </x-slot>
+@extends('layouts.guest', ['title' => 'Login'])
+@section('content')
+    <!--begin::Login-->
+    <div class="login login-2 login-signin-on d-flex flex-column flex-lg-row flex-column-fluid bg-white" id="kt_login">
+        <!--begin::Aside-->
+        <div class="login-aside order-2 order-lg-1 d-flex flex-row-auto position-relative overflow-hidden h-100">
+            <!--begin: Aside Container-->
+            <div class="d-flex flex-column-fluid flex-column justify-content-between py-9 px-7 py-lg-13 px-lg-23">
+                <!--begin::Logo-->
+                <a href="{{ route('register') }}" class="text-center pt-2">
+                    <img src="{{ asset('images/logo/logoPH.png') }}" class="max-h-75px" alt="" />
+                </a>
+                <!--end::Logo-->
+                <!--begin::Aside body-->
+                <div class="d-flex flex-column-fluid flex-column flex-center">
+                    <!--begin::Signup-->
+                    <div class="login-form login-signin pt-11">
+                        <div class="text-center pb-8">
+                            <h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Daftar Akun</h2>
+                            <p class="text-muted font-weight-bold">Silahkan lengkapi identitas anda untuk membuat akun</p>
+                        </div>
+                        <!--begin::Form-->
+                        <form method="POST" action="{{ route('register') }}" class="form" novalidate="novalidate"
+                            id="kt_login_signup_form">
+                            @csrf
 
-        <div class="card-body">
-            <!-- Validation Errors -->
-            <x-auth-validation-errors class="mb-4" :errors="$errors" />
+                            <div class="form-group">
+                                <label for="first_name" class="font-size-h7 font-weight-bolder text-dark">Nama Depan</label>
+                                <input type="text" name="first_name" id="first_name" class="form-control"
+                                    placeholder="Nama Depan" required>
+                                @error('first_name')
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="last_name" class="font-size-h7 font-weight-bolder text-dark">Nama
+                                    Belakang</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control"
+                                    placeholder="Nama Belakang" required>
+                                @error('last_name')
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
 
-            <form method="POST" action="{{ route('register') }}">
-                @csrf
+                            <div class="form-group">
+                                <label for="username" class="font-size-h7 font-weight-bolder text-dark">Username</label>
+                                <input type="text" name="username" id="username" class="form-control"
+                                    placeholder="Username" required>
+                                @error('username')
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="email" class="font-size-h7 font-weight-bolder text-dark">Email</label>
+                                <input type="email" name="email" id="email" class="form-control" placeholder="Email"
+                                    required>
+                                @error('email')
+                                    <div class="invalid-feedback d-block">
+                                        {{ $message }}
+                                    </div>
+                                @enderror
+                            </div>
 
-                <!-- Name -->
-                <div class="mb-3">
-                    <x-label for="name" :value="__('Name')" />
+                            <div class="form-group">
+                                <label for="password" class="font-size-h7 font-weight-bolder text-dark">Password</label>
+                                <div class="input-group">
+                                    <input type="password" name="password" id="password" class="form-control"
+                                        placeholder="Password" required>
+                                    <div class="input-group-append" style="border: 1px solid #77b4fa; border-radius: 5px">
+                                        <span id="togglePassword" onclick="togglePassword('password', 'eyeIcon')"
+                                            class="input-group-text" style="cursor:pointer;">
+                                            <span id="eyeIcon" class="mdi mdi-eye-outline"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                @error('password')
+                                    <div class="invalid-feedback d-block" id="password-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="form-group">
+                                <label for="password_confirmation"
+                                    class="font-size-h7 font-weight-bolder text-dark">Konfirmasi Password</label>
+                                <div class="input-group">
+                                    <input type="password" name="password_confirmation" id="password_confirmation"
+                                        class="form-control" placeholder="Konfirmasi Password" required>
+                                    <div class="input-group-append" style="border: 1px solid #77b4fa; border-radius: 5px">
+                                        <span id="togglePasswordConfirm"
+                                            onclick="togglePassword('password_confirmation', 'eyeIconConfirm')"
+                                            class="input-group-text" style="cursor:pointer;">
+                                            <span id="eyeIconConfirm" class="mdi mdi-eye-outline"></span>
+                                        </span>
+                                    </div>
+                                </div>
+                                @error('password_confirmation')
+                                    <div class="invalid-feedback d-block" id="password-feedback">{{ $message }}</div>
+                                @enderror
+                            </div>
 
-                    <x-input id="name" type="text" name="name" :value="old('name')" required autofocus />
-                </div>
+                            <div class="form-group d-flex flex-wrap flex-center">
+                                <div class="mb-0">
+                                    <div class="g-recaptcha" data-sitekey="{{ config('services.recaptcha.site_key') }}">
+                                    </div>
+                                    @error('g-recaptcha-response')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
+                                        </div>
+                                    @enderror
+                                </div>
+                            </div>
 
-                <!-- Email Address -->
-                <div class="mb-3">
-                    <x-label for="email" :value="__('Email')" />
-
-                    <x-input id="email" type="email" name="email" :value="old('email')" required />
-                </div>
-
-                <!-- Password -->
-                <div class="mb-3">
-                    <x-label for="password" :value="__('Password')" />
-
-                    <x-input id="password" type="password"
-                                    name="password"
-                                    required autocomplete="new-password" />
-                </div>
-
-                <!-- Confirm Password -->
-                <div class="mb-3">
-                    <x-label for="password_confirmation" :value="__('Confirm Password')" />
-
-                    <x-input id="password_confirmation" type="password"
-                                    name="password_confirmation" required />
-                </div>
-
-                <div class="mb-0">
-                    <div class="d-flex justify-content-end align-items-baseline">
-                        <a class="text-muted me-3 text-decoration-none" href="{{ route('login') }}">
-                            {{ __('Already registered?') }}
-                        </a>
-
-                        <x-button>
-                            {{ __('Register') }}
-                        </x-button>
+                            <!--end::Form group-->
+                            <!--begin::Form group-->
+                            <div class="form-group d-flex flex-wrap justify-content-between align-items-center mt-2">
+                                <div class="my-3 mr-2">
+                                    <span class="text-muted font-weight-bold mr-2">Sudah punya akun?</span>
+                                    <a href="{{ route('login') }}" id="kt_login_signup"
+                                        class="text-primary font-weight-bolder">Masuk</a>
+                                </div>
+                                <button type="submit"
+                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 ml-3">Daftar</button>
+                            </div>
+                            <!--end::Form group-->
+                        </form>
+                        <!--end::Form-->
                     </div>
                 </div>
-            </form>
+                <!--end::Aside body-->
+                <!--begin: Aside footer for desktop-->
+                <!--end: Aside footer for desktop-->
+            </div>
+            <!--end: Aside Container-->
         </div>
-    </x-auth-card>
-</x-guest-layout>
+        <!--begin::Aside-->
+        <!--begin::Content-->
+        <div class="content order-1 order-lg-2 d-flex flex-column w-100 pb-0"
+            style="background-image: url(images/bg/phapros.jpg); background-size: cover; filter: brightness(0.5);">
+        </div>
+        <!--end::Content-->
+    </div>
+    <!--end::Login-->
+    <script>
+        function togglePassword(inputId, iconId) {
+            const passwordInput = document.getElementById(inputId);
+            const eyeIcon = document.getElementById(iconId);
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.className = "mdi mdi-eye-off-outline";
+            } else {
+                passwordInput.type = "password";
+                eyeIcon.className = "mdi mdi-eye-outline";
+            }
+        }
+    </script>
+    <script>
+        window.recaptchaSiteKey = "{{ config('services.recaptcha.site_key') }}";
+    </script>
+    @if (session('password_reset'))
+        <script>
+            Swal.fire({
+                title: 'Berhasil!',
+                text: {!! json_encode(session('password_reset_message')) !!},
+                icon: 'success',
+                allowOutsideClick: false
+            });
+        </script>
+    @endif
+@endsection

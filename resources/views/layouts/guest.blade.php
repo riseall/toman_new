@@ -14,6 +14,7 @@
     <!-- Css -->
     <!-- Bootstrap Css -->
     <link href="{{ asset('css/login-2.css') }}" id="bootstrap-style" class="theme-opt" rel="stylesheet" type="text/css">
+    <link href="{{ asset('libs/@mdi/css/materialdesignicons.min.css') }}" rel="stylesheet" type="text/css">
     <!-- Style Css-->
     <link href="{{ asset('css/style.bundle.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
 
