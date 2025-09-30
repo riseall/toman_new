@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\FasilitasController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KalibrasiController;
 use App\Http\Controllers\LayananController;
 use App\Http\Controllers\PdfController;
@@ -11,7 +12,6 @@ use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TollController;
 use App\Http\Controllers\UserController;
-use App\Models\Contact;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +26,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Route Beranda
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/entities/search', [CompanyController::class, 'search'])->name('entities.search');
+Route::post('/profile/identity', [HomeController::class, 'saveIdentity'])->name('profile.identity.save');
 
 Route::group(['middleware' => ['auth', 'role:super_admin|admin_toti']], function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');

@@ -29,7 +29,7 @@
                                             Perusahaan</label>
                                         <input type="text" class="form-control" id="company_address"
                                             name="company_address"
-                                            value="{{ Auth::user()->entity->entity_address_line_1 ?? '' }} {{ Auth::user()->entity->entity_address_line_2 ?? '' }}"
+                                            value="{{ Auth::user()->entity->entity_address_line_1 ?? '' }} {{ Auth::user()->entity->entity_kota ?? '' }}"
                                             disabled required>
                                     </div>
                                 </div>

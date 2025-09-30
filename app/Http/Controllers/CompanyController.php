@@ -114,4 +114,15 @@ class CompanyController extends Controller
             ], 500);
         }
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->get('q');
+
+        $entities = Company::where('entity_name', 'like', "%{$search}%")
+            ->limit(10)
+            ->get(['entity_code', 'entity_name']);
+
+        return response()->json($entities);
+    }
 }

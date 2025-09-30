@@ -35,6 +35,8 @@ class AuthenticatedSessionController extends Controller
         /** @var \App\Models\User */
         $user = Auth::user();
 
+        session(['show_identity_modal' => $user->isProfileComplete() ? false : true]);
+
         if ($user->hasRole([1, 2])) {
             return redirect()->intended(RouteServiceProvider::DASH);
         } else {

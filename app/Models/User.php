@@ -68,4 +68,9 @@ class User extends Authenticatable
 
         Mail::to($this->email)->send(new ResetPasswordMail($url, $this));
     }
+
+    public function isProfileComplete()
+    {
+        return $this->phone && $this->entity_code;
+    }
 }

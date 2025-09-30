@@ -8,8 +8,10 @@
         <li>PT Phapros, Tbk dapat menghubungi pelanggan apabila selama pelaksanaan kalibrasi terjadi kendala
             teknis (misal: alat tidak berfungsi setelah di cek, adjustment, dll).</li>
         <li>Pelanggan mengisi Form Pendaftaran. Form Pendaftaran terlampir di bawah ini.</li>
-        <li>Pelanggan mengirim Form Pendaftaran yang sudah diisi dan melampirkan Sertifikat Kalibrasi terakhir (jika
-            ada).</li>
+        <li>Pelanggan mengirim Form Pendaftaran yang sudah diisi diemail ke <a
+                href="mailto:kalibrasi@phapros.co.id">kalibrasi@phapros.co.id</a> dan <a
+                href="mailto:tollintolloutphapros@gmail.com">tollintolloutphapros@gmail.com</a>
+            dengan melampirkan Sertifikat Kalibrasi terakhir (jika ada).</li>
         <li>Barang yang akan dikalibrasi dapat dikirimkan langsung atau ekspedisi ke Unit TOTI PT.Phapros.,Tbk
             Jl.Simongan 131 Semarang 50148 <sup style="font-weight: normal; font-style: italic; font-size: 6pt">*)</sup>
         </li>
@@ -69,7 +71,8 @@
             <td colspan="2">{{ $kalibrasi->tool_name }}</td>
         </tr>
         <tr>
-            <td class="label">Spesifikasi Alat <br>(rentang ukur, ketelitian, kelas, dll) </td>
+            <td class="label" style="height: 45px; vertical-align: middle">Spesifikasi Alat <br>(rentang ukur,
+                ketelitian, kelas, dll) </td>
             <td class="titik-koma">:</td>
             <td colspan="2">{{ $kalibrasi->tool_spec }}</td>
         </tr>
@@ -113,7 +116,7 @@
         <tr>
             <td class="label">Nama pemilik alat pada sertifikat </td>
             <td class="titik-koma">:</td>
-            <td style="border: 0">{{ $kalibrasi->certif_name }}</td>
+            <td style="border: 0; width: 30%">{{ $kalibrasi->certif_name }}</td>
             <td style="border-left: 0"> No. Akreditasi KAN : {{ $kalibrasi->certif_no }}</td>
         </tr>
         <tr>

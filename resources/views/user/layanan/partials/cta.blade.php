@@ -11,12 +11,12 @@
                     </p>
                     <div class="mt-4">
                         @auth
-                            <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#permintaanForm"
-                                class="btn btn-success mt-2 me-2"><i class="uil uil-file-plus-alt"></i>
+                            <a href="javascript:void(0)" id="btnPermintaan" class="btn btn-success mt-2 me-2"><i
+                                    class="uil uil-file-plus-alt"></i>
                                 Ajukan Permintaan</a>
                         @endauth
                         @guest
-                            <a href="{{ route('login') }}" class="btn btn-success mt-2 me-2"><i
+                            <a href="{{ route('register') }}" class="btn btn-success mt-2 me-2"><i
                                     class="uil uil-file-plus-alt"></i>
                                 Ajukan Permintaan</a>
                         @endguest
@@ -31,3 +31,25 @@
 </div>
 
 @include('user.permintaan.create')
+@include('user.identity-modal')
+
+@push('scripts')
+    @auth
+        <script>
+            const btnPermintaan = document.getElementById('btnPermintaan');
+            if (btnPermintaan) {
+                btnPermintaan.addEventListener('click', function() {
+                    @if (Auth::user()->isProfileComplete())
+                        // kalau profil lengkap → buka modal permintaan
+                        var permintaanModal = new bootstrap.Modal(document.getElementById('permintaanForm'));
+                        permintaanModal.show();
+                    @else
+                        // kalau belum lengkap → buka modal identitas
+                        var identityModal = new bootstrap.Modal(document.getElementById('identityModal'));
+                        identityModal.show();
+                    @endif
+                });
+            }
+        </script>
+    @endauth
+@endpush

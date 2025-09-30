@@ -61,6 +61,15 @@
                             </div>
                         </a>
                     </li>
+                    <li class="list-inline-item mb-0 ps-1">
+                        <a onclick="window.location.href='{{ route('register') }}'" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+                            <div class="login-btn-primary"><span class="btn btn-pills btn-outline-primary">Daftar</span>
+                            </div>
+                            <div class="login-btn-light"><span class="btn btn-pills btn-outline btn-light">Daftar</span>
+                            </div>
+                        </a>
+                    </li>
                 @endguest
                 @auth
                     <li class="list-inline-item mb-0 ps-1">
