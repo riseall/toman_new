@@ -39,7 +39,7 @@ class FasilitasController extends Controller
         $validator = Validator::make($request->all(), [
             'dosage_form' => 'required|string|max:255',
             'type' => 'required|string|max:255',
-            'unit' => 'required|in:Tablet, Capsule, Vial, Bottle, Ampoule, Tube',
+            'unit' => 'required|in:Tablet,Capsule,Vial,Bottle,Ampoule,Tube',
             'is_active' => 'required|boolean',
         ]);
 
@@ -79,7 +79,7 @@ class FasilitasController extends Controller
         $validator = Validator::make($request->all(), [
             'dosage_form' => 'required|string|max:255',
             'type' => 'required|string|max:255',
-            'unit' => 'required|in:Tablet, Capsule, Vial, Bottle, Ampoule, Tube',
+            'unit' => 'required|in:Tablet,Capsule,Vial,Bottle,Ampoule,Tube',
             'is_active' => 'required|boolean',
         ]);
 
@@ -96,7 +96,7 @@ class FasilitasController extends Controller
                 'dosage_form' => $request->dosage_form,
                 'type' => $request->type,
                 'unit' => $request->unit,
-                'is_active' => $request->has('is_active') ? '1' : '0',
+                'is_active' => $request->is_active ?? false,
             ]);
 
             return response()->json([

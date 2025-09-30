@@ -226,7 +226,7 @@
 
             <div class="bg-primary rounded shadow py-5 d-lg-block d-none mt-3"
                 style="background: url({{ asset('images/bg/807A6750.JPG') }}); background-size: cover; background-position: center;">
-                <div class="container my-md-5">
+                <div class="container">
                     <div class="bg-overlay opacity-7 rounded"></div>
                     <div class="row">
                         <div class="col-12 text-center">
@@ -245,15 +245,6 @@
                 </div><!--end container-->
             </div><!--end div-->
         </div><!--end row-->
-
-        <!-- PAGINATION START -->
-        {{-- <div class="row">
-            <div class="col-12 mt-4 pt-2">
-                <div class="pagination justify-content-center mb-0">
-                    {{ $product->links('pagination::bootstrap-4') }}
-                </div>
-            </div><!--end col-->
-        </div><!--end row--> --}}
-        <!-- PAGINATION END -->
     </div><!--end container-->
+    @include('user.layanan.partials.cta')
 @endsection

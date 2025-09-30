@@ -56,19 +56,22 @@
                         </a>
                     </div> --}}
 
-                    <div class="col-lg-3 col-md-6 col-12 spacing picture-item" style="cursor: pointer" {{-- data-groups='["branding"]' --}}>
+                    <div class="col-lg-3 col-md-6 col-6 spacing picture-item" style="cursor: pointer" {{-- data-groups='["branding"]' --}}>
                         <a data-bs-toggle="modal" data-bs-target="#productModal" data-batch="{{ $prod->prod_bets_size }}"
-                            data-exp="{{ $prod->prod_exp_yr }}" data-pcg="{{ $prod->prod_package }}">
+                            data-exp="{{ $prod->prod_exp_yr }}" data-pcg="{{ $prod->prod_package }}"
+                            style="max-width: 250px;">
                             <div
                                 class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
                                 <div class="card-body p-0">
-                                    {{-- <a href="assets/images/work/5.jpg" class="lightbox d-inline-block" title=""> --}}
-                                    <img src="{{ asset('images/product/' . $prod->prod_img) }}" class="img-fluid"
-                                        alt="{{ $prod->prod_name }}">
-                                    {{-- </a> --}}
+                                    <div class="ratio ratio-4x3">
+                                        <img src="{{ asset('images/product/' . $prod->prod_img) }}"
+                                            class="img-fluid object-fit-cover" alt="{{ $prod->prod_name }}">
+                                    </div>
                                     <div class="content p-3">
-                                        <h5 class="mb-1 text-primary title">{{ $prod->prod_name }}</h5>
-                                        <h6 class="text-muted tag mb-0">{{ $prod->prod_package }}</h6>
+                                        <h5 class="mb-1 text-primary title" style="font-size: calc(0.5rem + 0.5vw)">
+                                            {{ $prod->prod_name }}</h5>
+                                        <h6 class="text-muted mb-0" style="font-size: calc(0.4rem + 0.5vw)">
+                                            {{ $prod->prod_package }}</h6>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +85,7 @@
         <div class="row">
             <div class="col-12 mt-4 pt-2">
                 <div class="pagination justify-content-center mb-0">
-                    {{ $product->links('pagination::bootstrap-4') }}
+                    {{ $product->links('vendor.pagination.custom') }}
                 </div>
             </div><!--end col-->
         </div><!--end row-->

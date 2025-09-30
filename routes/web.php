@@ -7,11 +7,13 @@ use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KalibrasiController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TollController;
 use App\Http\Controllers\UserController;
+use App\Models\FasilitasProduksi;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -75,6 +77,7 @@ Route::group(['middleware' => ['auth']], function () {
     // Route untuk Permintaan
     Route::resource('permintaan', PermintaanController::class)->only('index', 'create', 'store');
     Route::get('/permintaan/data', [PermintaanController::class, 'getData'])->name('permintaan.data');
+    Route::get('/monitoring/data', [MonitoringController::class, 'data'])->name('monitoring.data');
 });
 
 // Route untuk Kalibrasi
@@ -96,7 +99,9 @@ Route::get('/portofolio', function () {
 
 // Route untuk Alur Maklon
 Route::get('/alur', function () {
-    return view('user.alur.index');
+    $fasilitas = FasilitasProduksi::all();
+    return view('user.alur.index', compact('fasilitas'));
 })->name('alur.index');
+
 
 require __DIR__ . '/auth.php';

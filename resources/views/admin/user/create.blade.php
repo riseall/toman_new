@@ -13,7 +13,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="first_name" class="form-label">Nama Depan</label>
-                                <input type="text" name="first_name" id="first_name" class="form-select"
+                                <input type="text" name="first_name" id="first_name" class="form-control"
                                     placeholder="Nama Depan" required>
                                 <div class="invalid-feedback"></div>
                             </div>

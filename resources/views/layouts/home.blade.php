@@ -121,6 +121,8 @@
     <script src="{{ asset('js/plugins.init.js') }}"></script>
     <!--Note: All init (custom) js like tiny slider, counter, countdown, lightbox, gallery, swiper slider etc.-->
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/sweetalert.js') }}"></script>
     <x-session-timeout />
     <!--Note: All important javascript like page loader, menu, sticky menu, menu-toggler, one page menu etc. -->
     @stack('scripts')
