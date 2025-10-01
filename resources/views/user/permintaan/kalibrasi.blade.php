@@ -2,7 +2,7 @@
     'title' => 'Kalibrasi dan Lain-lain',
     'desc' => '',
 ])
-@section('bg', '807A0749.JPG')
+@section('bg', '807A0749.jpg')
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
@@ -52,6 +52,8 @@
 
 @push('scripts')
     <script>
+        let pdfRoute = "{{ route('kalibrasi.export_pdf', ':id') }}";
+
         $(function() {
             $('#permintaanTable').DataTable({
                 processing: true,
@@ -94,7 +96,8 @@
                         data: null,
                         className: 'text-center',
                         render: function(data) {
-                            return `<a href="/admKalibrasi/${data.id}/pdf" target="_blank" class="btn btn-icon btn-info bg-gradient">
+                            let link = pdfRoute.replace(':id', data.id);
+                            return `<a href="${link}" target="_blank" class="btn btn-icon btn-info bg-gradient">
                                 <i class="uil uil-print"></i>
                             </a>`;
                         }

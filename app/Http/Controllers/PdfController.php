@@ -28,6 +28,7 @@ class PdfController extends Controller
             'margin_right' => 16,
             'margin_top' => 40,
             'margin_bottom' => 25,
+            'tempDir' => storage_path('app/mpdf')
         ]);
 
         $mpdf->SetHTMLHeader($headerHtml);
@@ -59,6 +60,7 @@ class PdfController extends Controller
             'margin_right' => 10,
             'margin_top' => 30,
             'margin_bottom' => 10,
+            'tempDir' => storage_path('app/mpdf')
         ]);
 
         $mpdf->SetHTMLHeader($headerHtml);

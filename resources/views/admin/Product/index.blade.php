@@ -53,6 +53,8 @@
 @push('scripts')
     <script>
         $(function() {
+            let img = '{{ asset('images/product') }}';
+
             $('#productTable').DataTable({
                 scrollX: true,
                 scrollY: "50vh",
@@ -69,7 +71,7 @@
                         className: 'text-center',
                         render: function(data) {
                             if (data) {
-                                return `<img src="/images/product/${data}" alt="Produk" width="70" class="img-thumbnail">`;
+                                return `<img src="${img}/${data}" alt="Produk" width="70" class="img-thumbnail">`;
                             }
                             return `<span class="text-muted">-</span>`;
                         }

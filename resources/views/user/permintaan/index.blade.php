@@ -86,6 +86,8 @@
 
 @push('scripts')
     <script>
+        let pdfRoute = "{{ route('permintaan.export_pdf', ':id') }}";
+
         $(function() {
             $('#permintaanTable').DataTable({
                 processing: true,
@@ -119,9 +121,10 @@
                         data: null,
                         className: 'text-center',
                         render: function(data) {
-                            return `<a href="/permintaan/${data.id}/pdf" target="_blank" class="btn btn-icon btn-info bg-gradient">
-                                <i class="uil uil-print"></i>
-                            </a>`;
+                            let link = pdfRoute.replace(':id', data.id);
+                            return `<a href="${link}" target="_blank" class="btn btn-icon btn-info bg-gradient">
+                                    <i class="uil uil-print"></i>
+                                </a>`;
                         }
                     },
                 ]
