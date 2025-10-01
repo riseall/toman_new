@@ -97,7 +97,7 @@ var KTLogin = (function () {
             let token = $("#kt_login_forgot_form input[name='_token']").val();
 
             $.ajax({
-                url: "{{ route('password.email') }}", // sesuai route('password.email')
+                url: window.Laravel.passwordEmailUrl,
                 type: "POST",
                 data: {
                     _token: token,

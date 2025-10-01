@@ -178,6 +178,9 @@
     </script>
     <script>
         window.recaptchaSiteKey = "{{ config('services.recaptcha.site_key') }}";
+        window.Laravel = {
+            passwordEmailUrl: "{{ route('password.email') }}"
+        }
     </script>
     @if (session('password_reset'))
         <script>
