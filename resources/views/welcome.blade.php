@@ -200,7 +200,7 @@
     <!-- Cta start -->
     <div class="container-fluid mt-100 mt-60 px-md-3 px-0">
         <div class="rounded-md rounded-md-0 shadow-md position-relative overflow-hidden jarallax" data-jarallax
-            data-speed="0.5" style="background: url('/images/bg/ampul.jpg') top;">
+            data-speed="0.5" style="background: url('{{ asset('images/bg/ampul.jpg') }}') top;">
             <div class="bg-overlay bg-gradient-overlay"></div>
             <div class="container my-5">
                 <div class="row justify-content-center">
