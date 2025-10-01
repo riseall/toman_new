@@ -24,7 +24,7 @@
             <div class="col-lg-4 col-md-6 col-12 spacing picture-item" data-groups='["branding"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A6421.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A6421.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -47,7 +47,7 @@
             <div class="col-lg-4 col-md-6 col-12 spacing picture-item" data-groups='["designing"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A6765.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A6765.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -67,7 +67,7 @@
             <div class="col-lg-4 col-md-6 col-12 spacing picture-item" data-groups='["photography"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0341.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0341.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -86,7 +86,7 @@
             <div class="col-lg-4 col-md-6 col-12 spacing picture-item" data-groups='["development"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0482.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0482.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -105,7 +105,7 @@
             <div class="col-lg-4 col-md-6 col-12 spacing picture-item" data-groups='["branding"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A6759.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A6759.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -128,7 +128,7 @@
             <div class="col-lg-4 col-md-6 col-12 spacing picture-item" data-groups='["branding"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0749.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0749.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -147,7 +147,7 @@
             <div class="col-lg-4 col-md-6 col-12 spacing picture-item" data-groups='["designing"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0645.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0645.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -167,7 +167,7 @@
             <div class="col-lg-4 col-md-6 col-12 spacing picture-item" data-groups='["development"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0626.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0626.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -185,7 +185,7 @@
             <div class="col-lg-4 col-md-6 col-12 spacing picture-item" data-groups='["photography"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0812.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A0812.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -204,7 +204,7 @@
             <div class="d-lg-none d-block col-md-6 col-12 spacing picture-item" data-groups='["photography"]'>
                 <div class="card border-0 work-container work-primary work-classic h-100">
                     <div class="card-body p-0">
-                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A6750.JPG') }}"
+                        <a href="javascript:void(0)"><img src="{{ asset('images/bg/807A6750.jpg') }}"
                                 class="img-fluid rounded work-image" alt=""></a>
                         <div class="card content">
                             <div class="card-body px-3">
@@ -225,7 +225,7 @@
             </div><!--end col-->
 
             <div class="bg-primary rounded shadow py-5 d-lg-block d-none mt-3"
-                style="background: url({{ asset('images/bg/807A6750.JPG') }}); background-size: cover; background-position: center;">
+                style="background: url({{ asset('images/bg/807A6750.jpg') }}); background-size: cover; background-position: center;">
                 <div class="container">
                     <div class="bg-overlay opacity-7 rounded"></div>
                     <div class="row">

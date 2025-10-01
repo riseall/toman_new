@@ -2,6 +2,9 @@
     'title' => 'Toll Murni',
     'desc' => '',
 ])
+
+@section('bg', '807A0631.jpg')
+
 @section('content')
     <!--Fasilitas Produksi start-->
     <div class="container">

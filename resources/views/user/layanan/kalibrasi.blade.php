@@ -2,6 +2,9 @@
     'title' => 'Kalibrasi dan Lain-lain',
     'desc' => '',
 ])
+
+@section('bg', '807A0631.jpg')
+
 @section('content')
     <style>
         .accordion-button:not(.collapsed) {
