@@ -80,8 +80,8 @@
                             <div class="text-center pt-2">
                                 <button type="submit" id="kt_login_signin_submit"
                                     class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-3">Masuk</button>
-                                <button type="button" class="btn btn-info font-weight-bolder font-size-h6 px-8 py-4 my-3"
-                                    onclick="window.location.href='/'">Tamu</button>
+                                <a href="{{ route('home') }}" type="button"
+                                    class="btn btn-info font-weight-bolder font-size-h6 px-8 py-4 my-3">Tamu</a>
                             </div>
 
                             <div class="text-center mt-4">
