@@ -11,7 +11,7 @@ class TollController extends Controller
     {
         $company = Company::with(['permintaans.user'])
             ->withCount('permintaans')
-            ->having('permintaans_count', '>', 0)
+            ->whereHas('permintaans')
             ->get();
         // dd($company);
         return view('admin.permintaan.toll_in', compact('company'));
@@ -21,7 +21,7 @@ class TollController extends Controller
     {
         $kalibrasi = Company::with(['kalibrasis.user'])
             ->withCount('kalibrasis')
-            ->having('kalibrasis_count', '>', 0)
+            ->whereHas('kalibrasis')
             ->get();
         return view('admin.permintaan.kalibrasi', compact('kalibrasi'));
     }
