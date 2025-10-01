@@ -70,7 +70,18 @@
     <script>
         $(document).ready(function() {
             let url = '{{ route('companies.data', $company->entity_code) }}';
-            let pdfRoute = '{{ route('permintaan.export_pdf', ':id') }}';
+            let pdfRoute = '{{ route('permintaan.export_pdf', ['id' => '__ID__']) }}';
+
+            function renderPdfButton(data) {
+                if (!data) {
+                    return `<span class="badge bg-soft-dark">No File</span>`;
+                }
+                return `
+            <button class="btn btn-icon btn-outline-danger view-pdf" 
+                    data-url="${data}">
+                <i class="mdi mdi-file-eye fs-5"></i>
+            </button>`;
+            }
 
             $('#permintaanTable').DataTable({
                 scrollX: true,
@@ -78,212 +89,95 @@
                 scrollCollapse: true,
                 processing: true,
                 serverSide: false,
+                deferRender: true,
                 ajax: url,
                 columns: [{
                         data: 'no',
                         className: 'text-center'
                     },
                     {
-                        data: 'req_name',
+                        data: 'req_name'
                     },
                     {
-                        data: 'req_date',
+                        data: 'req_date'
                     },
                     {
-                        data: 'prod_name',
+                        data: 'prod_name'
                     },
                     {
-                        data: 'work_scope',
+                        data: 'work_scope'
                     },
                     {
-                        data: 'user',
+                        data: 'user'
                     },
                     {
                         data: 'doc_cpob',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_permiss',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_siup',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_tdp',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_npwp',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_pkp',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_prmy_draw',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_coa',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_msds',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_protap',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'doc_process',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'any_doc',
                         className: 'text-center',
-                        render: function(data) {
-                            if (!data) {
-                                return `<span class="badge bg-soft-dark">No File</span>`;
-                            }
-
-                            return `
-                                <button class="btn btn-icon btn-outline-danger view-pdf" 
-                                        data-url="${data}">
-                                    <i class="mdi mdi-file-eye fs-5"></i>
-                                </button>`;
-                        }
+                        render: renderPdfButton
                     },
                     {
                         data: 'id',
                         className: 'text-center',
                         render: function(id) {
-                            let link = pdfRoute.replace(':id', id);
-                            return `<a href="${link}" target="_blank" class="btn btn-icon btn-outline-success"><span class="mdi mdi-printer-outline fs-5"></span></a>`;
+                            let link = pdfRoute.replace('__ID__', id);
+                            return `<a href="${link}" target="_blank" class="btn btn-icon btn-outline-success">
+                                <span class="mdi mdi-printer-outline fs-5"></span>
+                            </a>`;
                         }
                     },
                 ]
@@ -295,10 +189,9 @@
                 $('#pdfModal').modal('show');
             });
 
-            // reset iframe ketika modal ditutup (biar ga nge-load terus)
             $('#pdfModal').on('hidden.bs.modal', function() {
                 $('#pdfViewer').attr('src', '');
             });
-        })
+        });
     </script>
 @endpush

@@ -156,7 +156,7 @@ class PermintaanController extends Controller
             'trsr_etiket' => 'nullable|string|max:50',
 
             'penyedia_rm_pm' => 'nullable|string|max:20',
-            'flowchart_process' => 'nullable|string|max:20',
+            'flowchart_process' => 'nullable|string|max:50',
 
             'is_formulation' => 'nullable|boolean',
             'is_weighing' => 'nullable|boolean',
