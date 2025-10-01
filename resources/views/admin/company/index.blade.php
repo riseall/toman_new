@@ -90,7 +90,7 @@
 
         $(document).on('click', '.btn-edit-company', function() {
             let entity_code = $(this).data('entity_code');
-            let url = '/company/' + entity_code + '/edit';
+            let url = '{{ route('company.edit', ':entity_code') }}'.replace(':entity_code', entity_code);
             $.ajax({
                 url: url,
                 type: 'GET',

@@ -92,7 +92,7 @@
 
         $(document).on('click', '.btn-edit-prod', function() {
             let id = $(this).data('id');
-            let url = '/fasilitas/' + id + '/edit';
+            let url = '{{ route('fasilitas.edit', ':id') }}'.replace(':id', id);
             $.ajax({
                 url: url,
                 type: 'GET',

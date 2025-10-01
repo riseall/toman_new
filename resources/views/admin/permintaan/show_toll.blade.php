@@ -70,6 +70,7 @@
     <script>
         $(document).ready(function() {
             let url = '{{ route('companies.data', $company->entity_code) }}';
+            let pdfRoute = '{{ route('permintaan.export_pdf', ':id') }}';
 
             $('#permintaanTable').DataTable({
                 scrollX: true,
@@ -281,7 +282,8 @@
                         data: 'id',
                         className: 'text-center',
                         render: function(id) {
-                            return `<a href="/permintaan/${id}/pdf" target="_blank" class="btn btn-icon btn-outline-success"><span class="mdi mdi-printer-outline fs-5"></span></a>`;
+                            let link = pdfRoute.replace(':id', id);
+                            return `<a href="${link}" target="_blank" class="btn btn-icon btn-outline-success"><span class="mdi mdi-printer-outline fs-5"></span></a>`;
                         }
                     },
                 ]

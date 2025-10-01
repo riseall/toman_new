@@ -105,7 +105,7 @@
 
         $(document).on('click', '.btn-edit-user', function() {
             let userId = $(this).data('id');
-            let url = '/user/' + userId + '/edit';
+            let url = '{{ route('user.edit', ':id') }}'.replace(':id', userId);
             $.ajax({
                 url: url,
                 type: 'GET',

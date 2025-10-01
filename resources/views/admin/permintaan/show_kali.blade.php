@@ -45,6 +45,7 @@
     <script>
         $(document).ready(function() {
             let url = '{{ route('kalibrasi.data', $kalibrasi->entity_code) }}';
+            let pdfRoute = '{{ route('kalibrasi.export_pdf', ':id') }}';
 
             $('#kaliTable').DataTable({
                 scrollX: true,
@@ -82,7 +83,8 @@
                         data: 'id',
                         className: 'text-center',
                         render: function(id) {
-                            return `<a href="/admKalibrasi/${id}/pdf" target="_blank" class="btn btn-icon btn-outline-success"><span class="mdi mdi-printer-outline fs-5"></span></a>`;
+                            let link = pdfRoute.replace(':id', id);
+                            return `<a href="${link}" target="_blank" class="btn btn-icon btn-outline-success"><span class="mdi mdi-printer-outline fs-5"></span></a>`;
                         }
                     },
                 ]
