@@ -6,7 +6,8 @@
                     <div class="row">
                         <div class="col-lg-4 col-12 mb-0 mb-md-4 pb-0 pb-md-2">
                             <a class="logo-footer">
-                                <img src="{{ asset('images/logo/logoPH.png') }}" height="45" alt="">
+                                <img loading="lazy" src="{{ asset('images/logo/logoPH.png') }}" height="45"
+                                    alt="">
                             </a>
                             <div class="mt-4">
                                 <span>PT. Phapros, Tbk.</span> <br>
@@ -55,13 +56,18 @@
                         <div class="col-lg-6 col-md-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
                             <h5 class="footer-head">Sertifikat dan Penghargaan</h5>
                             <div class="mt-4 d-flex flex-wrap gap-3">
-                                <img class="sertif" src="{{ asset('images/cert/logo_bpom.png') }}" alt="Badan Pom">
-                                <img class="sertif" src="{{ asset('images/cert/logo_k3.png') }}" alt="SMK3">
-                                <img class="sertif" src="{{ asset('images/cert/logo_proper.png') }}" alt="Proper">
-                                <img class="sertif" src="{{ asset('images/cert/logo_lloyd.png') }}"
+                                <img loading="lazy" class="sertif" src="{{ asset('images/cert/logo_bpom.png') }}"
+                                    alt="Badan Pom">
+                                <img loading="lazy" class="sertif" src="{{ asset('images/cert/logo_k3.png') }}"
+                                    alt="SMK3">
+                                <img loading="lazy" class="sertif" src="{{ asset('images/cert/logo_proper.png') }}"
+                                    alt="Proper">
+                                <img loading="lazy" class="sertif" src="{{ asset('images/cert/logo_lloyd.png') }}"
                                     alt="Lloyd's Register">
-                                <img class="sertif" src="{{ asset('images/cert/logo_KAN.png') }}" alt="KAN">
-                                <img class="sertif" src="{{ asset('images/cert/logo_halal.png') }}" alt="Halal">
+                                <img loading="lazy" class="sertif" src="{{ asset('images/cert/logo_KAN.png') }}"
+                                    alt="KAN">
+                                <img loading="lazy" class="sertif" src="{{ asset('images/cert/logo_halal.png') }}"
+                                    alt="Halal">
                             </div>
                         </div><!--end col-->
                     </div><!--end row-->

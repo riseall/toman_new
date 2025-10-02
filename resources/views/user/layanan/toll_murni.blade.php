@@ -38,7 +38,8 @@
                                         @endphp
                                         <div class="col-lg-3 col-md-5 col-sm-3 col-3 text-center">
                                             <img src="{{ asset('images/unit/' . ($icons[$item->unit] ?? 'toman2.png')) }}"
-                                                class="avatar avatar-small client-image rounded" alt="{{ $item->unit }}">
+                                                class="avatar avatar-small client-image rounded" alt="{{ $item->unit }}"
+                                                loading="lazy">
                                         </div>
                                         <div class="col-lg-9 col-md-7 col-sm-9 col-9 p-0">
                                             <span class="text-dark h6 d-block m-0" style="font-size: calc(0.6rem + 0.5vw)">

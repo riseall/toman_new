@@ -3,7 +3,7 @@
          <div class="col-lg-5 col-md-6 order-md-2 order-3">
              <div class="saas-feature-shape-right position-relative">
                  <img src="{{ asset('images/illustrator/faq.svg') }}" class="img-fluid mover mx-auto d-block "
-                     alt="work-image">
+                     alt="work-image" loading="lazy">
              </div>
          </div><!--end col-->
 

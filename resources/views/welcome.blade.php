@@ -17,7 +17,7 @@
                 <a href="{{ route('toll_murni') }}" class="text-dark">
                     <div class="features feature-primary text-center h-100">
                         <div class="image position-relative d-inline-block">
-                            <img src="{{ asset('images/logo/TMurni.png') }}" alt="Toll Murni" width="75">
+                            <img loading="lazy" src="{{ asset('images/logo/TMurni.png') }}" alt="Toll Murni" width="75">
                         </div>
 
                         <div class="content mt-4">
@@ -42,7 +42,7 @@
                 <a href="{{ route('toll_beli') }}" class="text-dark">
                     <div class="features feature-primary text-center h-100">
                         <div class="image position-relative d-inline-block">
-                            <img src="{{ asset('images/logo/TBeli.png') }}" alt="Toll Beli" width="75">
+                            <img loading="lazy" src="{{ asset('images/logo/TBeli.png') }}" alt="Toll Beli" width="75">
                         </div>
 
                         <div class="content mt-4">
@@ -68,7 +68,8 @@
                 <a href="{{ route('kalibrasi') }}" class="text-dark">
                     <div class="features feature-primary text-center h-100">
                         <div class="image position-relative d-inline-block">
-                            <img src="{{ asset('images/logo/Kalibrasi.png') }}" alt="Kalibrasi" width="75">
+                            <img loading="lazy" src="{{ asset('images/logo/Kalibrasi.png') }}" alt="Kalibrasi"
+                                width="75">
                         </div>
 
                         <div class="content mt-4">
@@ -101,7 +102,8 @@
                         <div
                             class="card work-container work-primary work-modern overflow-hidden rounded border-0 shadow-md">
                             <div class="card-body p-0">
-                                <img src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid" alt="work-image">
+                                <img loading="lazy" src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid"
+                                    alt="work-image">
                                 <div class="overlay-work"></div>
                                 <div class="content">
                                     {{-- <a href="javascript:void(0)" class="title text-white d-block fw-bold">Web
@@ -118,7 +120,7 @@
                                 <div
                                     class="card work-container work-primary work-modern overflow-hidden rounded border-0 shadow-md">
                                     <div class="card-body p-0">
-                                        <img src="{{ asset('images/bg/lab_phapros.jpg') }}" class="img-fluid"
+                                        <img loading="lazy" src="{{ asset('images/bg/lab_phapros.jpg') }}" class="img-fluid"
                                             alt="work-image">
                                         <div class="overlay-work"></div>
                                         <div class="content">
@@ -134,7 +136,8 @@
                                 <div
                                     class="card work-container work-primary work-modern overflow-hidden rounded border-0 shadow-md">
                                     <div class="card-body p-0">
-                                        <img src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid" alt="work-image">
+                                        <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid"
+                                            alt="work-image">
                                         <div class="overlay-work"></div>
                                         <div class="content">
                                             {{-- <a href="javascript:void(0)" class="title text-white d-block fw-bold">Chartered
@@ -253,11 +256,11 @@
             <div class="col-lg-6 col-md-6 order-1 order-md-2">
                 <div class="about-right">
                     <div class="position-relative shadow p-2 rounded bg-white-color img-one">
-                        <img src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid rounded" alt="work-image">
+                        <img loading="lazy" src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid rounded" alt="work-image">
                     </div>
 
                     <div class="img-two shadow rounded-3 overflow-hidden p-2 bg-white-color">
-                        <img src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid rounded-3"
+                        <img loading="lazy" src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid rounded-3"
                             alt="work-image">
                     </div>
                 </div>
@@ -271,11 +274,11 @@
             <div class="col-lg-6 col-md-6">
                 <div class="about-left">
                     <div class="position-relative shadow p-2 rounded bg-white-color img-one">
-                        <img src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid rounded" alt="work-image">
+                        <img loading="lazy" src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid rounded" alt="work-image">
                     </div>
 
                     <div class="img-two shadow rounded-3 overflow-hidden p-2 bg-white-color">
-                        <img src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid rounded-3"
+                        <img loading="lazy" src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid rounded-3"
                             alt="work-image">
                     </div>
                 </div>

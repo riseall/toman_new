@@ -68,7 +68,7 @@
                                 <div class="card-body p-0">
                                     <div class="ratio ratio-4x3">
                                         <img src="{{ asset('images/product/' . $prod->prod_img) }}"
-                                            class="img-fluid object-fit-cover" alt="{{ $prod->prod_name }}">
+                                            class="img-fluid object-fit-cover" alt="{{ $prod->prod_name }}" loading="lazy">
                                     </div>
                                     <div class="content p-3">
                                         <h5 class="mb-1 text-primary title" style="font-size: calc(0.5rem + 0.5vw)">
@@ -106,7 +106,7 @@
                 <div class="modal-body">
                     <div class="row align-items-center">
                         <div class="col-lg-6">
-                            <img src="" class="img-fluid rounded" id="productImage" alt="">
+                            <img src="" class="img-fluid rounded" id="productImage" alt="" loading="lazy">
                         </div>
                         <div class="col-lg-6">
                             <h5 class="modal-title text-primary mb-2" id="productModalLabel"></h5>

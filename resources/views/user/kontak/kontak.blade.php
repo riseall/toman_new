@@ -24,8 +24,8 @@
                 <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated h-100"
                     data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
                     <div class="card-body">
-                        <img src="{{ asset('/images/illustrator/factory.png') }}" class="avatar avatar-small mb-3"
-                            alt="">
+                        <img loading="lazy" src="{{ asset('/images/illustrator/factory.png') }}"
+                            class="avatar avatar-small mb-3" alt="">
                         <h5><a href="javascript:void(0)" class="title text-dark">Alamat Pabrik</a></h5>
                         <div class="text-muted mb-0 mt-3">
                             <span>PT. Phapros, Tbk.</span> <br>
@@ -42,8 +42,8 @@
                 <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated h-100"
                     data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
                     <div class="card-body">
-                        <img src="{{ asset('/images/illustrator/office-building.png') }}" class="avatar avatar-small mb-3"
-                            alt="">
+                        <img loading="lazy" src="{{ asset('/images/illustrator/office-building.png') }}"
+                            class="avatar avatar-small mb-3" alt="">
                         <h5><a href="javascript:void(0)" class="title text-dark">Alamat Kantor</a></h5>
                         <div class="text-muted mb-0 mt-3">
                             <span>Menara Rajawali Lantai 17</span> <br>
@@ -59,8 +59,8 @@
                 <div class="card categories category-primary text-center rounded border-0 wow animate__ animate__fadeInUp animated h-100"
                     data-wow-delay=".7s" style="visibility: visible; animation-delay: 0.7s; animation-name: fadeInUp;">
                     <div class="card-body">
-                        <img src="{{ asset('/images/illustrator/customer-service.png') }}" class="avatar avatar-small mb-3"
-                            alt="">
+                        <img loading="lazy" src="{{ asset('/images/illustrator/customer-service.png') }}"
+                            class="avatar avatar-small mb-3" alt="">
                         <h5><a href="javascript:void(0)" class="title text-dark">Info Toll Manufacturing</a></h5>
                         <div class="text-muted mb-0 mt-3">
                             <span>Email :</span> <br>
@@ -81,7 +81,8 @@
             <div class="col-lg-6 col-md-5 col-12 mt-4 pt-2">
                 <div class="wow animate__ animate__fadeInUp animated" data-wow-delay=".3s"
                     style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-                    <img src="{{ asset('/images/illustrator/customer.svg') }}" class="img-fluid" alt="">
+                    <img loading="lazy" src="{{ asset('/images/illustrator/customer.svg') }}" class="img-fluid"
+                        alt="">
                 </div>
             </div>
 

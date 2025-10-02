@@ -21,11 +21,11 @@
             <!-- WORK START -->
             <div class="col-lg-5 col-md-6">
                 <div class="port-images sticky-sidebar">
-                    <img src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded"
+                    <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded"
                         alt="img">
-                    {{-- <img src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
+                    {{-- <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
                             alt="img"> --}}
-                    {{-- <img src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
+                    {{-- <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
                             alt="img"> --}}
                 </div>
             </div><!--end col-->
@@ -72,11 +72,11 @@
             <!-- WORK START -->
             <div class="col-lg-5 col-md-6">
                 <div class="port-images sticky-sidebar">
-                    <img src="{{ asset('images/bg/phapros-obat.jpg') }}" class="img-fluid mx-auto d-block rounded"
-                        alt="img">
-                    {{-- <img src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
+                    <img loading="lazy" src="{{ asset('images/bg/phapros-obat.jpg') }}"
+                        class="img-fluid mx-auto d-block rounded" alt="img">
+                    {{-- <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
                             alt="img"> --}}
-                    {{-- <img src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
+                    {{-- <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
                             alt="img"> --}}
                 </div>
             </div><!--end col-->
@@ -114,7 +114,8 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0440.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img src="{{ asset('images/bg/807A0440.jpg') }}" class="img-fluid" alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0440.jpg') }}" class="img-fluid"
+                                alt="work-image">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -140,7 +141,8 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0366.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img src="{{ asset('images/bg/807A0366.jpg') }}" class="img-fluid" alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0366.jpg') }}" class="img-fluid"
+                                alt="work-image">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -166,7 +168,8 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0482.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img src="{{ asset('images/bg/807A0482.jpg') }}" class="img-fluid" alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0482.jpg') }}" class="img-fluid"
+                                alt="work-image">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -192,7 +195,8 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0494.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid" alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid"
+                                alt="work-image">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -218,7 +222,8 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0645.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img src="{{ asset('images/bg/807A0645.jpg') }}" class="img-fluid" alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0645.jpg') }}" class="img-fluid"
+                                alt="work-image">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -244,7 +249,8 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0535.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img src="{{ asset('images/bg/807A0535.jpg') }}" class="img-fluid" alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0535.jpg') }}" class="img-fluid"
+                                alt="work-image">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -270,7 +276,8 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0539.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img src="{{ asset('images/bg/807A0539.jpg') }}" class="img-fluid" alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0539.jpg') }}" class="img-fluid"
+                                alt="work-image">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -296,7 +303,8 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0494.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid" alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid"
+                                alt="work-image">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
