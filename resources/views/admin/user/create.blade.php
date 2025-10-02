@@ -160,6 +160,11 @@
 </div>
 
 @push('scripts')
+    <script>
+        window.Laravel = {
+            url: "{{ route('entities.search') }}"
+        };
+    </script>
     <script src="{{ asset('js/search-company.js') }}"></script>
     <script>
         $(document).ready(function() {

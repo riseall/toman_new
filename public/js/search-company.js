@@ -9,7 +9,10 @@ document.getElementById("entity_search").addEventListener("keyup", function () {
         return;
     }
 
-    fetch(`/entities/search?q=${encodeURIComponent(query)}`)
+    let url = window.Laravel.url;
+
+    fetch(`${url}/?q=${encodeURIComponent(query)}`)
+        .catch((err) => console.error(err))
         .then((res) => res.json())
         .then((data) => {
             suggestionBox.innerHTML = "";
