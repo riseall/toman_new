@@ -97,14 +97,46 @@
 
                         <div class="col-md-6">
                             <div class="mb-3">
-                                <label class="form-label">Perusahaan</label>
-                                <select name="entity_code" id="entity_code" class="form-select" required>
-                                    <option value="">-- Pilih Perusahaan --</option>
-                                    @foreach ($entities as $entity)
-                                        <option value="{{ $entity->entity_code }}">{{ $entity->entity_name }}</option>
-                                    @endforeach
-                                </select>
-                                <div class="invalid-feedback"></div>
+                                <label for="entity_search" class="form-label">Perusahaan</label>
+                                <input type="text" id="entity_search" class="form-control"
+                                    placeholder="Cari perusahaan...">
+                                <input type="hidden" name="entity_code" id="entity_code">
+                                <div id="entitySuggestions" class="list-group mt-1"></div>
+                            </div>
+                        </div>
+
+                        {{-- Form tambah perusahaan baru --}}
+                        <div id="newEntityInput" class="mt-3 d-none">
+                            <div class="row">
+                                <div class="mb-3">
+                                    <label for="entity_name" class="form-label">Nama Perusahaan</label>
+                                    <input type="text" name="entity_name" id="entity_name" class="form-control"
+                                        placeholder="Nama Perusahaan">
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="entity_email" class="form-label">Email</label>
+                                        <input type="email" name="entity_email" id="entity_email"
+                                            class="form-control" placeholder="Email">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <label for="entity_phone" class="form-label">Telepon</label>
+                                        <input type="text" name="entity_phone" id="entity_phone"
+                                            class="form-control" placeholder="Telepon">
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="entity_address_line_1" class="form-label">Alamat</label>
+                                    <textarea name="entity_address_line_1" id="entity_address_line_1" cols="30" rows="2"
+                                        class="form-control" placeholder="Alamat"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="entity_kota" class="form-label">Kota</label>
+                                    <input type="text" name="entity_kota" id="entity_kota" class="form-control"
+                                        placeholder="Kota">
+                                </div>
                             </div>
                         </div>
 
@@ -128,6 +160,7 @@
 </div>
 
 @push('scripts')
+    <script src="{{ asset('js/search-company.js') }}"></script>
     <script>
         $(document).ready(function() {
             const addUserModal = $('#addUserModal');
