@@ -39,8 +39,9 @@
                                         <div class="mb-3">
                                             <label for="npwp" class="form-label req-label">N.P.W.P</label>
                                             <input type="text" class="form-control" id="npwp" name="npwp"
-                                                value="{{ Auth::user()->kalibrasis->first()->npwp ?? '' }}">
-                                            <div class="invalid-feedback"></div>
+                                                value="{{ isset(Auth::user()->kalibrasis) ? Auth::user()->kalibrasis->first()->npwp ?? '' : '' }}">
+                                            <div class="invalid-feedback">
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-md-3">
@@ -49,7 +50,7 @@
                                                 N.P.W.P</label>
                                             <input type="text" class="form-control" id="npwp_address"
                                                 name="npwp_address"
-                                                value="{{ Auth::user()->kalibrasis->first()->npwp_address ?? '' }}">
+                                                value="{{ isset(Auth::user()->kalibrasis) ? Auth::user()->kalibrasis->first()->npwp_address ?? '' : '' }}">
                                             <div class="invalid-feedback"></div>
                                         </div>
                                     </div>
@@ -65,7 +66,7 @@
                                         <div class="mb-3">
                                             <label for="fax" class="form-label req-label">Fax.</label>
                                             <input type="text" class="form-control" id="fax" name="fax"
-                                                value="{{ Auth::user()->kalibrasis->first()->fax ?? '' }}">
+                                                value="{{ isset(Auth::user()->kalibrasis) ? Auth::user()->kalibrasis->first()->fax ?? '' : '' }}">
                                             <div class="invalid-feedback"></div>
                                         </div>
                                     </div>
