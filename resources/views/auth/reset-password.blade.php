@@ -33,7 +33,7 @@
 
                                 <div class="form-group">
                                     <div class="input-group">
-                                        <input class="form-control " type="password" name="password" id="password"
+                                        <input class="form-control" type="password" name="password" id="password"
                                             placeholder="Password Baru" required />
                                         <div class="input-group-append"
                                             style="border: 1px solid #77b4fa; border-radius: 5px">
@@ -90,7 +90,7 @@
                                 </div>
 
                                 <div class="text-center">
-                                    <button type="submit"
+                                    <button type="button" id="btn_reset_password"
                                         class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3">Reset
                                         Password</button>
                                 </div>
