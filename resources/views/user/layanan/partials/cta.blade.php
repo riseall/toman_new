@@ -16,9 +16,31 @@
                                 Ajukan Permintaan</a>
                         @endauth
                         @guest
-                            <a href="{{ route('register') }}" class="btn btn-success mt-2 me-2"><i
-                                    class="uil uil-file-plus-alt"></i>
+                            <a href="#" data-bs-toggle="modal" data-bs-target="#modalPermintaan"
+                                class="btn btn-success mt-2 me-2"><i class="uil uil-file-plus-alt"></i>
                                 Ajukan Permintaan</a>
+
+                            <div class="modal fade" id="modalPermintaan" data-bs-backdrop="static" tabindex="-1"
+                                aria-labelledby="modalPermintaanLabel" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="modalPermintaanLabel">Ajukan Permintaan</h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"><span class="mdi mdi-close"></span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p class="text-center">Silahkan pilih salah satu dari opsi
+                                                berikut untuk mengakses fitur Ajukan Permintaan</p>
+                                            <div class="text-center mt-3">
+                                                <a href="{{ route('register') }}" class="btn btn-primary mx-2">Daftar</a>
+                                                <a href="{{ route('login') }}"
+                                                    class="btn btn-outline-primary mx-2">Masuk</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         @endguest
                         <a href="{{ route('kontak.index') }}" class="btn btn-outline-info mt-2 me-2"><i
                                 class="uil uil-phone"></i>
