@@ -13,7 +13,7 @@
                     <div class="row">
                         <div class="mb-3">
                             <label for="prod_name" class="form-label">Nama Produk</label>
-                            <input type="text" class="form-control" id="prod_name" name="Nama Produk"
+                            <input type="text" class="form-control" id="prod_name" name="prod_name"
                                 placeholder="Nama Produk" required>
                             <div class="invalid-feedback"></div>
                         </div>
@@ -21,7 +21,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="prod_bets_size" class="form-label">Bets Size</label>
-                                <input type="text" class="form-control" id="prod_bets_size" name="Bets Size"
+                                <input type="text" class="form-control" id="prod_bets_size" name="prod_bets_size"
                                     placeholder="Bets Size" required>
                                 <div class="invalid-feedback"></div>
                             </div>
@@ -29,7 +29,7 @@
                         <div class="col-md-6">
                             <div class="mb-3">
                                 <label for="prod_exp_yr" class="form-label">ED Product</label>
-                                <input type="text" class="form-control" id="prod_exp_yr" name="ED Product"
+                                <input type="text" class="form-control" id="prod_exp_yr" name="prod_exp_yr"
                                     placeholder="ED Product" required>
                                 <div class="invalid-feedback"></div>
                             </div>
@@ -37,14 +37,14 @@
 
                         <div class="mb-3">
                             <label for="prod_package" class="form-label">Kemasan</label>
-                            <input type="text" class="form-control" id="prod_package" name="Kemasan"
+                            <input type="text" class="form-control" id="prod_package" name="prod_package"
                                 placeholder="Kemasan" required>
                             <div class="invalid-feedback"></div>
                         </div>
 
                         <div class="mb-3">
                             <label for="prod_img" class="form-label">Gambar Produk</label>
-                            <input type="file" class="form-control" id="prod_img" name="Gambar Produk"
+                            <input type="file" class="form-control" id="prod_img" name="prod_img"
                                 placeholder="Gambar Produk" required>
                             <div class="invalid-feedback"></div>
                         </div>

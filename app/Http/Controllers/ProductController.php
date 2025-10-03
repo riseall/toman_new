@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
-use Mpdf\Tag\P;
 
 class ProductController extends Controller
 {
@@ -39,10 +38,10 @@ class ProductController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'prod_name' => 'required|string|max:255',
-            'prod_bets_size' => 'required|integer',
-            'prod_exp_yr' => 'required|string|max:255',
-            'prod_package' => 'required|string|max:255',
+            'prod_name' => 'required|string|max:100',
+            'prod_bets_size' => 'required|string|max:100',
+            'prod_exp_yr' => 'required|string|max:100',
+            'prod_package' => 'required|string|max:100',
             'prod_img' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
             'prod_is_active' => 'required|boolean',
         ]);
