@@ -36,7 +36,7 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'host' => env('MAIL_HOST', 'smtp.office365.com'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
@@ -84,8 +84,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'no-reply@toman.co.id'),
-        'name' => env('MAIL_FROM_NAME', 'Toman'),
+        'address' => env('MAIL_FROM_ADDRESS', 'noreply@phapros.co.id'),
+        'name' => env('MAIL_FROM_NAME', 'Toman - Toll Manufacturing Pt. Phapros.tbk'),
     ],
 
     /*

@@ -36,8 +36,11 @@ class PermintaanMasukNotification extends Mailable
      */
     public function build()
     {
-        return $this->from(config('mail.from.address'), config('mail.from.name'))
-            ->subject('Notifikasi: Permintaan Baru dari Website')
+        return $this->from(
+            config('mail.from.address', env('MAIL_FROM_ADDRESS', 'noreply@phapros.co.id')),
+            config('mail.from.name', env('MAIL_FROM_NAME', 'Toman - Toll Manufacturing Pt. Phapros.tbk'))
+        )
+            ->subject('Toman - Pesan Baru')
             ->markdown('user.kontak.notifikasi')
             ->replyTo($this->contact->email, $this->contact->name);
     }
