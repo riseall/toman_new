@@ -23,7 +23,7 @@ class ResetPasswordMail extends Mailable
     {
         return $this->from(
             config('mail.from.address', env('MAIL_FROM_ADDRESS', 'noreply@phapros.co.id')),
-            config('mail.from.name', env('MAIL_FROM_NAME', 'Toman - Toll Manufacturing Pt. Phapros.tbk'))
+            config('mail.from.name', env('MAIL_FROM_NAME', 'Toman - Toll Manufacturing PT Phapros Tbk.'))
         )
             ->subject('Toman - Reset Password Akun Anda')
             ->view('auth.notification-reset')

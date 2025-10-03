@@ -85,7 +85,7 @@ return [
 
     'from' => [
         'address' => env('MAIL_FROM_ADDRESS', 'noreply@phapros.co.id'),
-        'name' => env('MAIL_FROM_NAME', 'Toman - Toll Manufacturing Pt. Phapros.tbk'),
+        'name' => env('MAIL_FROM_NAME', 'Toman - Toll Manufacturing PT Phapros Tbk.'),
     ],
 
     /*

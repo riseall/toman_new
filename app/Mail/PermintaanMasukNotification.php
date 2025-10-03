@@ -38,7 +38,7 @@ class PermintaanMasukNotification extends Mailable
     {
         return $this->from(
             config('mail.from.address', env('MAIL_FROM_ADDRESS', 'noreply@phapros.co.id')),
-            config('mail.from.name', env('MAIL_FROM_NAME', 'Toman - Toll Manufacturing Pt. Phapros.tbk'))
+            config('mail.from.name', env('MAIL_FROM_NAME', 'Toman - Toll Manufacturing PT Phapros Tbk.'))
         )
             ->subject('Toman - Pesan Baru')
             ->markdown('user.kontak.notifikasi')
