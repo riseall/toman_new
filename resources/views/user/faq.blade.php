@@ -174,7 +174,9 @@
                                  <ol>
                                      <li> Kunjungi Web Toman: https://app.phapros.co.id/toman/</li>
                                      <li> Pilih menu Toll Murni atau Toll Beli</li>
-                                     <li> Klik ‘Daftar Toll Parenteral’</li>
+                                     <li> Klik 'Ajukan Permintaan'</li>
+                                     <li> Klik 'Daftar' jika belum memiliki akun atau 'Masuk' jika sudah memiliki akun
+                                     </li>
                                      <li> Isi Form Permohonan Toll Manufacturing</li>
                                      <li> Centang kotak ‘please confirm that you agree’</li>
                                      <li> Klik Kirim</li>
@@ -201,9 +203,12 @@
                                  Memulai layanan kalibrasi oleh PT Phapros Tbk dengan mudah dan cepat. Cukup ikuti
                                  langkah sederhana berikut:”
                                  <ol>
-                                     <li>Kunjungi Web Toman: https://app.phapros.co.id/toman/
-                                     <li>Pilih menu ‘Jasa Kalibrasi’
-                                     <li>Isi Form Pendaftaran (form terlampir di website)</li>
+                                     <li>Kunjungi Web Toman: https://app.phapros.co.id/toman/</li>
+                                     <li>Pilih menu ‘Jasa Kalibrasi dan Lain-lain’</li>
+                                     <li>Klik 'Ajukan Permintaan'</li>
+                                     <li>Klik 'Daftar' jika belum memiliki akun atau 'Masuk' jika sudah memiliki akun
+                                     </li>
+                                     <li>Isi Form Pendaftaran Jasa Kalibrasi</li>
                                      <li>Kirim Form Pendaftaran yang sudah diisi melalui email ke
                                          kalibrasi@phapros.co.id
                                          dan

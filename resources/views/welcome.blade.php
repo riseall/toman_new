@@ -68,7 +68,7 @@
                 <a href="{{ route('kalibrasi') }}" class="text-dark">
                     <div class="features feature-primary text-center h-100">
                         <div class="image position-relative d-inline-block">
-                            <img loading="lazy" src="{{ asset('images/logo/Kalibrasi.png') }}" alt="Kalibrasi"
+                            <img loading="lazy" src="{{ asset('images/logo/Kalibrasi1.png') }}" alt="Kalibrasi"
                                 width="75">
                         </div>
 

@@ -1,7 +1,7 @@
 <nav id="sidebar" class="sidebar-wrapper sidebar-dark">
     <div class="sidebar-content" data-simplebar style="height: calc(100% - 60px);">
         <div class="sidebar-brand">
-            <a href="index.html">
+            <a href="{{ route('admin.dashboard') }}">
                 <img src="{{ asset('images/logo/logoPHwht.png') }}" height="40" class="logo-light-mode" alt="">
                 <img src="{{ asset('images/logo/logoPH.png') }}" height="40" class="logo-dark-mode" alt="">
                 <span class="sidebar-colored">

@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function toggleFormsAndInputStates() {
         const selectedValue = $("#dossage_id option:selected").data("type");
 
-        console.log(selectedValue);
+        // console.log(selectedValue);
 
         // --- FASE 1: Sembunyikan dan Nonaktifkan SEMUA form spesifik dan terkait ---
         specificForms.forEach((group) => {
