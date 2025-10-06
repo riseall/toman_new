@@ -23,7 +23,7 @@ class UserController extends Controller
         /** @var \App\Models\User */
         $user = Auth::user();
         if ($user->hasRole('admin_toti')) {
-            $roles = Role::whereNotIn('name', ['super_admin', 'viewer'])->get();
+            $roles = Role::whereNotIn('name', ['super_admin', 'toller_maklooner', 'visitor', 'viewer'])->get();
         } else {
             $roles = Role::all();
         }
@@ -136,7 +136,7 @@ class UserController extends Controller
         /** @var \App\Models\User */
         $currentUser = Auth::user();
         if ($currentUser->hasRole('admin_toti')) {
-            $roles = Role::whereNotIn('name', ['super_admin', 'viewer'])->get();
+            $roles = Role::whereNotIn('name', ['super_admin', 'toller_maklooner', 'visitor', 'viewer'])->get();
         } else {
             $roles = Role::all();
         }
