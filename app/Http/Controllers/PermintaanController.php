@@ -284,6 +284,11 @@ class PermintaanController extends Controller
         // Get validated data
         $validatedData = $validator->validated();
 
+        foreach ($validatedData as $key => $value) {
+            if (is_string($value)) {
+                $validatedData[$key] = e($value);
+            }
+        }
         // dd($validatedData);
 
         $fileFields = [
