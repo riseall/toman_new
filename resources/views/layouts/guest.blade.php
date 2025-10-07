@@ -39,5 +39,6 @@
 <script src="{{ asset('js/sweetalert.js') }}"></script>
 <script src="{{ asset('js/login-general.js') }}"></script>
 <script src="{{ asset('js/reset-password.js') }}"></script>
+@stack('scripts')
 
 </html>

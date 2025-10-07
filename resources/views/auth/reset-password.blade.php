@@ -39,17 +39,28 @@
                                             style="border: 1px solid #77b4fa; border-radius: 5px">
                                             <span id="togglePassword" onclick="togglePassword('password', 'eyeIcon')"
                                                 class="input-group-text" style="cursor:pointer;">
-                                                <!-- icon mata -->
-                                                <svg id="eyeIcon" width="1em" height="1em" viewBox="0 0 16 16"
-                                                    class="bi bi-eye-fill" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                                    <path fill-rule="evenodd"
-                                                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                                                </svg>
+                                                <span id="eyeIcon" class="mdi mdi-eye"></span>
                                             </span>
                                         </div>
                                     </div>
+
+                                    <!-- Progress bar kekuatan password -->
+                                    <div class="progress mt-2" style="height: 8px;">
+                                        <div id="passwordStrengthBar" class="progress-bar" role="progressbar"
+                                            style="width: 0;">
+                                        </div>
+                                    </div>
+                                    <small id="passwordStrengthText" class="form-text text-muted">Kekuatan password:
+                                        -</small>
+
+                                    <!-- Daftar aturan -->
+                                    <ul id="password-requirements" class="list-unstyled small mt-2 mb-0">
+                                        <li id="min-length" class="text-danger">Minimal 8 karakter</li>
+                                        <li id="letters" class="text-danger">Mengandung huruf</li>
+                                        <li id="mixed" class="text-danger">Huruf besar dan kecil</li>
+                                        <li id="numbers" class="text-danger">Mengandung angka</li>
+                                        <li id="symbols" class="text-danger">Mengandung simbol (!@#$...)</li>
+                                    </ul>
                                     @error('password')
                                         <div class="text-danger mt-2">{{ $message }}</div>
                                     @enderror
@@ -61,17 +72,10 @@
                                             placeholder="Konfirmasi Password" id="password_confirmation" required />
                                         <div class="input-group-append"
                                             style="border: 1px solid #77b4fa; border-radius: 5px">
-                                            <span id="togglePassword"
+                                            <span id="togglePasswordConfirm"
                                                 onclick="togglePassword('password_confirmation', 'eyeIconConfirm')"
                                                 class="input-group-text" style="cursor:pointer;">
-                                                <!-- icon mata -->
-                                                <svg id="eyeIconConfirm" width="1em" height="1em" viewBox="0 0 16 16"
-                                                    class="bi bi-eye-fill" fill="currentColor"
-                                                    xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z" />
-                                                    <path fill-rule="evenodd"
-                                                        d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z" />
-                                                </svg>
+                                                <span id="eyeIconConfirm" class="mdi mdi-eye"></span>
                                             </span>
                                         </div>
                                     </div>
@@ -116,19 +120,12 @@
         function togglePassword(inputId, iconId) {
             const passwordInput = document.getElementById(inputId);
             const eyeIcon = document.getElementById(iconId);
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                eyeIcon.outerHTML = `<svg id="eyeIcon" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-slash-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.79 12.912l-1.614-1.615a3.5 3.5 0 0 1-4.474-4.474l-2.06-2.06C.938 6.278 0 8 0 8s3 5.5 8 5.5a7.029 7.029 0 0 0 2.79-.588zM5.21 3.088A7.028 7.028 0 0 1 8 2.5c5 0 8 5.5 8 5.5s-.939 1.721-2.641 3.238l-2.062-2.062a3.5 3.5 0 0 0-4.474-4.474L5.21 3.089z"/>
-                <path d="M5.525 7.646a2.5 2.5 0 0 0 2.829 2.829l-2.83-2.829zm4.95.708l-2.829-2.83a2.5 2.5 0 0 1 2.829 2.829z"/>
-                <path fill-rule="evenodd" d="M13.646 14.354l-12-12 .708-.708 12 12-.708.708z"/>
-            </svg>`;
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                eyeIcon.className = "mdi mdi-eye-off";
             } else {
-                passwordInput.type = 'password';
-                eyeIcon.outerHTML = `<svg id="eyeIcon" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-eye-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
-                <path fill-rule="evenodd" d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
-            </svg>`;
+                passwordInput.type = "password";
+                eyeIcon.className = "mdi mdi-eye";
             }
         }
     </script>
@@ -143,3 +140,7 @@
         </script>
     @endif
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/validasi-password.js') }}"></script>
+@endpush

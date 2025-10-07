@@ -53,7 +53,7 @@
                                         <span id="togglePassword" onclick="togglePassword()" class="input-group-text"
                                             style="cursor:pointer;">
                                             <!-- icon mata -->
-                                            <span id="eyeIcon" class="mdi mdi-eye-outline"></span>
+                                            <span id="eyeIcon" class="mdi mdi-eye"></span>
                                         </span>
                                     </div>
                                 </div>
@@ -169,10 +169,10 @@
             const eyeIcon = document.getElementById('eyeIcon');
             if (passwordInput.type === 'password') {
                 passwordInput.type = 'text';
-                eyeIcon.className = "mdi mdi-eye-off-outline";
+                eyeIcon.className = "mdi mdi-eye-off";
             } else {
                 passwordInput.type = 'password';
-                eyeIcon.className = "mdi mdi-eye-outline";
+                eyeIcon.className = "mdi mdi-eye";
             }
         }
     </script>

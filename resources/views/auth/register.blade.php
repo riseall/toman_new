@@ -75,10 +75,25 @@
                                     <div class="input-group-append" style="border: 1px solid #77b4fa; border-radius: 5px">
                                         <span id="togglePassword" onclick="togglePassword('password', 'eyeIcon')"
                                             class="input-group-text" style="cursor:pointer;">
-                                            <span id="eyeIcon" class="mdi mdi-eye-outline"></span>
+                                            <span id="eyeIcon" class="mdi mdi-eye"></span>
                                         </span>
                                     </div>
                                 </div>
+                                <!-- Progress bar kekuatan password -->
+                                <div class="progress mt-2" style="height: 8px;">
+                                    <div id="passwordStrengthBar" class="progress-bar" role="progressbar" style="width: 0;">
+                                    </div>
+                                </div>
+                                <small id="passwordStrengthText" class="form-text text-muted">Kekuatan password: -</small>
+
+                                <!-- Daftar aturan -->
+                                <ul id="password-requirements" class="list-unstyled small mt-2 mb-0">
+                                    <li id="min-length" class="text-danger">Minimal 8 karakter</li>
+                                    <li id="letters" class="text-danger">Mengandung huruf</li>
+                                    <li id="mixed" class="text-danger">Huruf besar dan kecil</li>
+                                    <li id="numbers" class="text-danger">Mengandung angka</li>
+                                    <li id="symbols" class="text-danger">Mengandung simbol (!@#$...)</li>
+                                </ul>
                                 @error('password')
                                     <div class="invalid-feedback d-block" id="password-feedback">{{ $message }}</div>
                                 @enderror
@@ -93,11 +108,11 @@
                                         <span id="togglePasswordConfirm"
                                             onclick="togglePassword('password_confirmation', 'eyeIconConfirm')"
                                             class="input-group-text" style="cursor:pointer;">
-                                            <span id="eyeIconConfirm" class="mdi mdi-eye-outline"></span>
+                                            <span id="eyeIconConfirm" class="mdi mdi-eye"></span>
                                         </span>
                                     </div>
                                 </div>
-                                @error('password_confirmation')
+                                @error('password-confirmation')
                                     <div class="invalid-feedback d-block" id="password-feedback">{{ $message }}</div>
                                 @enderror
                             </div>
@@ -150,10 +165,10 @@
             const eyeIcon = document.getElementById(iconId);
             if (passwordInput.type === "password") {
                 passwordInput.type = "text";
-                eyeIcon.className = "mdi mdi-eye-off-outline";
+                eyeIcon.className = "mdi mdi-eye-off";
             } else {
                 passwordInput.type = "password";
-                eyeIcon.className = "mdi mdi-eye-outline";
+                eyeIcon.className = "mdi mdi-eye";
             }
         }
     </script>
@@ -170,4 +185,14 @@
             });
         </script>
     @endif
+    <style>
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.3s ease-out;
+        }
+    </style>
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/validasi-password.js') }}"></script>
+@endpush
