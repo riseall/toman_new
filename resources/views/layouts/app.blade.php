@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" class="overflow-x-hidden">
 
 <head>
     <meta charset="utf-8">
@@ -70,7 +70,7 @@
     <link href="{{ asset('css/style.css') }}" id="color-opt" class="theme-opt" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="p-0">
     <!-- Loader -->
     <div id="preloader">
         <div id="status">
@@ -88,7 +88,11 @@
     @include('layouts.partials.navbar')
     <!-- Navbar End -->
 
-    @include('layouts.partials.hero_2')
+    @if (request()->routeIs('home'))
+        @include('layouts.partials.hero')
+    @else
+        @include('layouts.partials.hero_2')
+    @endif
 
     <!-- Start -->
     <section class="section">

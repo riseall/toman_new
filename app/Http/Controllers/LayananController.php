@@ -62,6 +62,12 @@ class LayananController extends Controller
 
         $validatedData = $validator->validated();
 
+        foreach ($validatedData as $key => $value) {
+            if (is_string($value)) {
+                $validatedData[$key] = e($value);
+            }
+        }
+
         if (Auth::check()) {
             $validatedData['user_id'] = Auth::user()->id;
         } else {

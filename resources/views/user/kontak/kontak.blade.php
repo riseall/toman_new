@@ -217,7 +217,7 @@
 
     <div class="modal fade" data-bs-backdrop="static" id="privacyPolicyModal" tabindex="-1" role="dialog"
         aria-labelledby="privacyPolicyModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="privacyPolicyModalLabel">Kebijakan Privasi PT Phapros Tbk</h5>
@@ -243,7 +243,7 @@
         <div class="row">
             <div class="map map-height-three rounded map-gray border-0">
                 <iframe
-                    src="https://maps.google.com/maps?q=Jl.+Simongan+No.131%2C+Bongsari%2C+Kec.+Semarang+Barat%2C+Kota+Semarang%2C+Jawa+Tengah+50148&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                    src="https://maps.google.com/maps?q=PT+Phapros+Jl.+Simongan+No.131%2C+Bongsari%2C+Kec.+Semarang+Barat%2C+Kota+Semarang%2C+Jawa+Tengah+50148&t=&z=16&ie=UTF8&iwloc=&output=embed"
                     style="border:0" class="rounded w-100" allowfullscreen></iframe>
             </div>
         </div><!--end col-->

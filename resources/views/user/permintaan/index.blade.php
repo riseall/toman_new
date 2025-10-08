@@ -91,6 +91,7 @@
         $(function() {
             $('#permintaanTable').DataTable({
                 processing: true,
+                escapeHTML: false,
                 ajax: "{{ route('permintaan.data') }}",
                 columns: [{
                         data: null,
