@@ -28,12 +28,15 @@
                                     <div class="row align-items-center">
                                         @php
                                             $icons = [
-                                                'Tablet' => 'tablet.png',
+                                                'Tablet Non Betalactam' => 'tablet.png',
+                                                'Tablet Betalactam' => 'tablet_betalactam.png',
                                                 'Capsule' => 'capsule.png',
                                                 'Bottle' => 'bottle.png',
-                                                'Ampoule' => 'ampoule.png',
-                                                'Vial' => 'vial.png',
-                                                'Tube' => 'tube.png',
+                                                'Serbuk Injeksi Non Betalactam' => 'injeksi_non_betalactam.png',
+                                                'Serbuk Injeksi Betalactam' => 'injeksi_betalactam.png',
+                                                'Serbuk Penicilin' => 'penicilin.png',
+                                                'Vial' => 'penicilin.png',
+                                                'Salep Non Betalactam' => 'salep_non_betalactam.png',
                                             ];
                                         @endphp
                                         <div class="col-lg-3 col-md-5 col-sm-3 col-3 text-center">

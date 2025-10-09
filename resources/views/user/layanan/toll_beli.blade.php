@@ -108,7 +108,7 @@
                         <div class="col-lg-6">
                             <img src="" class="img-fluid rounded" id="productImage" alt="" loading="lazy">
                         </div>
-                        <div class="col-lg-6">
+                        <div class="col-lg-6 mt-3 mt-lg-0">
                             <h5 class="modal-title text-primary mb-2" id="productModalLabel"></h5>
                             <strong>Kemasan: </strong>
                             <p id="package"></p>
