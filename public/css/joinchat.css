@@ -91,12 +91,14 @@
     cursor: pointer;
     transition: background-color 0.2s linear;
 }
+
 [dir="rtl"] .joinchat__button {
     flex-direction: row-reverse;
 }
 .joinchat__button:hover {
     background: #128c7e;
     transition-duration: 1.5s;
+    transform: scale(1.05);
 }
 .joinchat__button:active {
     background: #128c7e;
@@ -733,8 +735,7 @@
 }
 @media (orientation: landscape) and (height <= 480px), (width <= 480px) {
     .joinchat {
-        --bottom: 6px;
-        --sep: 6px;
+        --bottom: 15px;
         --header: calc(var(--s) * 0.91667);
     }
     .joinchat__header__text {
