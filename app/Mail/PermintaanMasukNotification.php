@@ -41,7 +41,7 @@ class PermintaanMasukNotification extends Mailable
             config('mail.from.name', env('MAIL_FROM_NAME', 'Toman - Toll Manufacturing PT Phapros Tbk.'))
         )
             ->subject('Toman - Pesan Baru')
-            ->markdown('user.kontak.notifikasi')
+            ->view('user.kontak.notifikasi')
             ->replyTo($this->contact->email, $this->contact->name);
     }
 }
