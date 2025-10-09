@@ -49,6 +49,12 @@ class FasilitasController extends Controller
             ], 422);
         }
 
+        foreach ($validator as $key => $value) {
+            if (is_string($value)) {
+                $validator[$key] = e($value);
+            }
+        }
+
         try {
             FasilitasProduksi::create([
                 'dosage_form' => $request->dosage_form,
@@ -87,6 +93,12 @@ class FasilitasController extends Controller
             return response()->json([
                 'errors' => $validator->errors(),
             ], 422);
+        }
+
+        foreach ($validator as $key => $value) {
+            if (is_string($value)) {
+                $validator[$key] = e($value);
+            }
         }
 
         $fasilitas = FasilitasProduksi::find($id);

@@ -37,8 +37,8 @@ class LayananController extends Controller
     function storeKalibrasi(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'npwp' => 'required|string|max:100',
-            'npwp_address' => 'required|string|max:255',
+            'npwp' => 'required|string|max:50',
+            'npwp_address' => 'required|string|max:100',
             'fax' => 'required|string|max:100',
             'tool_name' => 'required|string|max:100',
             'tool_spec' => 'required|string|max:100',
@@ -50,7 +50,7 @@ class LayananController extends Controller
             'cal_range' => 'required|string|max:100',
             'certif_name' => 'required|string|max:100',
             'certif_no' => 'required|string|max:100',
-            'certif_address' => 'required|string|max:255',
+            'certif_address' => 'required|string|max:100',
         ]);
 
         if ($validator->fails()) {

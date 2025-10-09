@@ -40,14 +40,25 @@ class HomeController extends Controller
             'entity_address_line_1',
             'entity_kota'
         ];
+
         foreach ($normalizeFields as $field) {
             if ($request->has($field)) {
                 $val = $request->input($field);
                 if (is_array($val)) {
-                    $val = reset($val); // ambil elemen pertama
+                    $val = reset($val);
                 }
+
                 // pastikan string atau null
-                $request->merge([$field => $val !== null ? (string) $val : null]);
+                $val = $val !== null ? (string) $val : null;
+
+                // --- tambahkan sanitasi untuk mencegah XSS ---
+                if ($val !== null) {
+                    // hilangkan tag HTML dan encode karakter berbahaya
+                    $val = strip_tags($val);
+                    $val = htmlspecialchars($val, ENT_QUOTES, 'UTF-8');
+                }
+
+                $request->merge([$field => $val]);
             }
         }
 
@@ -61,10 +72,9 @@ class HomeController extends Controller
             'entity_code' => 'nullable|string',
         ]);
 
-        /** @var \App\Models\User */
+        /** @var \App\Models\User $user */
         $user = Auth::user();
 
-        // Jika user pilih perusahaan existing (entity_code diset dan bukan 'new')
         if ($request->filled('entity_code') && $request->entity_code !== 'new') {
             $company = Company::where('entity_code', $request->entity_code)->first();
 
@@ -74,11 +84,11 @@ class HomeController extends Controller
                 ], 422);
             }
 
-            $user->phone = $request->phone;
-            $user->entity_code = $company->entity_code;
-            $user->save();
+            $user->update([
+                'phone' => $request->phone,
+                'entity_code' => $company->entity_code,
+            ]);
         } else {
-            // Kalau user bikin perusahaan baru
             $entity = Company::create([
                 'entity_name' => $request->entity_name,
                 'entity_email' => $request->entity_email ?? $user->email,
@@ -87,13 +97,13 @@ class HomeController extends Controller
                 'entity_kota' => $request->entity_kota,
             ]);
 
-            // set entity_code ke id (atau ubah sesuai logika kode yang diinginkan)
             $entity->entity_code = $entity->id;
             $entity->save();
 
-            $user->phone = $request->phone;
-            $user->entity_code = $entity->id;
-            $user->save();
+            $user->update([
+                'phone' => $request->phone,
+                'entity_code' => $entity->id,
+            ]);
         }
 
         session()->forget('show_identity_modal');

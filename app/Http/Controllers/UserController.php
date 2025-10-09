@@ -101,6 +101,12 @@ class UserController extends Controller
             ], 422);
         }
 
+        foreach ($validator as $key => $value) {
+            if (is_string($value)) {
+                $validator[$key] = e($value);
+            }
+        }
+
         try {
             $user = User::create([
                 'username' => $request->username,
@@ -173,6 +179,12 @@ class UserController extends Controller
             return response()->json([
                 'errors' => $validator->errors(),
             ], 422);
+        }
+
+        foreach ($validator as $key => $value) {
+            if (is_string($value)) {
+                $validator[$key] = e($value);
+            }
         }
 
         try {

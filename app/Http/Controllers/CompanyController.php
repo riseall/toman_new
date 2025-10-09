@@ -50,6 +50,12 @@ class CompanyController extends Controller
             ], 422);
         }
 
+        foreach ($validator as $key => $value) {
+            if (is_string($value)) {
+                $validator[$key] = e($value);
+            }
+        }
+
         try {
             $company = Company::create([
                 'entity_name' => $request->entity_name,

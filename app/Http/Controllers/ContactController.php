@@ -28,6 +28,12 @@ class ContactController extends Controller
             'message' => 'required|string',
         ]);
 
+        foreach ($validatedData as $key => $value) {
+            if (is_string($value)) {
+                $validatedData[$key] = e($value);
+            }
+        }
+
         try {
             $kontakBaru = Contact::create($validatedData);
 

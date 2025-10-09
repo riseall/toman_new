@@ -99,6 +99,12 @@ class ProductController extends Controller
             ], 422);
         }
 
+        foreach ($validator as $key => $value) {
+            if (is_string($value)) {
+                $validator[$key] = e($value);
+            }
+        }
+
         if ($request->hasFile('prod_img')) {
             $img = $request->file('prod_img');
             $img_name = time() . '_' . $img->getClientOriginalName();
