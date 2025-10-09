@@ -7416,3 +7416,15 @@ body[data-layout-mode="dark"] .mode-light {
     font-size: 0.9em;
     font-weight: normal;
 }
+
+/* Styling untuk deskripsi show more */
+.desc {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    transition: all 0.3s ease-in-out;
+    min-height: 72px;
+}
