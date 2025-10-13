@@ -57,7 +57,6 @@
     </div>
 </div>
 
-<script src="{{ asset('js/jquery.js') }}"></script>
 <script>
     $(document).ready(function() {
         const updateFasModal = $('#updateFasModal');
