@@ -30,16 +30,10 @@
                             <label for="unit" class="form-label">Unit</label>
                             <select name="unit" id="unit" class="form-select" required>
                                 <option value="">-- Pilih Unit --</option>
-                                <option value="Tablet" {{ $fasilitas->unit == 'Tablet' ? 'selected' : '' }}>Tablet
-                                </option>
-                                <option value="Capsule" {{ $fasilitas->unit == 'Capsule' ? 'selected' : '' }}>Kapsul
-                                </option>
-                                <option value="Ampoule" {{ $fasilitas->unit == 'Ampoule' ? 'selected' : '' }}>Ampul
-                                </option>
-                                <option value="Vial" {{ $fasilitas->unit == 'Vial' ? 'selected' : '' }}>Vial</option>
-                                <option value="Bottle" {{ $fasilitas->unit == 'Bottle' ? 'selected' : '' }}>Botol
-                                </option>
-                                <option value="Tube" {{ $fasilitas->unit == 'Tube' ? 'selected' : '' }}>Tube</option>
+                                @foreach (\App\Models\FasilitasProduksi::PRODUCT_TYPES as $type)
+                                    <option value="{{ $type }}"
+                                        {{ $fasilitas->unit == $type ? 'selected' : '' }}>{{ $type }}</option>
+                                @endforeach
                             </select>
                             <div class="invalid-feedback"></div>
                         </div>
@@ -63,6 +57,7 @@
     </div>
 </div>
 
+<script src="{{ asset('js/jquery.js') }}"></script>
 <script>
     $(document).ready(function() {
         const updateFasModal = $('#updateFasModal');

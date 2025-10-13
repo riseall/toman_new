@@ -13,6 +13,17 @@ class FasilitasProduksi extends Model
 
     protected $guarded = ['id'];
 
+    public const PRODUCT_TYPES = [
+        'Tablet Betalactam',
+        'Tablet Non Betalactam',
+        'Serbuk Penicilin',
+        'Serbuk Injeksi Non Betalactam',
+        'Serbuk Injeksi Betalactam',
+        'Salep Non Betalactam',
+        'Capsule',
+        'Bottle',
+    ];
+
     function permintaan()
     {
         return $this->hasMany(Permintaan::class, 'dossage_id', 'id');

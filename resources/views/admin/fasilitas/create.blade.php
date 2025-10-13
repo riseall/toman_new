@@ -31,13 +31,9 @@
                                 <label for="unit" class="form-label">Unit</label>
                                 <select name="unit" id="unit" class="form-select" required>
                                     <option value="">-- Pilih Unit --</option>
-                                    <option value="Tablet">Tablet</option>
-                                    <option value="Capsule">Kapsul</option>
-                                    <option value="Ampoule">Ampul</option>
-                                    <option value="Vial">Vial</option>
-                                    <option value="Bottle">Botol</option>
-                                    <option value="Tube">Tube</option>
-
+                                    @foreach (\App\Models\FasilitasProduksi::PRODUCT_TYPES as $type)
+                                        <option value="{{ $type }}">{{ $type }}</option>
+                                    @endforeach
                                 </select>
                                 <div class="invalid-feedback"></div>
                             </div>
