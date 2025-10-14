@@ -31,7 +31,7 @@
                             </ul><!--end icon-->
                         </div><!--end col-->
 
-                        <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <div class="col-lg-2 col-md-4 col-12 mt-4 mt-sm-3 pt-2 pt-sm-0">
                             <h5 class="footer-head">Navigasi</h5>
                             <ul class="list-unstyled footer-list mt-4">
                                 <li><a href="{{ route('home') }}" class="text-foot"><i
@@ -53,7 +53,7 @@
                         </div><!--end col-->
 
 
-                        <div class="col-lg-6 col-md-4 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                        <div class="col-lg-6 col-md-8 mt-4 mt-sm-3 pt-2 pt-sm-0">
                             <h5 class="footer-head">Sertifikat dan Penghargaan</h5>
                             <div class="mt-4 d-flex flex-wrap gap-3">
                                 <img loading="lazy" class="sertif" src="{{ asset('images/cert/logo_bpom.png') }}"

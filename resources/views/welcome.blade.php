@@ -188,7 +188,7 @@
 
                     <div class="row">
                         <div class="col-sm-6">
-                            <ul class="list-unstyled text-muted">
+                            <ul class="list-unstyled text-muted mb-0">
                                 <li class="mb-0"><span class="text-primary h4 me-2"><i
                                             class="uil uil-check-circle align-middle"></i></span>ISO 9001</li>
                                 <li class="mb-0"><span class="text-primary h4 me-2"><i
