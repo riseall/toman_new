@@ -30,17 +30,16 @@
                                             $icons = [
                                                 'Tablet Non Betalactam' => 'tablet.png',
                                                 'Tablet Betalactam' => 'tablet_betalactam.png',
-                                                'Capsule' => 'capsule.png',
-                                                'Bottle' => 'bottle.png',
+                                                'Kapsul Non Betalactam' => 'capsule.png',
+                                                'Cairan Non Betalactam' => 'bottle.png',
                                                 'Serbuk Injeksi Non Betalactam' => 'injeksi_non_betalactam.png',
                                                 'Serbuk Injeksi Betalactam' => 'injeksi_betalactam.png',
                                                 'Serbuk Penicilin' => 'penicilin.png',
-                                                'Vial' => 'penicilin.png',
                                                 'Salep Non Betalactam' => 'salep_non_betalactam.png',
                                             ];
                                         @endphp
                                         <div class="col-lg-3 col-md-5 col-sm-3 col-3 text-center">
-                                            <img src="{{ asset('images/unit/' . ($icons[$item->unit] ?? 'toman2.png')) }}"
+                                            <img src="{{ asset('images/unit/' . ($icons[$item->unit] ?? 'vial.png')) }}"
                                                 class="avatar avatar-small client-image rounded" alt="{{ $item->unit }}"
                                                 loading="lazy">
                                         </div>

@@ -19,46 +19,9 @@
     </div>
 
     <div class="container mt-50">
-        {{-- <div class="row justify-content-center">
-            <div class="col-12 filters-group-wrap">
-                <div class="filters-group">
-                    <ul class="container-filter list-inline mb-0 filter-options text-center">
-                        <li class="list-inline-item categories-name border text-dark rounded active" data-group="all">All
-                        </li>
-                        <li class="list-inline-item categories-name border text-dark rounded" data-group="branding">Branding
-                        </li>
-                        <li class="list-inline-item categories-name border text-dark rounded" data-group="designing">
-                            Designing</li>
-                        <li class="list-inline-item categories-name border text-dark rounded" data-group="photography">
-                            Photography</li>
-                        <li class="list-inline-item categories-name border text-dark rounded" data-group="development">
-                            Development</li>
-                    </ul>
-                </div>
-            </div><!--end col-->
-        </div><!--end row--> --}}
-
         <div class="row justify-content-center">
             <div class="d-flex flex-wrap">
                 @foreach ($product as $prod)
-                    {{-- <div class="col-lg-3 col-md-6 col-12 spacing picture-item" style="cursor: pointer">
-                        <a data-bs-toggle="modal" data-bs-target="#productModal" data-batch="{{ $prod->prod_bets_size }}"
-                            data-exp="{{ $prod->prod_exp_yr }}" data-pcg="{{ $prod->prod_package }}">
-                            <div class="border-0 work-container work-primary work-classic">
-                                <div class="content w-100">
-                                    <div class="card-body p-0">
-                                        <img src="{{ asset('images/product/' . $prod->prod_img) }}"
-                                            class="img-fluid rounded work-image" alt="{{ $prod->prod_name }}">
-                                        <div class="content pt-3">
-                                            <h5 class="mb-1">{{ $prod->prod_name }}</h5>
-                                            <h6 class="text-muted tag mb-0">{{ $prod->prod_package }}</h6>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                    </div> --}}
-
                     <div class="col-lg-3 col-md-6 col-6 spacing picture-item" style="cursor: pointer" {{-- data-groups='["branding"]' --}}>
                         <a data-bs-toggle="modal" data-bs-target="#productModal" data-batch="{{ $prod->prod_bets_size }}"
                             data-exp="{{ $prod->prod_exp_yr }}" data-pcg="{{ $prod->prod_package }}"
