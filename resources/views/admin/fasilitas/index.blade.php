@@ -104,7 +104,7 @@
                     Swal.fire({
                         icon: 'error',
                         title: 'Error!',
-                        text: 'Gagal mengambil data produk.',
+                        text: 'Gagal mengambil data fasilitas.',
                     });
                     console.error(xhr.responseText);
                 }

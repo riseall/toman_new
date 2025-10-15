@@ -121,10 +121,10 @@
                     if (xhr.status === 422) {
                         let errors = xhr.responseJSON.errors;
                         $.each(errors, function(key, val) {
-                            let inputField = $(`#${key}`);
+                            let inputField = updateProdForm.find(`#${key}`);
                             if (inputField.length) {
                                 inputField.addClass('is-invalid');
-                                inputField.next('.invalid-feedback').html(value[0]);
+                                inputField.next('.invalid-feedback').html(val[0]);
                             }
                         });
                     } else {
