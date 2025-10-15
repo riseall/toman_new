@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DokumentasiController;
 use App\Http\Controllers\FasilitasController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KalibrasiController;
@@ -71,6 +72,10 @@ Route::group(['middleware' => ['auth', 'role:super_admin|admin_toti']], function
     Route::resource('porto', PortofolioController::class)->only('store', 'edit', 'update');
     Route::get('/porto', [PortofolioController::class, 'admIndex'])->name('porto.index');
     Route::get('/porto/data', [PortofolioController::class, 'getPorto'])->name('porto.data');
+
+    // Route Untuk Admin (Dokumentasi)
+    Route::resource('dok', DokumentasiController::class)->only('index', 'store', 'edit', 'update');
+    Route::get('/dok/data', [DokumentasiController::class, 'getDok'])->name('dok.data');
 });
 
 // Route Layanan

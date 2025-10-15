@@ -3,36 +3,25 @@
 namespace App\Http\Controllers;
 
 use App\Models\Dokumentasi;
-use App\Models\Portofolio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class PortofolioController extends Controller
+class DokumentasiController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
-        $page = $request->get('page', 1);
-        $porto = Portofolio::where('is_active', 1)->paginate(2, ['*'], 'page', $page);
-        $dokumentasi = Dokumentasi::where('is_active', 1)->get();
-        return view('user.portofolio.porto', compact('porto', 'dokumentasi'));
+        return view('admin.dokumentasi.index');
     }
 
-    public function admIndex()
+    public function getDok()
     {
-        $porto = Portofolio::all();
-        return view('admin.portofolio.index', compact('porto'));
-    }
+        $dok = Dokumentasi::all();
 
-    public function getPorto()
-    {
-        $porto = Portofolio::all();
-
-        $data = $porto->map(function ($item, $index) {
+        $data = $dok->map(function ($item, $index) {
             return [
                 'id' => $item->id,
                 'no' => $index + 1,
                 'judul' => $item->title,
-                'deskripsi' => $item->desc,
                 'gambar' => $item->image,
                 'status' => $item->is_active,
             ];
@@ -47,7 +36,6 @@ class PortofolioController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
-            'desc' => 'required|string|max:255',
             'image' => 'required|image|mimes:jpg,jpeg,png,gif|max:2048',
             'is_active' => 'required|boolean',
         ]);
@@ -63,15 +51,14 @@ class PortofolioController extends Controller
             $img_name = 'images/portofolio/' . time() . '_' . $img->getClientOriginalName();
             $img->move(public_path('images/portofolio'), $img_name);
 
-            Portofolio::create([
+            Dokumentasi::create([
                 'title' => $request->title,
-                'desc' => $request->desc,
                 'image' => $img_name,
                 'is_active' => $request->has('is_active') ? '1' : '0',
             ]);
 
             return response()->json([
-                'message' => 'Portofolio berhasil ditambahkan',
+                'message' => 'Dokumentasi berhasil ditambahkan',
             ], 200);
         } catch (\Exception $e) {
             return response()->json([
@@ -83,15 +70,14 @@ class PortofolioController extends Controller
 
     public function edit($id)
     {
-        $porto = Portofolio::find($id);
-        return view('admin.portofolio.update', compact('porto'));
+        $dok = Dokumentasi::find($id);
+        return view('admin.dokumentasi.update', compact('dok'));
     }
 
-    public function update(Request $request, Portofolio $porto)
+    public function update(Request $request, Dokumentasi $dok)
     {
         $validator = Validator::make($request->all(), [
             'title' => 'required|string|max:100',
-            'desc' => 'required|string|max:255',
             'image' => 'image|mimes:jpg,jpeg,png,gif|max:2048',
             'is_active' => 'required|boolean',
         ]);
@@ -106,17 +92,16 @@ class PortofolioController extends Controller
             $img = $request->file('image');
             $img_name = 'images/portofolio/' . time() . '_' . $img->getClientOriginalName();
             $img->move(public_path('images/portofolio'), $img_name);
-            $porto->image = $img_name;
+            $dok->image = $img_name;
         }
 
         try {
-            $porto->title = $request->title;
-            $porto->desc = $request->desc;
-            $porto->is_active = $request->is_active ?? false;
-            $porto->save();
+            $dok->title = $request->title;
+            $dok->is_active = $request->is_active ?? false;
+            $dok->save();
 
             return response()->json([
-                'success' => 'Portofolio berhasil diupdate',
+                'success' => 'Dokumentasi berhasil diupdate',
             ], 200);
         } catch (\Exception $e) {
             return response()->json([

@@ -46,6 +46,7 @@
                 <div class="sidebar-submenu">
                     <ul>
                         <li><a href="{{ route('porto.index') }}">Portofolio</a></li>
+                        <li><a href="{{ route('dok.index') }}">Dokumentasi</a></li>
                     </ul>
                 </div>
             </li>

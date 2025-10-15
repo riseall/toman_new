@@ -57,213 +57,32 @@
     <div class="container-fluid">
         <div id="grid" class="row mt-4 shuffle"
             style="position: relative; overflow: hidden; height: 551.688px; transition: height 250ms cubic-bezier(0.4, 0, 0.2, 1);">
-            <div class="col-lg-3 col-md-6 col-12 spacing picture-item shuffle-item shuffle-item--visible"
-                data-groups="[&quot;branding&quot;]"
-                style="position: absolute; top: 0px; visibility: visible; will-change: transform; left: 0px; opacity: 1; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                <div
-                    class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('images/bg/807A0440.jpg') }}" class="lightbox d-inline-block tobii-zoom"
-                            title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0440.jpg') }}" class="img-fluid">
-                            <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M21 16v5h-5"></path>
-                                    <path d="M8 21H3v-5"></path>
-                                    <path d="M16 3h5v5"></path>
-                                    <path d="M3 8V3h5"></path>
-                                </svg></div>
-                        </a>
-                        <div class="content p-3">
-                            <h5 class="mb-0"><a href="portfolio-detail-one.html" class="text-dark title">Iphone
-                                    mockup</a></h5>
-                            <h6 class="text-muted tag mb-0">Branding</h6>
+            @foreach ($dokumentasi as $dok)
+                <div class="col-lg-3 col-md-6 col-12 spacing picture-item shuffle-item shuffle-item--visible"
+                    data-groups="[&quot;branding&quot;]"
+                    style="position: absolute; top: 0px; visibility: visible; will-change: transform; left: 0px; opacity: 1; transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
+                    <div
+                        class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
+                        <div class="card-body p-0">
+                            <a href="{{ asset($dok->image) }}" class="lightbox d-inline-block tobii-zoom" title="">
+                                <img loading="lazy" src="{{ asset($dok->image) }}" class="img-fluid">
+                                <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                                        height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                                        <path d="M21 16v5h-5"></path>
+                                        <path d="M8 21H3v-5"></path>
+                                        <path d="M16 3h5v5"></path>
+                                        <path d="M3 8V3h5"></path>
+                                    </svg></div>
+                            </a>
+                            <div class="content p-3">
+                                {{-- <h5 class="mb-0"><a href="portfolio-detail-one.html"
+                                        class="text-dark title"></a></h5> --}}
+                                <h6 class="tag mb-0">{{ $dok->title }}</h6>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-3 col-md-6 col-12 spacing picture-item shuffle-item shuffle-item--visible"
-                data-groups="[&quot;designing&quot;]"
-                style="position: absolute; top: 0px; visibility: visible; will-change: transform; left: 0px; opacity: 1; transform: translate(313px, 0px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                <div
-                    class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('images/bg/807A0366.jpg') }}" class="lightbox d-inline-block tobii-zoom"
-                            title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0366.jpg') }}" class="img-fluid">
-                            <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M21 16v5h-5"></path>
-                                    <path d="M8 21H3v-5"></path>
-                                    <path d="M16 3h5v5"></path>
-                                    <path d="M3 8V3h5"></path>
-                                </svg></div>
-                        </a>
-                        <div class="content p-3">
-                            <h5 class="mb-0"><a href="portfolio-detail-one.html" class="text-dark title">Mockup
-                                    Collection</a></h5>
-                            <h6 class="text-muted tag mb-0">Mockup</h6>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-3 col-md-6 col-12 spacing picture-item shuffle-item shuffle-item--visible"
-                data-groups="[&quot;photography&quot;]"
-                style="position: absolute; top: 0px; visibility: visible; will-change: transform; left: 0px; opacity: 1; transform: translate(627px, 0px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                <div
-                    class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('images/bg/807A0482.jpg') }}" class="lightbox d-inline-block tobii-zoom"
-                            title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0482.jpg') }}" class="img-fluid">
-                            <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M21 16v5h-5"></path>
-                                    <path d="M8 21H3v-5"></path>
-                                    <path d="M16 3h5v5"></path>
-                                    <path d="M3 8V3h5"></path>
-                                </svg></div>
-                        </a>
-                        <div class="content p-3">
-                            <h5 class="mb-0"><a href="portfolio-detail-one.html" class="text-dark title">Abstract
-                                    images</a></h5>
-                            <h6 class="text-muted tag mb-0">Abstract</h6>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-3 col-md-6 col-12 spacing picture-item shuffle-item shuffle-item--visible"
-                data-groups="[&quot;development&quot;]"
-                style="position: absolute; top: 0px; visibility: visible; will-change: transform; left: 0px; opacity: 1; transform: translate(940px, 0px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                <div
-                    class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('images/bg/807A0494.jpg') }}" class="lightbox d-inline-block tobii-zoom"
-                            title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid">
-                            <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M21 16v5h-5"></path>
-                                    <path d="M8 21H3v-5"></path>
-                                    <path d="M16 3h5v5"></path>
-                                    <path d="M3 8V3h5"></path>
-                                </svg></div>
-                        </a>
-                        <div class="content p-3">
-                            <h5 class="mb-0"><a href="portfolio-detail-one.html" class="text-dark title">Yellow
-                                    bg with Books</a></h5>
-                            <h6 class="text-muted tag mb-0">Books</h6>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-3 col-md-6 col-12 spacing picture-item shuffle-item shuffle-item--visible"
-                data-groups="[&quot;branding&quot;]"
-                style="position: absolute; top: 0px; visibility: visible; will-change: transform; left: 0px; opacity: 1; transform: translate(0px, 276px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                <div
-                    class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('images/bg/807A0645.jpg') }}" class="lightbox d-inline-block tobii-zoom"
-                            title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0645.jpg') }}" class="img-fluid">
-                            <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M21 16v5h-5"></path>
-                                    <path d="M8 21H3v-5"></path>
-                                    <path d="M16 3h5v5"></path>
-                                    <path d="M3 8V3h5"></path>
-                                </svg></div>
-                        </a>
-                        <div class="content p-3">
-                            <h5 class="mb-0"><a href="portfolio-detail-one.html" class="text-dark title">Company
-                                    V-card</a></h5>
-                            <h6 class="text-muted tag mb-0">V-card</h6>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-3 col-md-6 col-12 spacing picture-item shuffle-item shuffle-item--visible"
-                data-groups="[&quot;branding&quot;]"
-                style="position: absolute; top: 0px; visibility: visible; will-change: transform; left: 0px; opacity: 1; transform: translate(313px, 276px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                <div
-                    class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('images/bg/807A0535.jpg') }}" class="lightbox d-inline-block tobii-zoom"
-                            title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0535.jpg') }}" class="img-fluid">
-                            <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M21 16v5h-5"></path>
-                                    <path d="M8 21H3v-5"></path>
-                                    <path d="M16 3h5v5"></path>
-                                    <path d="M3 8V3h5"></path>
-                                </svg></div>
-                        </a>
-                        <div class="content p-3">
-                            <h5 class="mb-0"><a href="portfolio-detail-one.html" class="text-dark title">Mockup
-                                    box with paints</a></h5>
-                            <h6 class="text-muted tag mb-0">Photography</h6>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-3 col-md-6 col-12 spacing picture-item shuffle-item shuffle-item--visible"
-                data-groups="[&quot;designing&quot;]"
-                style="position: absolute; top: 0px; visibility: visible; will-change: transform; left: 0px; opacity: 1; transform: translate(627px, 276px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                <div
-                    class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('images/bg/807A0539.jpg') }}" class="lightbox d-inline-block tobii-zoom"
-                            title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0539.jpg') }}" class="img-fluid">
-                            <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M21 16v5h-5"></path>
-                                    <path d="M8 21H3v-5"></path>
-                                    <path d="M16 3h5v5"></path>
-                                    <path d="M3 8V3h5"></path>
-                                </svg></div>
-                        </a>
-                        <div class="content p-3">
-                            <h5 class="mb-0"><a href="portfolio-detail-one.html" class="text-dark title">Coffee
-                                    cup</a></h5>
-                            <h6 class="text-muted tag mb-0">Cups</h6>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-3 col-md-6 col-12 spacing picture-item shuffle-item shuffle-item--visible"
-                data-groups="[&quot;development&quot;]"
-                style="position: absolute; top: 0px; visibility: visible; will-change: transform; left: 0px; opacity: 1; transform: translate(940px, 276px) scale(1); transition-duration: 250ms; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-property: transform, opacity;">
-                <div
-                    class="card border-0 work-container work-primary work-grid position-relative d-block overflow-hidden rounded">
-                    <div class="card-body p-0">
-                        <a href="{{ asset('images/bg/807A0494.jpg') }}" class="lightbox d-inline-block tobii-zoom"
-                            title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid">
-                            <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
-                                    height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-                                    <path d="M21 16v5h-5"></path>
-                                    <path d="M8 21H3v-5"></path>
-                                    <path d="M16 3h5v5"></path>
-                                    <path d="M3 8V3h5"></path>
-                                </svg></div>
-                        </a>
-                        <div class="content p-3">
-                            <h5 class="mb-0"><a href="portfolio-detail-one.html" class="text-dark title">Pen
-                                    and article</a></h5>
-                            <h6 class="text-muted tag mb-0">Article</h6>
-                        </div>
-                    </div>
-                </div>
-            </div><!--end col-->
+                </div><!--end col-->
+            @endforeach
         </div><!--end row-->
     </div><!--end container-->
 @endsection
