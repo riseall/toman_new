@@ -22,8 +22,10 @@
                 <!-- WORK START -->
                 <div class="col-lg-5 col-md-6">
                     <div class="port-images sticky-sidebar">
-                        <img loading="lazy" src="{{ asset($pt->image) }}" class="img-fluid mx-auto d-block rounded"
-                            alt="img">
+                        <img loading="lazy"
+                            src="{{ $pt->image && file_exists(public_path($pt->image)) ? asset($pt->image) : asset('images/bg/phapros.jpg') }}"
+                            class="img-fluid mx-auto d-block rounded" alt="img">
+
                     </div>
                 </div><!--end col-->
 
