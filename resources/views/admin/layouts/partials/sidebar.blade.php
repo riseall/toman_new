@@ -24,6 +24,15 @@
                 </div>
             </li>
             <li class="sidebar-dropdown">
+                <a href="javascript:void(0)"><i class="mdi mdi-flask-plus me-2"></i>Permintaan</a>
+                <div class="sidebar-submenu">
+                    <ul>
+                        <li><a href="{{ route('companies.index') }}">Toll In</a></li>
+                        <li><a href="{{ route('kalibrasi.index') }}">Kalibrasi</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="sidebar-dropdown">
                 <a href="javascript:void(0)"><i class="mdi mdi-microscope me-2"></i>Layanan</a>
                 <div class="sidebar-submenu">
                     <ul>
@@ -33,11 +42,10 @@
                 </div>
             </li>
             <li class="sidebar-dropdown">
-                <a href="javascript:void(0)"><i class="mdi mdi-flask-plus me-2"></i>Permintaan</a>
+                <a href="javascript:void(0)"><i class="mdi mdi-brush-variant me-2"></i>Portofolio</a>
                 <div class="sidebar-submenu">
                     <ul>
-                        <li><a href="{{ route('companies.index') }}">Toll In</a></li>
-                        <li><a href="{{ route('kalibrasi.index') }}">Kalibrasi</a></li>
+                        <li><a href="{{ route('porto.index') }}">Portofolio</a></li>
                     </ul>
                 </div>
             </li>

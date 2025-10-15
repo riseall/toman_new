@@ -16,92 +16,41 @@
         </div><!--end row-->
     </div>
 
-    <div class="container mt-50">
-        <div class="row">
-            <!-- WORK START -->
-            <div class="col-lg-5 col-md-6">
-                <div class="port-images sticky-sidebar">
-                    <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded"
-                        alt="img">
-                    {{-- <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
-                            alt="img"> --}}
-                    {{-- <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
-                            alt="img"> --}}
-                </div>
-            </div><!--end col-->
+    @foreach ($porto as $pt)
+        <div class="container mt-50">
+            <div class="row">
+                <!-- WORK START -->
+                <div class="col-lg-5 col-md-6">
+                    <div class="port-images sticky-sidebar">
+                        <img loading="lazy" src="{{ asset($pt->image) }}" class="img-fluid mx-auto d-block rounded"
+                            alt="img">
+                    </div>
+                </div><!--end col-->
 
-            <div class="col-lg-7 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <div class="sticky-bar">
-                    <div class="row ms-lg-4">
-                        <div class="col-lg-12">
-                            <div class="work-details">
-                                <h4 class="title mb-3 border-bottom pb-3">Project Name :</h4>
-                                <p class="text-muted">PT Phapros Tbk telah berhasil menghadirkan pendampingan trial
-                                    kepada pelanggan secara transparan dan fleksibel, baik secara langsung maupun
-                                    melalui live streaming, hingga proses produksi selesai sesuai keinginan pelanggan
-                                </p>
-                                {{-- <p class="text-muted mb-0">Suscipit totam atque dignissimos porro, exercitationem,
-                                        neque
-                                        alias ea aliquid quibusdam voluptates impedit maxime aut asperiores consequatur
-                                        iste. Corporis fuga ducimus dignissimos.</p> --}}
-                            </div>
-                        </div><!--end col-->
-                    </div><!--end row-->
-                </div>
-            </div><!--end col-->
-        </div><!--end row-->
-
-        {{-- <div class="row">
-            <!-- PAGINATION START -->
-            <div class="col-12 mt-4 pt-2">
-                <ul class="pagination justify-content-center mb-0">
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Previous">Prev</a>
-                    </li>
-                    <li class="page-item active"><a class="page-link" href="javascript:void(0)">1</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                    <li class="page-item"><a class="page-link" href="javascript:void(0)" aria-label="Next">Next</a>
-                    </li>
-                </ul>
-            </div><!--end col-->
-            <!-- PAGINATION END -->
-        </div><!--end row--> --}}
-    </div><!--end container-->
-    <div class="container mt-50">
-        <div class="row">
-            <!-- WORK START -->
-            <div class="col-lg-5 col-md-6">
-                <div class="port-images sticky-sidebar">
-                    <img loading="lazy" src="{{ asset('images/bg/phapros-obat.jpg') }}"
-                        class="img-fluid mx-auto d-block rounded" alt="img">
-                    {{-- <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
-                            alt="img"> --}}
-                    {{-- <img loading="lazy" src="{{ asset('images/bg/beranda.jpg') }}" class="img-fluid mx-auto d-block rounded mt-4"
-                            alt="img"> --}}
-                </div>
-            </div><!--end col-->
-
-            <div class="col-lg-7 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
-                <div class="sticky-bar">
-                    <div class="row ms-lg-4">
-                        <div class="col-lg-12">
-                            <div class="work-details">
-                                <h4 class="title mb-3 border-bottom pb-3">Project Name :</h4>
-                                <p class="text-muted">Lebih dari 25 pelanggan dari berbagai sektor, mulai dari industri
-                                    farmasi, instansi pemerintah, rumah sakit, hingga universitas mengandalkan PT Phapros
-                                    Tbk sebagai partner kalibrasi dan pengujian berstandar tinggi
-                                </p>
-                                {{-- <p class="text-muted mb-0">Suscipit totam atque dignissimos porro, exercitationem,
-                                        neque
-                                        alias ea aliquid quibusdam voluptates impedit maxime aut asperiores consequatur
-                                        iste. Corporis fuga ducimus dignissimos.</p> --}}
-                            </div>
-                        </div><!--end col-->
-                    </div><!--end row-->
-                </div>
-            </div><!--end col-->
-        </div><!--end row-->
-    </div><!--end container-->
+                <div class="col-lg-7 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
+                    <div class="sticky-bar">
+                        <div class="row ms-lg-4">
+                            <div class="col-lg-12">
+                                <div class="work-details">
+                                    <h4 class="title mb-3 border-bottom pb-3">{{ $pt->title }} :</h4>
+                                    <p class="text-muted">{{ $pt->desc }}</p>
+                                </div>
+                            </div><!--end col-->
+                        </div><!--end row-->
+                    </div>
+                </div><!--end col-->
+            </div><!--end row-->
+        </div><!--end container-->
+    @endforEach
+    <!-- PAGINATION START -->
+    <div class="row">
+        <div class="col-12 mt-4 pt-2">
+            <div class="pagination justify-content-center mb-0">
+                {{ $porto->links('vendor.pagination.custom') }}
+            </div>
+        </div><!--end col-->
+    </div><!--end row-->
+    <!-- PAGINATION END -->
 
     <div class="container-fluid">
         <div id="grid" class="row mt-4 shuffle"
@@ -114,8 +63,7 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0440.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0440.jpg') }}" class="img-fluid"
-                                alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0440.jpg') }}" class="img-fluid">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -141,8 +89,7 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0366.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0366.jpg') }}" class="img-fluid"
-                                alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0366.jpg') }}" class="img-fluid">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -168,8 +115,7 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0482.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0482.jpg') }}" class="img-fluid"
-                                alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0482.jpg') }}" class="img-fluid">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -195,8 +141,7 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0494.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid"
-                                alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -222,8 +167,7 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0645.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0645.jpg') }}" class="img-fluid"
-                                alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0645.jpg') }}" class="img-fluid">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -249,8 +193,7 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0535.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0535.jpg') }}" class="img-fluid"
-                                alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0535.jpg') }}" class="img-fluid">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -276,8 +219,7 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0539.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0539.jpg') }}" class="img-fluid"
-                                alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0539.jpg') }}" class="img-fluid">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>
@@ -303,8 +245,7 @@
                     <div class="card-body p-0">
                         <a href="{{ asset('images/bg/807A0494.jpg') }}" class="lightbox d-inline-block tobii-zoom"
                             title="">
-                            <img loading="lazy" src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid"
-                                alt="work-image">
+                            <img loading="lazy" src="{{ asset('images/bg/807A0494.jpg') }}" class="img-fluid">
                             <div class="tobii-zoom__icon"><svg xmlns="http://www.w3.org/2000/svg" width="24"
                                     height="24" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
                                     <path d="M21 16v5h-5"></path>

@@ -10,6 +10,7 @@ use App\Http\Controllers\LayananController;
 use App\Http\Controllers\MonitoringController;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\PermintaanController;
+use App\Http\Controllers\PortofolioController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TollController;
 use App\Http\Controllers\UserController;
@@ -65,6 +66,11 @@ Route::group(['middleware' => ['auth', 'role:super_admin|admin_toti']], function
 
     // Route Untuk Admin (Pesan)
     Route::get('/pesan', [ContactController::class, 'indexPesan'])->name('pesan.index');
+
+    // Route Untuk Admin (Portofolio)
+    Route::resource('porto', PortofolioController::class)->only('store', 'edit', 'update');
+    Route::get('/porto', [PortofolioController::class, 'admIndex'])->name('porto.index');
+    Route::get('/porto/data', [PortofolioController::class, 'getPorto'])->name('porto.data');
 });
 
 // Route Layanan
@@ -93,9 +99,7 @@ Route::get('/kontak', [ContactController::class, 'index'])->name('kontak.index')
 Route::post('/kontak', [ContactController::class, 'store'])->name('kontak.store');
 
 // Route Untuk Portofolio
-Route::get('/portofolio', function () {
-    return view('user.portofolio.porto');
-})->name('portofolio.index');
+Route::get('/portofolio', [PortofolioController::class, 'index'])->name('portofolio.index');
 
 // Route untuk Alur Maklon
 Route::get('/alur', function () {
