@@ -1,58 +1,51 @@
-<div id="accordionWrapper">
-    <div class="container mt-3">
-        <div class="row justify-content-center">
-            <div class="accordion" id="accordionMon">
-                @foreach ($dataTransaksi as $idx => $transaksi)
-                    @php
-                        $stepStatus = $transaksi->stepStatus ?? [];
-                        $totalProgress = $transaksi->totalProgress ?? 0;
-                        $stepper = [
-                            1 => ['icon' => 'mdi-file-document-edit-outline', 'name' => 'Administrasi'],
-                            2 => ['icon' => 'mdi-text-box-check-outline', 'name' => 'Audit'],
-                            3 => ['icon' => 'mdi-flask-round-bottom', 'name' => 'Trans-Tech Registrasi'],
-                            4 => ['icon' => 'mdi-factory', 'name' => 'Produksi'],
-                            5 => ['icon' => 'mdi-rocket-launch-outline', 'name' => 'Invoice'],
-                        ];
-                    @endphp
-                    <div class="accordion-item rounded shadow-sm border wow animate__animated animate__fadeInUp mt-3"
-                        data-wow-delay=".3s">
-                        <h2 class="accordion-header" id="heading{{ $idx }}">
-                            <button class="accordion-button {{ $idx == 0 ? '' : 'collapsed' }}" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#collapse{{ $idx }}"
-                                aria-expanded="{{ $idx == 0 ? 'true' : 'false' }}"
-                                aria-controls="collapse{{ $idx }}">
-                                {{ $transaksi->pp_form_nbr }} — {{ $transaksi->pp_pt_desc }}
-                            </button>
-                        </h2>
-                        <div id="collapse{{ $idx }}"
-                            class="accordion-collapse border-0 collapse {{ $idx == 0 ? 'show' : '' }}"
-                            aria-labelledby="heading{{ $idx }}" data-bs-parent="#accordionMon">
-                            <div class="accordion-body text-muted">
-                                <!-- Timeline Dokumen -->
-                                <h6 class="fw-bold">Progress Dokumen</h6>
-                                <div class="stepper-wrapper" id="timeline-dokumen-{{ $idx }}">
-                                    @foreach ([1, 2, 3, 4, 5] as $i)
-                                        @php
-                                            $class = $stepStatus[$i] ?? '';
-                                        @endphp
-                                        <div class="stepper-item {{ $class }}" data-step="{{ $i }}">
-                                            <div class="step-counter"><i
-                                                    class="mdi {{ $stepper[$i]['icon'] }} fs-3"></i>
-                                            </div>
-                                            <div class="step-name">{{ $stepper[$i]['name'] }}</div>
-                                        </div>
-                                    @endforeach
+<div class="accordion" id="accordionMon">
+    @foreach ($dataTransaksi as $idx => $transaksi)
+        @php
+            $stepStatus = $transaksi->stepStatus ?? [];
+            $totalProgress = $transaksi->totalProgress ?? 0;
+            $stepper = [
+                1 => ['icon' => 'mdi-file-document-edit-outline', 'name' => 'Administrasi'],
+                2 => ['icon' => 'mdi-text-box-check-outline', 'name' => 'Audit'],
+                3 => ['icon' => 'mdi-flask-round-bottom', 'name' => 'Trans-Tech Registrasi'],
+                4 => ['icon' => 'mdi-factory', 'name' => 'Produksi'],
+                5 => ['icon' => 'mdi-rocket-launch-outline', 'name' => 'Invoice'],
+            ];
+        @endphp
+        <div class="accordion-item rounded shadow-sm border wow animate__animated animate__fadeInUp mt-3"
+            data-wow-delay=".3s">
+            <h2 class="accordion-header" id="heading{{ $idx }}">
+                <button class="accordion-button {{ $idx == 0 ? '' : 'collapsed' }}" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#collapse{{ $idx }}"
+                    aria-expanded="{{ $idx == 0 ? 'true' : 'false' }}" aria-controls="collapse{{ $idx }}">
+                    {{ $transaksi->pp_form_nbr }} — {{ $transaksi->pp_pt_desc }}
+                </button>
+            </h2>
+            <div id="collapse{{ $idx }}"
+                class="accordion-collapse border-0 collapse {{ $idx == 0 ? 'show' : '' }}"
+                aria-labelledby="heading{{ $idx }}" data-bs-parent="#accordionMon">
+                <div class="accordion-body text-muted">
+                    <!-- Timeline Dokumen -->
+                    <h6 class="fw-bold">Progress Dokumen</h6>
+                    <div class="stepper-wrapper" id="timeline-dokumen-{{ $idx }}">
+                        @foreach ([1, 2, 3, 4, 5] as $i)
+                            @php
+                                $class = $stepStatus[$i] ?? '';
+                            @endphp
+                            <div class="stepper-item {{ $class }}" data-step="{{ $i }}">
+                                <div class="step-counter"><i class="mdi {{ $stepper[$i]['icon'] }} fs-3"></i>
                                 </div>
-                                <div class="progress mb-4" style="height: 20px;">
-                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
-                                        id="progress-dokumen-{{ $idx }}"
-                                        style="width: {{ $totalProgress }}%;">
-                                        {{ $totalProgress }}%
-                                    </div>
-                                </div>
-
-                                <!-- Timeline Produk (hidden dulu) -->
-                                {{-- <div id="produk-section-1" class="hidden-section">
+                                <div class="step-name">{{ $stepper[$i]['name'] }}</div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <div class="progress mb-4" style="height: 20px;">
+                        <div class="progress-bar progress-bar-striped progress-bar-animated bg-success"
+                            id="progress-dokumen-{{ $idx }}" style="width: {{ $totalProgress }}%;">
+                            {{ $totalProgress }}%
+                        </div>
+                    </div>
+                    <!-- Timeline Produk (hidden dulu) -->
+                    {{-- <div id="produk-section-1" class="hidden-section">
                                 <h6 class="fw-bold">Progress Produk</h6>
                                 <div class="stepper-wrapper" id="timeline-produk-1">
                                     <div class="stepper-item" data-step="1">
@@ -87,21 +80,18 @@
                                     </div>
                                 </div>
                             </div> --}}
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
+                </div>
             </div>
         </div>
-
-        <!-- PAGINATION START -->
-        <div class="row">
-            <div class="col-12 mt-4 pt-2">
-                <div class="pagination justify-content-center mb-0">
-                    {{ $dataTransaksi->links('vendor.pagination.custom') }}
-                </div>
-            </div><!--end col-->
-        </div><!--end row-->
-        <!-- PAGINATION END -->
-    </div>
+    @endforeach
 </div>
+
+<!-- PAGINATION START -->
+<div class="row">
+    <div class="col-12 mt-4 pt-2">
+        <div class="pagination justify-content-center mb-0">
+            {{ $dataTransaksi->links('vendor.pagination.custom') }}
+        </div>
+    </div><!--end col-->
+</div><!--end row-->
+<!-- PAGINATION END -->

@@ -99,11 +99,13 @@
     </div><!--end row-->
 </div>
 
-@include('user.monitoring._list')
+<div id="accordionWrapper">
+    @include('user.monitoring._list')
+</div>
 
 @push('scripts')
     <script>
-        $(document).on('click', '.pagination a', function(e) {
+        $(document).on('click', '#accordionWrapper .pagination a', function(e) {
             e.preventDefault();
             var href = $(this).attr('href') || '';
             var pageMatch = href.match(/page=(\d+)/);
@@ -112,11 +114,10 @@
             $.get("{{ route('monitoring.data') }}", {
                 page: page
             }, function(html) {
-                // ganti isi accordion + pagination
+                // GANTI HANYA ISI WRAPPER (yang hanya berisi list + pagination)
                 $('#accordionWrapper').html(html);
-                // update URL di browser (opsional)
                 history.pushState(null, '', href);
-                // scroll ke accordion
+
                 $('html,body').animate({
                     scrollTop: $('#accordionWrapper').offset().top - 80
                 }, 300);
