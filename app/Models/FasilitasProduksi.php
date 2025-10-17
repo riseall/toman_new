@@ -20,8 +20,8 @@ class FasilitasProduksi extends Model
         'Serbuk Injeksi Non Betalactam',
         'Serbuk Injeksi Betalactam',
         'Salep Non Betalactam',
-        'Capsule',
-        'Bottle',
+        'Kapsul Non Betalactam',
+        'Cairan Non Betalactam',
     ];
 
     function permintaan()

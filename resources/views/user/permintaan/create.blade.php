@@ -105,14 +105,7 @@
                                                 <option value="{{ $item->id }}" data-type="{{ $item->type }}">
                                                     {{ $item->dosage_form }}
                                                 </option>
-                                                {{-- <option value="Tablet">Tablet</option>
-                                                    <option value="Kapsul">Kapsul</option>
-                                                    <option value="Parenteral">Parenteral</option>
-                                                    <option value="Cairan">Cairan</option>
-                                                    <option value="Powder">Powder</option>
-                                                    <option value="Semisolid">Semisolid</option> --}}
                                             @endforeach
-                                            {{-- <input type="hidden" name="dossage_id" value="{{ $item->id }}"> --}}
                                         </select>
 
                                         <div class="invalid-feedback"></div>

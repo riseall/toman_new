@@ -39,7 +39,7 @@ class FasilitasController extends Controller
         $validator = Validator::make($request->all(), [
             'dosage_form' => 'required|string|max:255',
             'type' => 'required|string|max:255',
-            'unit' => 'required|in:Tablet Betalactam,Tablet Non Betalactam,Serbuk Penicilin,Serbuk Injeksi Non Betalactam,Serbuk Injeksi Betalactam,Salep Non Betalactam,Capsule,Bottle',
+            'unit' => 'required|in:Tablet Betalactam,Tablet Non Betalactam,Serbuk Penicilin,Serbuk Injeksi Non Betalactam,Serbuk Injeksi Betalactam,Salep Non Betalactam,Kapsul Non Betalactam,Cairan Non Betalactam',
             'is_active' => 'required|boolean',
         ]);
 
@@ -85,7 +85,7 @@ class FasilitasController extends Controller
         $validator = Validator::make($request->all(), [
             'dosage_form' => 'required|string|max:255',
             'type' => 'required|string|max:255',
-            'unit' => 'required|in:Tablet Betalactam,Tablet Non Betalactam,Serbuk Penicilin,Serbuk Injeksi Non Betalactam,Serbuk Injeksi Betalactam,Salep Non Betalactam,Capsule,Bottle',
+            'unit' => 'required|in:Tablet Betalactam,Tablet Non Betalactam,Serbuk Penicilin,Serbuk Injeksi Non Betalactam,Serbuk Injeksi Betalactam,Salep Non Betalactam,Kapsul Non Betalactam,Cairan Non Betalactam',
             'is_active' => 'required|boolean',
         ]);
 
