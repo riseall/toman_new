@@ -31,7 +31,7 @@
                                 <div class="card-body p-0">
                                     <div class="ratio ratio-4x3">
                                         <img src="{{ asset('images/product/' . $prod->prod_img) }}"
-                                            class="img-fluid object-fit-cover" alt="{{ $prod->prod_name }}" loading="lazy">
+                                            class="img-fluid object-fit-fill" alt="{{ $prod->prod_name }}" loading="lazy">
                                     </div>
                                     <div class="content p-3">
                                         <h5 class="mb-1 text-primary title" style="font-size: calc(0.5rem + 0.5vw)">
