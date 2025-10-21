@@ -11,7 +11,9 @@ class TollController extends Controller
     {
         $company = Company::with(['permintaans.user'])
             ->withCount('permintaans')
+            ->withMax('permintaans', 'req_date')
             ->whereHas('permintaans')
+            ->orderByDesc('permintaans_max_req_date')
             ->get();
         // dd($company);
         return view('admin.permintaan.toll_in', compact('company'));
@@ -21,7 +23,9 @@ class TollController extends Controller
     {
         $kalibrasi = Company::with(['kalibrasis.user'])
             ->withCount('kalibrasis')
+            ->withMax('kalibrasis', 'created_at')
             ->whereHas('kalibrasis')
+            ->orderByDesc('kalibrasis_max_created_at')
             ->get();
         return view('admin.permintaan.kalibrasi', compact('kalibrasi'));
     }
