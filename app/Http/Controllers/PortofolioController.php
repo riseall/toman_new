@@ -125,4 +125,19 @@ class PortofolioController extends Controller
             ], 500);
         }
     }
+
+    public function destroy(Portofolio $porto)
+    {
+        try {
+            $porto->delete();
+            return response()->json([
+                'success' => 'Portofolio berhasil dihapus',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }

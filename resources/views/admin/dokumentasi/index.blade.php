@@ -86,7 +86,8 @@
                         data: 'id',
                         className: 'text-center',
                         render: function(id) {
-                            return `<button class="btn btn-icon btn-outline-info btn-edit-prod" data-id="${id}"><span class="mdi mdi-lead-pencil fs-5"></span></button>`;
+                            return `<button class="btn btn-icon btn-outline-info btn-edit-prod" data-id="${id}"><span class="mdi mdi-lead-pencil fs-5"></span></button>
+                            <button class="btn btn-icon btn-outline-danger btn-delete-prod" data-id="${id}"><span class="mdi mdi-delete fs-5"></span></button>`;
                         }
                     }
                 ]
@@ -110,6 +111,48 @@
                         text: 'Gagal mengambil data dokumentasi.',
                     });
                     console.error(xhr.responseText);
+                }
+            });
+        });
+
+        $(document).on('click', '.btn-delete-prod', function() {
+            let id = $(this).data('id');
+            let url = '{{ route('dok.destroy', ':id') }}'.replace(':id', id);
+            Swal.fire({
+                title: 'Hapus Dokumentasi',
+                text: "Apakah anda yakin ingin menghapus dokumentasi ini?",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, Hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: url,
+                        type: 'DELETE',
+                        data: {
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            $('#dokTable').DataTable().ajax.reload();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: 'Data dokumentasi berhasil dihapus.',
+                                showConfirmButton: false,
+                                timer: 1500,
+                                timerProgressBar: true
+                            });
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'Gagal menghapus data dokumentasi.',
+                            });
+                        }
+                    });
                 }
             });
         });

@@ -91,8 +91,9 @@
                         data: 'id',
                         className: 'text-center',
                         render: function(id) {
-                            return `<button class="btn btn-icon btn-outline-info btn-edit-prod" data-id="${id}"><span class="mdi mdi-lead-pencil fs-5"></span></button>`;
-                        }
+                            return `<button class="btn btn-icon btn-outline-info btn-edit-prod" data-id="${id}"><span class="mdi mdi-lead-pencil fs-5"></span></button>
+                            <button class="btn btn-icon btn-outline-danger btn-delete-prod" data-id="${id}"><span class="mdi mdi-delete fs-5"></span></button>`;
+                        },
                     }
                 ]
             });
@@ -117,6 +118,50 @@
                     console.error(xhr.responseText);
                 }
             });
+        });
+
+        $(document).on('click', '.btn-delete-prod', function() {
+            let id = $(this).data('id');
+            let url = '{{ route('porto.destroy', ':id') }}'.replace(':id', id);
+            Swal.fire({
+                title: 'Anda yakin?',
+                text: "Data akan dihapus permanen!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: url,
+                        type: "DELETE",
+                        data: {
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(response) {
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Berhasil!',
+                                text: 'Data portofolio berhasil dihapus.',
+                                showConfirmButton: false,
+                                timer: 1500,
+                                timerProgressBar: true
+                            }).then(() => {
+                                $('#porTable').DataTable().ajax.reload(null,
+                                    false);
+                            });
+                        },
+                        error: function() {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error!',
+                                text: 'Gagal menghapus data portofolio.',
+                            });
+                        }
+                    });
+                }
+            })
         });
     </script>
 @endpush

@@ -110,4 +110,19 @@ class DokumentasiController extends Controller
             ], 500);
         }
     }
+
+    public function destroy(Dokumentasi $dok)
+    {
+        try {
+            $dok->delete();
+            return response()->json([
+                'success' => 'Dokumentasi berhasil dihapus',
+            ], 200);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => $e->getMessage(),
+            ], 500);
+        }
+    }
 }

@@ -69,12 +69,12 @@ Route::group(['middleware' => ['auth', 'role:super_admin|admin_toti']], function
     Route::get('/pesan', [ContactController::class, 'indexPesan'])->name('pesan.index');
 
     // Route Untuk Admin (Portofolio)
-    Route::resource('porto', PortofolioController::class)->only('store', 'edit', 'update');
+    Route::resource('porto', PortofolioController::class)->only('store', 'edit', 'update', 'destroy');
     Route::get('/porto', [PortofolioController::class, 'admIndex'])->name('porto.index');
     Route::get('/porto/data', [PortofolioController::class, 'getPorto'])->name('porto.data');
 
     // Route Untuk Admin (Dokumentasi)
-    Route::resource('dok', DokumentasiController::class)->only('index', 'store', 'edit', 'update');
+    Route::resource('dok', DokumentasiController::class)->only('index', 'store', 'edit', 'update', 'destroy');
     Route::get('/dok/data', [DokumentasiController::class, 'getDok'])->name('dok.data');
 });
 
