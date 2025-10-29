@@ -55,18 +55,18 @@
                     <li class="list-inline-item mb-0 ps-1">
                         <a onclick="window.location.href='{{ route('login') }}'" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                            <div class="login-btn-primary"><span class="btn btn-pills btn-outline-primary">Masuk</span>
+                            <div class="login-btn-primary"><span class="btn btn-pills btn-outline-primary">Login</span>
                             </div>
-                            <div class="login-btn-light"><span class="btn btn-pills btn-outline btn-light">Masuk</span>
+                            <div class="login-btn-light"><span class="btn btn-pills btn-outline btn-light">Login</span>
                             </div>
                         </a>
                     </li>
                     <li class="list-inline-item mb-0 ps-1">
                         <a onclick="window.location.href='{{ route('register') }}'" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-                            <div class="login-btn-primary"><span class="btn btn-pills btn-outline-primary">Daftar</span>
+                            <div class="login-btn-primary"><span class="btn btn-pills btn-outline-primary">Register</span>
                             </div>
-                            <div class="login-btn-light"><span class="btn btn-pills btn-outline btn-light">Daftar</span>
+                            <div class="login-btn-light"><span class="btn btn-pills btn-outline btn-light">Register</span>
                             </div>
                         </a>
                     </li>

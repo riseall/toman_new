@@ -21,7 +21,8 @@
                             @csrf
                             <!--begin::Title-->
                             <div class="text-center pb-8">
-                                <h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Masuk</h2>
+                                <h2 class="font-weight-bolder text-primary font-size-h2 font-size-h1-lg">Login - Toman
+                                </h2>
                                 <p class="text-muted font-weight-bold">Masukkan username and password anda</p>
                             </div>
                             <!--end::Title-->
@@ -79,16 +80,15 @@
 
                             <div class="text-center pt-2">
                                 <button type="submit" id="kt_login_signin_submit"
-                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-3">Masuk</button>
+                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-3">Login</button>
                                 <a href="{{ route('home') }}" type="button"
-                                    class="btn btn-info font-weight-bolder font-size-h6 px-8 py-4 my-3">Tamu</a>
+                                    class="btn btn-info font-weight-bolder font-size-h6 px-8 py-4 my-3">Go Home</a>
                             </div>
 
                             <div class="text-center mt-4">
                                 <span class="text-muted font-weight-bold">Belum mempunyai akun? <a
                                         href="{{ route('register') }}" class="text-primary font-weight-bolder"
-                                        id="kt_login_signup">Daftar
-                                        Akun</a></span>
+                                        id="kt_login_signup">Register</a></span>
                             </div>
                             <!--end::Action-->
                         </form>
@@ -103,7 +103,7 @@
                             @csrf
                             <!--begin::Title-->
                             <div class="text-center pb-8">
-                                <h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Lupa Password?</h2>
+                                <h2 class="font-weight-bolder text-primary font-size-h2 font-size-h1-lg">Lupa Password?</h2>
                                 <span class="text-muted font-weight-bold font-size-sm">Silakan masukkan alamat email
                                     Anda.</span>
                             </div>
@@ -130,9 +130,9 @@
                             </div>
                             <div class="form-group d-flex flex-wrap flex-center pb-lg-0 pb-3">
                                 <button type="submit" id="kt_login_forgot_submit"
-                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-3">Kirim</button>
+                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mx-3">Send</button>
                                 <button type="button" id="kt_login_forgot_cancel"
-                                    class="btn btn-light-danger font-weight-bolder font-size-h6 px-8 py-4 my-3">Batal</button>
+                                    class="btn btn-light-danger font-weight-bolder font-size-h6 px-8 py-4 my-3">Cancel</button>
                             </div>
                             <!--end::Form group-->
                         </form>

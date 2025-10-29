@@ -16,7 +16,7 @@
                     <!--begin::Signup-->
                     <div class="login-form login-signin pt-11">
                         <div class="text-center pb-8">
-                            <h2 class="font-weight-bolder text-dark font-size-h2 font-size-h1-lg">Daftar Akun</h2>
+                            <h2 class="font-weight-bolder text-primary font-size-h2 font-size-h1-lg">Register - Toman</h2>
                             <p class="text-muted font-weight-bold">Silahkan lengkapi identitas anda untuk membuat akun</p>
                         </div>
                         <!--begin::Form-->
@@ -135,10 +135,10 @@
                                 <div class="my-3 mr-2">
                                     <span class="text-muted font-weight-bold mr-2">Sudah punya akun?</span>
                                     <a href="{{ route('login') }}" id="kt_login_signup"
-                                        class="text-primary font-weight-bolder">Masuk</a>
+                                        class="text-primary font-weight-bolder">Login</a>
                                 </div>
                                 <button type="submit"
-                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 ml-3">Daftar</button>
+                                    class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 ml-3">Register</button>
                             </div>
                             <!--end::Form group-->
                         </form>

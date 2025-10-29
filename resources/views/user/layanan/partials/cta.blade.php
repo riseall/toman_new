@@ -33,9 +33,9 @@
                                             <p class="text-center">Silahkan pilih salah satu dari opsi
                                                 berikut untuk mengakses fitur Ajukan Permintaan</p>
                                             <div class="text-center mt-3">
-                                                <a href="{{ route('register') }}" class="btn btn-primary mx-2">Daftar</a>
-                                                <a href="{{ route('login') }}"
-                                                    class="btn btn-outline-primary mx-2">Masuk</a>
+                                                <a href="{{ route('login') }}" class="btn btn-primary mx-2">Login</a>
+                                                <a href="{{ route('register') }}"
+                                                    class="btn btn-outline-primary mx-2">Register</a>
                                             </div>
                                         </div>
                                     </div>
