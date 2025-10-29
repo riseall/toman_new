@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="{{ asset('css/joinchat.css') }}">
 
 <div class="joinchat joinchat--right joinchat--show joinchat--noanim"
-    data-settings="{&quot;telephone&quot;:&quot;6281328816036&quot;,&quot;mobile_only&quot;:false,&quot;button_delay&quot;:0,&quot;whatsapp_web&quot;:true,&quot;qr&quot;:false,&quot;message_views&quot;:2,&quot;message_delay&quot;:10,&quot;message_badge&quot;:false,&quot;message_send&quot;:&quot;Halo, Admin Toll Manufaktur PT Phapros Tbk.!\nNama Saya ...\nNama Perusahaan ...\n\nSaya ingin berdiskusi terkait dengan layanan Toll Manufacturing PT Phapros Tbk. mohon hubungi Saya segera..&quot;,&quot;message_hash&quot;:&quot;95bd6e9d&quot;}"
+    data-settings="{&quot;telephone&quot;:&quot;6285640536364&quot;,&quot;mobile_only&quot;:false,&quot;button_delay&quot;:0,&quot;whatsapp_web&quot;:true,&quot;qr&quot;:false,&quot;message_views&quot;:2,&quot;message_delay&quot;:10,&quot;message_badge&quot;:false,&quot;message_send&quot;:&quot;Halo, Admin Toll Manufaktur PT Phapros Tbk.!\nNama Saya ...\nNama Perusahaan ...\n\nSaya ingin berdiskusi terkait dengan layanan Toll Manufacturing PT Phapros Tbk. mohon hubungi Saya segera..&quot;,&quot;message_hash&quot;:&quot;95bd6e9d&quot;}"
     style="--peak: url(#joinchat__peak_l);">
     <div class="joinchat__button" id="scroll-to-top">
         <div class="joinchat__button__open"></div>
